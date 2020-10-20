@@ -1,0 +1,34 @@
+@import '../../assets/style/~variable.scss';
+.navbar {
+    padding: 1em 1em 1em 1em;
+.container {
+    a {
+        color: $primaryColor;
+        font-size: 18px;
+    }
+    .navbar-brand {
+        color: $primaryBlue;
+        letter-spacing: 2px; 
+        font-size: 2em;
+        font-weight: 500;
+    }
+    .navbar-nav {
+        padding: 1em 0em 0em 2em;
+    }
+    .nav-button {
+        background-color: $primaryGreen;
+        margin: 0.2em 1em 1em 1em ;
+        border-radius: 27px;
+        button {
+            color: $primaryWhite;
+            font-size: 1em;
+            font-weight: 500;
+            letter-spacing: 2px;
+            i {
+                margin-left: 5px;
+                font-size: 1em;
+            }
+        }
+    }
+}
+}

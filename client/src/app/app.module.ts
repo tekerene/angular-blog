@@ -39,6 +39,9 @@ import { BycategoryComponent } from './bycategory/bycategory.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { MatContenteditableModule } from 'mat-contenteditable';
 import { AdminComponent } from './admin/admin.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { AdminComponent } from './admin/admin.component';
     PostAddComponent,
     PostEditComponent,
     BycategoryComponent,
-    AdminComponent
+    AdminComponent,
+    NavbarComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

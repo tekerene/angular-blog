@@ -1,4 +1,4 @@
-<mat-toolbar>
+<!-- <mat-toolbar>
   <button mat-button [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">
     <div *ngIf="loginStatus === false">
@@ -12,5 +12,12 @@
       <button mat-menu-item (click)="logout()">Logout</button>
     </div>
   </mat-menu>
-</mat-toolbar>
-<router-outlet></router-outlet>
+</mat-toolbar> -->
+<div class="app-banner">
+<div class="container">
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+    
+  </div>
+  <app-footer></app-footer>
+</div>
