@@ -1,17 +1,33 @@
 @import '../../assets/style/~variable.scss';
 
-.clip-path {
-   
-    margin-top: 22em;
-    background: $primaryDark;
-    min-height: 300px;
-    width: 100%;
-    clip-path: polygon(41% 22%, 55% 24%, 69% 21%, 82% 15%, 100% 0, 100% 100%, 0 100%, 0 0, 18% 13%, 31% 19%);
+.svg-border-rounded{
+    color: $primaryDark !important;
 }
 
+.page-header-dark {
+    color: #fff;
+    background-color: #1f2d41;
+}
+.page-header {
+    position: relative;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+.bg-img-cover {
+    background-position: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    //background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('../../assets/style/classic-2028013_960_720.png');
+    background: $secondaryWhite;
+} 
+ .clip-path {
+    margin-top: 0em;
+    //  min-height: 300px;
+    width: 100%;
+//     clip-path: polygon(41% 22%, 55% 24%, 69% 21%, 82% 15%, 100% 0, 100% 100%, 0 100%, 0 0, 18% 13%, 31% 19%);
+ }
 footer {
-    // margin-top: -20em;
-   
+    background: $primaryDark;
     width: 100%;
     .footer-banner {
         display: flex;
@@ -19,8 +35,7 @@ footer {
         justify-content: center;
         align-items: center;
         margin: 8em 0em 0em 0em;
-        color: $secondaryWhite;
-
+        color: $secondaryWhite; 
         h3 {
             font-size: 1.3em;
             padding: 0.8em 0em;
@@ -45,7 +60,6 @@ footer {
          p{
              color: $secondaryWhite;
              font-size: 15px;
-            
          }
          .footer-social {
             i {
