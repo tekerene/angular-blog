@@ -1,20 +1,94 @@
-<div class="example-container mat-elevation-z8">
-  <div class="example-loading-shade"
-       *ngIf="isLoadingResults">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+<section class="detail-banner">
+  <div class="container">
+    <div class="row"> 
+      <div class="col-md-8 col-sm-12">
+        
+      <div class="main-banner">
+     
+        <div class="example-container mat-elevation-z8">
+          <div class="example-loading-shade"
+               *ngIf="isLoadingResults">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+          </div>
+          <mat-card class="example-card" [routerLink]="['/details/', post.id]">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{post.postTitle}}</mat-card-title>
+              <p> Category: {{post.category}} </p>
+              <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
+            <div class="post-info">
+              <h5>Posted on: {{post.updated | date: 'dd MMM yyyy'}},</h5>
+              <p>Author: {{post.postAuthor}}</p>
+            </div>
+            <mat-card-content [innerHTML]="post.postContent"></mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+      <div class="side-banner col-md-4 col-sm-12">
+          <!-- Search Widget -->
+        <div class="card mb-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Categories</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#">HTML</a>
+                  </li>
+                  <li>
+                    <a href="#">Freebies</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="#">CSS</a>
+                  </li>
+                  <li>
+                    <a href="#">Tutorials</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Side Widget</h5>
+          <div class="card-body">
+            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <mat-card class="example-card" [routerLink]="['/details/', post.id]">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{post.postTitle}}</mat-card-title>
-      <p>By: {{post.postAuthor}}, {{post.updated | date: 'dd MMM yyyy'}}</p>
-      <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
-    <mat-card-content [innerHTML]="post.postContent"></mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+</section>

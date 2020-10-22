@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../post/post';
 import { HomeService } from '../home.service';
+import { Category } from '../category/category';
 
 @Component({
   selector: 'app-details',
@@ -21,13 +22,23 @@ export class DetailsComponent implements OnInit {
     postImgUrl: '',
     created: null,
     updated: null
-  };
+  }
+  
+  checkCat: Category = {
+    id: null,
+    catName: '',
+    catDesc: '',
+    catImgUrl:'',
+    catContent:'',
+    updated: null
+  }
   isLoadingResults = true;
 
   constructor(private route: ActivatedRoute, private api: HomeService, private router: Router) { }
 
   ngOnInit() {
     this.getPostDetails(this.route.snapshot.params.id);
+    this.getPostCategory(this.route.snapshot.params.id);
   }
 
   getPostDetails(id: any) {
@@ -35,6 +46,14 @@ export class DetailsComponent implements OnInit {
       .subscribe((data: any) => {
         this.post = data;
         console.log(this.post);
+        this.isLoadingResults = false;
+      });
+  }
+  getPostCategory(id: any) {
+    this.api.getPostsByCategory(id)
+      .subscribe((data: any) => {
+        this.checkCat = data;
+        console.log(this.checkCat);
         this.isLoadingResults = false;
       });
   }

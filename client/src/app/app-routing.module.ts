@@ -16,6 +16,7 @@ import { BycategoryComponent } from './bycategory/bycategory.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
+import { BlogComponent } from './blog/blog.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,11 @@ const routes: Routes = [
             path: 'details/:id',
             component: DetailsComponent,
             data: { title: 'Show Post Details' }
+          },
+          {
+            path: 'blog',
+            component: BlogComponent,
+            data: { title: 'Show All Blogs ' }
           },
           
           {

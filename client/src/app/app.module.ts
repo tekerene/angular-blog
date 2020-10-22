@@ -42,6 +42,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { HeaderComponent } from './header/header.component';
     AdminComponent,
     NavbarComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

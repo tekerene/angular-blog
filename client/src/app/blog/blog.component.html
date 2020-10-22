@@ -1,0 +1,99 @@
+<header data-v-22791a1b="" data-v-0cc2979f="" class="page-header bg-img-cover overlay overlay-60 page-header-dark"
+  data-v-7930edba="">
+  <div class="container">
+    <div data-v-0cc2979f="" data-v-22791a1b="" class="page-header-content">
+      <div data-v-0cc2979f="" data-v-22791a1b="" class="container text-center">
+        <div data-v-0cc2979f="" data-v-22791a1b="" class="row justify-content-center">
+          <div data-v-0cc2979f="" data-v-22791a1b="" class="col-lg-8">
+            <h1 data-v-0cc2979f="" data-v-22791a1b="" class="page-header-title mb-3">Publications</h1>
+            <p data-v-0cc2979f="" data-v-22791a1b="" class="page-header-text mb-0">Browse articles, keep up
+              to date, and
+              learn more on our blog!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span data-v-c5f3fcf8="" data-v-22791a1b="">
+    <div data-v-c5f3fcf8="" class="svg-border-rounded text-light">
+      <svg data-v-c5f3fcf8="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.54 17.34" preserveAspectRatio="none"
+        fill="currentColor">
+        <path data-v-c5f3fcf8="" d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0">
+        </path>
+      </svg>
+    </div>
+  </span>
+</header>
+<section class="blog-header py-10 bg-light">
+  <div class="container">
+    <a data-v-0cc2979f="" data-v-0e51b078="" href="javascript:void(0);"
+      class="card post-preview post-preview-featured lift mb-5">
+      <div data-v-0cc2979f="" data-v-0e51b078="" class="row no-gutters">
+        <div data-v-0cc2979f="" data-v-0e51b078="" class="col-lg-5">
+          <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-featured-img">
+            <!-- <img src="../../assets/style/computer.jpeg" alt=""> -->
+          </div>
+        </div>
+        <div data-v-0cc2979f="" data-v-0e51b078="" class="col-lg-7">
+          <div data-v-0cc2979f="" data-v-0e51b078="" class="card-body">
+            <div data-v-0cc2979f="" data-v-0e51b078="" class="py-5">
+              <h5 data-v-0cc2979f="" data-v-0e51b078="" class="card-title">Boots on the Ground, Inclusive
+                Thought Provoking Ideas</h5>
+              <p data-v-0cc2979f="" data-v-0e51b078="" class="card-text">Empower communities and energize
+                engaging ideas; scale and impact do-gooders while disruptring industries. Venture
+                philanthropy benefits corporations and people by moving the needle.</p>
+            </div>
+            <hr data-v-0cc2979f="" data-v-0e51b078="">
+            <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta">
+              <img data-v-0cc2979f="" data-v-0e51b078="" src="https://source.unsplash.com/QAB-WJcbgJk/100x100"
+                class="post-preview-meta-img">
+              <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details">
+                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">
+                  Valerie Luna</div>
+                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-date">Feb 5
+                  · 6 min read</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="blog-banner">
+  <h2 class="recent-blog text-center m-5">Recent Blogs</h2>
+  <div class="container">
+    <div class="row">
+      <div class="example-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+      </div>
+      <div *ngFor="let post of posts" data-v-0cc2979f="" data-v-0e51b078="" class="col-md-6 col-xl-4 mb-5">
+        <a data-v-0cc2979f="" data-v-0e51b078="" class="card post-preview lift h-100">
+          <img data-v-0cc2979f="" data-v-0e51b078="" src="{{post.postImgUrl}}" alt="..." class="card-img-top">
+          <div data-v-0cc2979f="" data-v-0e51b078="" class="card-body">
+            <a [routerLink]="['/details/', post._id]">
+              <h5 data-v-0cc2979f="" data-v-0e51b078="" class="card-title">{{post.postTitle}}</h5>
+            </a>
+            <p data-v-0cc2979f="" data-v-0e51b078="" class="card-text">{{post.postDesc}}</p>
+          </div>
+          <div data-v-0cc2979f="" data-v-0e51b078="" class="card-footer">
+            <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta">
+              <img data-v-0cc2979f="" data-v-0e51b078="" src="https://source.unsplash.com/e12wQLAjQi0/100x100"
+                class="post-preview-meta-img">
+              <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details">
+                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">Henry Iman</div>
+                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-date">Feb 3 · 7 min read
+                </div>
+              </div>
+              <div data-v-0cc2979f="" data-v-0e51b078="" class="post-update">
+                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">{{post.updated | date: 'dd MMM yyyy'}}</div>
+
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
