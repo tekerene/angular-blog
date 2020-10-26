@@ -33,7 +33,8 @@ import {
   MatToolbarModule,
   MatSelectModule,
   MatOptionModule,
-  MatGridListModule } from '@angular/material';
+  MatGridListModule, 
+  MatPaginator} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BycategoryComponent } from './bycategory/bycategory.component';
 import { CKEditorModule } from 'ckeditor4-angular';
@@ -43,6 +44,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BlogComponent } from './blog/blog.component';
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DisqusModule } from 'ngx-disqus';
+import { DISQUS_SHORTNAME } from 'ngx-disqus';
 
 @NgModule({
   declarations: [
@@ -64,7 +69,8 @@ import { BlogComponent } from './blog/blog.component';
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
-    BlogComponent
+    BlogComponent,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +94,10 @@ import { BlogComponent } from './blog/blog.component';
     MatSelectModule,
     MatOptionModule,
     CKEditorModule,
-    MatContenteditableModule
+    MatContenteditableModule,
+    NgxPaginationModule,
+    DisqusModule.forRoot('sarkblog')
+    
   ],
   providers: [
     {
@@ -96,6 +105,7 @@ import { BlogComponent } from './blog/blog.component';
       useClass: TokenInterceptor,
       multi: true
     }
+    
   ],
   bootstrap: [AppComponent]
 })

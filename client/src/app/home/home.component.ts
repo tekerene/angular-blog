@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post/post';
 import { HomeService } from '../home.service';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +12,13 @@ export class HomeComponent implements OnInit {
 
   posts: Post[] = [];
   isLoadingResults = true;
+  totalRecords: String;
+  page:Number = 1;
+  pageOfItems: Array<any>;
 
-  constructor(private api: HomeService) { }
+  constructor(private api: HomeService, private postService: PostService) {
+    this.posts = new Array<any>();
+   }
 
   ngOnInit() {
     this.api.getPosts()

@@ -94,7 +94,10 @@
       <div class="example-loading-shade" *ngIf="isLoadingResults">
         <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
       </div>
-      <div *ngFor="let post of posts" data-v-0cc2979f="" data-v-0e51b078="" class="col-md-6 col-xl-4 mb-5">
+      <div *ngFor="let post of posts | paginate: {id : 'listing_pagination',
+      itemsPerPage:3,
+      currentPage: page,
+      totalItems: totalRecords}" data-v-0cc2979f="" data-v-0e51b078="" class="col-md-6 col-xl-4 mb-5">
         <a data-v-0cc2979f="" data-v-0e51b078="" class="card post-preview lift h-100">
           <img data-v-0cc2979f="" data-v-0e51b078="" src="{{post.postImgUrl}}" alt="..." class="card-img-top">
           <div data-v-0cc2979f="" data-v-0e51b078="" class="card-body">
@@ -108,12 +111,12 @@
               <img data-v-0cc2979f="" data-v-0e51b078="" src="https://source.unsplash.com/e12wQLAjQi0/100x100"
                 class="post-preview-meta-img">
               <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details">
-                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">Henry Iman</div>
-                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-date">Feb 3 · 7 min read
+                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">{{post.postAuthor}}</div>
+                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-date">{{post.updated | date: 'MMM'}} · 7 min read
                 </div>
               </div>
               <div data-v-0cc2979f="" data-v-0e51b078="" class="post-update">
-                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">{{post.updated}}</div>
+                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">{{post.updated | date: 'dd MMM yyyy'}}</div>
 
               </div>
             </div>
@@ -123,35 +126,6 @@
     </div>
   </div>
 </section>
-<!-- <section class="blog-banner">
-  <div class="example-loading-shade" *ngIf="isLoadingResults">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-  </div>
-<div *ngFor="let post of posts" data-v-0cc2979f="" data-v-0e51b078="" class="col-md-6 col-xl-4 mb-5">
-  
-  <a data-v-0cc2979f="" data-v-0e51b078="" [routerLink]="['/details/', post._id]" class="card post-preview lift h-100">
-    <img data-v-0cc2979f="" data-v-0e51b078="" src="{{post.postImgUrl}}" alt="..." class="card-img-top">
-    <div data-v-0cc2979f="" data-v-0e51b078="" class="card-body">
-      <h5 data-v-0cc2979f="" data-v-0e51b078="" class="card-title">{{post.postTitle}}</h5>
-      <p data-v-0cc2979f="" data-v-0e51b078="" class="card-text">{{post.postDesc}}</p>
-    </div>
-    <div data-v-0cc2979f="" data-v-0e51b078="" class="card-footer">
-      <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta">
-        <img data-v-0cc2979f="" data-v-0e51b078="" src="https://source.unsplash.com/e12wQLAjQi0/100x100" class="post-preview-meta-img">
-        <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details">
-          <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">Henry Iman</div>
-          <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-date">Feb 3 · 7 min read</div>
-        </div>
-        <div data-v-0cc2979f="" data-v-0e51b078="" class="post-update">
-          <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">{{post.updated}}</div>
-          
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-</section> -->
-
 
 <!-- <div class="example-container mat-elevation-z8">
   <div class="example-loading-shade" *ngIf="isLoadingResults">

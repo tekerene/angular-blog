@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         if (res.token) {
           localStorage.setItem('token', res.token);
-          this.router.navigate(['post']);
+          this.router.navigate(['category']);
         }
       }, (err) => {
         console.log(err);

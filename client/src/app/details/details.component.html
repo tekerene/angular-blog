@@ -1,6 +1,7 @@
 <section class="detail-banner">
   <div class="container">
     <div class="row"> 
+
       <div class="col-md-8 col-sm-12">
         
       <div class="main-banner">
@@ -12,16 +13,22 @@
           </div>
           <mat-card class="example-card" [routerLink]="['/details/', post.id]">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{post.postTitle}}</mat-card-title>
-              <p> Category: {{post.category}} </p>
+              <!-- <div mat-card-avatar class="example-header-image"></div> -->
+              <mat-card-title class="post-title">{{post.postTitle}}</mat-card-title>
+              
+                  <!-- <p> Category: {{cat.catName}} </p> -->
+              
+              
               <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
+            <img class="post-image" mat-card-image src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
             <div class="post-info">
               <h5>Posted on: {{post.updated | date: 'dd MMM yyyy'}},</h5>
               <p>Author: {{post.postAuthor}}</p>
             </div>
+            <!-- <div class="content">
+            <div class="text-contain text-center" [innerHTML]="post.postContent"></div>
+            </div> -->
             <mat-card-content [innerHTML]="post.postContent"></mat-card-content>
             <mat-card-actions>
               <button mat-button>LIKE</button>
@@ -31,6 +38,10 @@
         </div>
       </div>
     </div>
+
+
+        
+
 
       <div class="side-banner col-md-4 col-sm-12">
           <!-- Search Widget -->
@@ -51,20 +62,16 @@
           <h5 class="card-header">Categories</h5>
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-6" *ngFor="let cat of catList ">
+                
                 <ul class="list-unstyled mb-0">
+                  
                   <li>
-                    <a href="#">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#">Freebies</a>
+                    <a href="#">{{cat.catName}}</a>
                   </li>
                 </ul>
               </div>
-              <div class="col-lg-6">
+              <!-- <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
                   <li>
                     <a href="#">JavaScript</a>
@@ -76,7 +83,7 @@
                     <a href="#">Tutorials</a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -91,4 +98,29 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- Comments Form -->
+<section class="comment">
+  <div class="container">
+    <div class="row">
+      <div class="card col-md-8 my-4">
+        <h5 class="card-header">Leave a Comment:</h5>
+        <div class="card-body">
+          <!-- <form>
+            <div class="form-group">
+              <textarea class="form-control" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form> -->
+          <disqus [identifier]="pageId" [url]="url" [category]="catId"
+        [language]="language" (newComment)="onNewComment($event)"
+        (ready)="onReady($event)" (paginate)="onPaginate($event)"></disqus>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
+                            
 </section>

@@ -1,5 +1,5 @@
 export class Category {
-  id: number;
+  id: string;
   catName: string;
   catDesc: string;
   catImgUrl: string;

@@ -2,6 +2,12 @@
 .navbar {
     padding: 1em 1em 1em 1em;
 .container {
+    .sarkblog-logo {
+        height: 69px;
+        width: 200px;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
     a {
         color: $primaryColor;
         font-size: 18px;

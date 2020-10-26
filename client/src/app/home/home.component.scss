@@ -66,27 +66,43 @@ header {
     .card-footer {
         border: none;
         .post-preview-meta {
-            display: flex;
-            img {
-                border-radius: 100%;
-                object-fit: cover;
-                height: 72px;
-            }
+          display: flex;
+          color: $primaryGray;
+          img {
+            border-radius: 100%;
+            object-fit: cover;
+            height: 72px;
+            width: auto;
+          }
         }
         .post-preview-meta-details {
-            padding: 0.5em;
+          padding: 0.5em;
         }
-    }
+        .post-update {
+          display: flex;
+          .post-preview-meta-details-name {
+            margin: 16px 1px 13px 2px;
+          }
+        }
+      }
 }
 .lift {
-    transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-}
-.lift:hover {
-    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: transform 0.15s ease-in-out;
-}
+    -webkit-box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15);
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15);
+    -webkit-transition: -webkit-transform 0.15s ease-in-out,
+      -webkit-box-shadow 0.15s ease-in-out;
+    transition: -webkit-transform 0.15s ease-in-out,
+      -webkit-box-shadow 0.15s ease-in-out;
+    /* transition: transform .15s ease-in-out,box-shadow .15s ease-in-out; */
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+      -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  }
+  .lift:hover {
+    -webkit-transform: translateY(-0.33333rem);
+    transform: translateY(-0.33333rem);
+    -webkit-box-shadow: 0 0.5rem 2rem 0 rgba(31, 45, 65, 0.25);
+    box-shadow: 0 0.5rem 2rem 0 rgba(31, 45, 65, 0.25);
+  }
 .blog-banner {
     .recent-blog {
         font-size: 3em;
