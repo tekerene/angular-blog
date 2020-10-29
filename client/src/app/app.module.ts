@@ -48,6 +48,12 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DisqusModule } from 'ngx-disqus';
 import { DISQUS_SHORTNAME } from 'ngx-disqus';
+import { CommonModule } from '@angular/common';
+// import { NgSelectModule } from '@ng-select/ng-select';
+// import { NgSelectConfig } from '@ng-select/ng-select';
+//  import { ɵs } from '@ng-select/ng-select';
+// import { ConsoleService } from '@ng-select/ng-select/lib/console.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -96,8 +102,10 @@ import { DISQUS_SHORTNAME } from 'ngx-disqus';
     CKEditorModule,
     MatContenteditableModule,
     NgxPaginationModule,
-    DisqusModule.forRoot('sarkblog')
-    
+    DisqusModule.forRoot('sarkblog'),
+    CommonModule,
+    Ng2SearchPipeModule,
+  
   ],
   providers: [
     {

@@ -15,6 +15,18 @@ var UserSchema = new Schema({
   password: {
         type: String,
         required: true
+    },
+    userProfileReference: {
+        type: String,
+        
+    },
+    userProfileUrl: {
+        type: String,
+        
+    },
+    bio: {
+        type: String,
+        required: true
     }
 });
 

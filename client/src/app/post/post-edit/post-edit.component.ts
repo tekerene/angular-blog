@@ -30,6 +30,7 @@ export class PostEditComponent implements OnInit {
   postContent = '';
   postReference = '';
   postImgUrl = '';
+  readTime = '';
   updated: Date = null;
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
@@ -52,7 +53,8 @@ export class PostEditComponent implements OnInit {
       postDesc : [null, Validators.required],
       postContent : [null, Validators.required],
       postReference : [null, Validators.required],
-      postImgUrl : [null, Validators.required]
+      postImgUrl : [null, Validators.required],
+      readTime: [null, Validators.required]
     });
   }
 
@@ -66,7 +68,8 @@ export class PostEditComponent implements OnInit {
         postDesc: data.postDesc,
         postContent: data.postContent,
         postReference: data.postReference,
-        postImgUrl: data.postImgUrl
+        postImgUrl: data.postImgUrl,
+        readTime: data.readTime
       });
     });
   }

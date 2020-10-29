@@ -13,11 +13,11 @@ export class HomeComponent implements OnInit {
   posts: Post[] = [];
   isLoadingResults = true;
   totalRecords: String;
-  page:Number = 1;
-  pageOfItems: Array<any>;
+  page:any = 1;
+  pageOfItems: [];
 
   constructor(private api: HomeService, private postService: PostService) {
-    this.posts = new Array<any>();
+    //this.posts = new Array<any>();
    }
 
   ngOnInit() {

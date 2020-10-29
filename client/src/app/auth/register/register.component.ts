@@ -23,16 +23,25 @@ export class RegisterComponent implements OnInit {
   fullName = '';
   username = '';
   password = '';
+  userProfileReference = '';
+  userProfileUrl = '';
+   bio = '';
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       fullName : [null, Validators.required],
       username : [null, Validators.required],
-      password : [null, Validators.required]
+      password : [null, Validators.required],
+      userProfileReference: ['', Validators.required],
+      userProfileUrl: ['', Validators.required],
+      bio : ['', Validators.required]
     });
   }
 

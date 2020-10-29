@@ -4,6 +4,8 @@ import { Post } from '../post/post';
 import { HomeService } from '../home.service';
 import { Category } from '../category/category';
 import { CategoryService } from '../category.service'
+import { AuthService } from '../auth.service';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-details',
@@ -14,6 +16,9 @@ export class DetailsComponent implements OnInit {
 
   pageId = '';
   catList:any[] = [];
+  categories = [];
+  postList = [];
+  users = [];
   post: Post = {
     category: '',
     id: '',
@@ -37,16 +42,22 @@ export class DetailsComponent implements OnInit {
   }
   isLoadingResults = true;
 
-  constructor(private route: ActivatedRoute,private cat: CategoryService, private api: HomeService, private router: Router) { }
+  constructor(
+    private authApi: AuthService, 
+    private route: ActivatedRoute,
+    private cat: CategoryService, 
+    private api: HomeService,
+    private postService: PostService, 
+    private router: Router) { }
 
   ngOnInit() {
     this.getPostDetails(this.route.snapshot.params.id);
     this.getPostCategory(this.route.snapshot.params.id);
-    
+    this.getusers();
+    this.getPost();
     this.cat.getCategories()
       .subscribe((res: any) => {
         this.catList = res;
-
         console.log(this.catList);
         this.isLoadingResults = false;
       }, err => {
@@ -74,6 +85,37 @@ export class DetailsComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
+  getPost() {
+    this.postService.getPosts().subscribe((res : any) => {
+        this.postList = res;
+        console.log(this.postList);
+        this.isLoadingResults = false;
+    }, err => {
+        console.log(err);
+        this.isLoadingResults = false;
+    });
+  }
+  getCategories() {
+    this.cat.getCategories().subscribe((res : any) => {
+        this.categories = res;
+        console.log(this.categories);
+        this.isLoadingResults = false;
+    }, err => {
+        console.log(err);
+        this.isLoadingResults = false;
+    });
+  }
+
+  getusers() {
+    this.authApi.getUsers().subscribe((res : any) => {
+        this.users = res;
+        console.log(this.users);
+        this.isLoadingResults = false;
+    }, err => {
+        console.log(err);
+        this.isLoadingResults = false;
+    });
+}
  
 
 }

@@ -1,126 +1,249 @@
 <section class="detail-banner">
-  <div class="container">
-    <div class="row"> 
+    <div class="container">
+        <div class="row">
 
-      <div class="col-md-8 col-sm-12">
-        
-      <div class="main-banner">
-     
-        <div class="example-container mat-elevation-z8">
-          <div class="example-loading-shade"
-               *ngIf="isLoadingResults">
-            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-          </div>
-          <mat-card class="example-card" [routerLink]="['/details/', post.id]">
-            <mat-card-header>
-              <!-- <div mat-card-avatar class="example-header-image"></div> -->
-              <mat-card-title class="post-title">{{post.postTitle}}</mat-card-title>
-              
-                  <!-- <p> Category: {{cat.catName}} </p> -->
-              
-              
-              <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>
-            </mat-card-header>
-            <img class="post-image" mat-card-image src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
-            <div class="post-info">
-              <h5>Posted on: {{post.updated | date: 'dd MMM yyyy'}},</h5>
-              <p>Author: {{post.postAuthor}}</p>
+            <div class="col-md-9 col-sm-12">
+
+                <div class="main-banner">
+
+                    <div class="example-container mat-elevation-z8">
+                        <div class="example-loading-shade" *ngIf="isLoadingResults">
+                            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+                        </div>
+                        <mat-card class="example-card" [routerLink]="['/details/', post.id]">
+                            <mat-card-header>
+                                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                                <mat-card-title class="post-title">{{post.postTitle}}</mat-card-title>
+                                <ng-container *ngIf="cat">
+                                    <p>
+                                        Category:
+                                        {{cat.catName}}
+                                    </p>
+                                </ng-container>
+
+
+                                <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <img class="post-image" mat-card-image src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
+                            <div class="post-info">
+                                <h5>Posted on:
+                                    {{post.updated | date: 'dd MMM yyyy'}},</h5>
+                                <ng-container>
+                                    <div class="post-info-sub d-flex">
+                                        <p class="mr-4">
+                                            <span>Author:
+                                            </span>
+                                            <strong>{{post.postAuthor}}</strong>
+                                        </p>
+                                        <p>
+                                            <i class="fa fa-eye mr-2"></i>23</p>
+                                        <p>{{post.readTime}}
+                                            min Read</p>
+                                        <ng-container>
+                                            <p>{{catList.catName}}</p>
+                                        </ng-container>
+
+
+                                    </div>
+                                </ng-container>
+
+
+                            </div>
+                            <!-- <div class="content">
+                                        <div class="text-contain text-center" [innerHTML]="post.postContent"></div>
+                                        </div> -->
+                            <mat-card-content [innerHTML]="post.postContent"></mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button>LIKE</button>
+                                <button mat-button>SHARE</button>
+                                <button mat-button>Comment</button>
+                                <button mat-button>Follow</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
             </div>
-            <!-- <div class="content">
-            <div class="text-contain text-center" [innerHTML]="post.postContent"></div>
-            </div> -->
-            <mat-card-content [innerHTML]="post.postContent"></mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
+
+
+            <div class="side-banner col-md-3 col-sm-12">
+                <div class="post-share-area mb-40 item-shadow-1 ">
+                    <p>share this post!</p>
+                    <ul class="social-default item-inline d-flex">
+                        <li>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.sarkblog.com/blog" class="social-button facebook" id="" title="">
+                                <span class="fab fa-facebook"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/intent/tweet?text=Default+share+text&amp;url=https://www.sarkblog.com/blog" class="social-button twitter" id="" title="">
+                                <span class="fab fa-twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.sarkblog.com/blog" class="social-button linkedin" id="" title="">
+                                <span class="fab fa-linkedin"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://wa.me/?text=https://www.sarkblog.com/blog" class="social-button whatsapp" id="" title="">
+                                <span class="fab fa-whatsapp"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Search Widget -->
+                <div class="card mb-4">
+                    <h5 class="card-header">Search</h5>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-append">
+                                <button class="btn btn-secondary" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="card my-4">
+                    <div class="trending-posts">
+                        <div class="topic-border color-cod-gray mb-30">
+                            <div class="topic-box-lg color-cod-gray">Categories</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6" *ngFor="let cat of catList">
+
+                                    <ul class="list-unstyled mb-0">
+                                        <li>
+                                            <a href="#">{{cat.catName}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Widget -->
+                <div class="card my-4">
+                    <ng-container *ngFor="let user of users.reverse(), let i = index">
+                        <div *ngIf="i<1" class="m-0 p-0 trending-posts">
+                            <div class="topic-border color-cod-gray mb-30">
+                                <div class="topic-box-lg color-cod-gray">About The Author</div>
+                            </div>
+                            <h6 class="text-center">{{user.fullName}}</h6>
+                            <div class="card-body">
+                                <img class="user-image img-fluid" src="{{user.userProfileUrl}}" alt="{{user.username}}">
+
+                            </div>
+                            <!-- <p>{{user.bio}}</p> -->
+                        </div>
+                    </ng-container>
+                </div>
+
+                <div class="card my-4">
+                    <div class="trending-posts">
+                        <div class="topic-border color-cod-gray mb-30">
+                            <div class="topic-box-lg color-cod-gray">News Letter</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="sidebar-box">
+                                <div class="newsletter-area bg-primary">
+                                    <h2 class="title-medium-light size-xl pl-30 pr-30">Save Your Money Today!
+                                    </h2>
+                                    <img style="width:100px" alt="newsletter" class="lazy img-fluid m-auto mb-15 loaded" loading="lazy" src="https://bproo.com/public/img/banner/newsletter.png" data-ll-status="loaded">
+                                    <p id="leftSideSubscribeBox">By receiving free stock articles and smart tutorials to advance your
+                                                            career.</p>
+                                    <form action="" id="leftSide-form" class="subscription-needs-validation1" novalidate="">
+                                        <input type="hidden" name="_token" value="vgo0OwcAG1jyVzJuCttQHPDeODM4oG2GMAKNr8yM">
+                                        <div class="input-group stylish-input-group mb-3">
+                                            <input type="text" name="name" placeholder="Enter your first-name" class="form-control" required="">
+                                            <div class="invalid-feedback" style="font-size: 1.5rem;">
+                                                Please provide your name.
+                                            </div>
+                                        </div>
+                                        <div class="input-group stylish-input-group">
+                                            <input type="text" name="email" placeholder="Enter your mail" class="form-control" required="">
+                                            <div class="invalid-feedback" style="font-size: 1.5rem;">
+                                                Please provide a valid email.
+                                            </div>
+                                            <span class="input-group-addon">
+                                                <button type="button" name="subscribe1">
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="my-4">
+                    <div class="trending-posts">
+                        <div class="topic-border color-cod-gray mb-30">
+                            <div class="topic-box-lg color-cod-gray">Trending Posts</div>
+                        </div>
+                        <div class="card-body">
+
+                            <tr *ngIf="postList.length <=0" class="no-data text-center">There is no Post added yet!></tr>
+
+                            <div *ngIf="postList.length > 2">
+                                <ng-container *ngFor="let post of postList.reverse() , let i = index;">
+                                    <div *ngIf="i<3">
+                                        <a href="details/{{post._id}}">
+                                            <div class="d-flex trending-posts">
+                                                <div class="image-post">
+                                                    <img src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
+                                                    <p>Posted on:
+                                                        {{post.updated | date: 'dd MMM yyyy'}}</p>
+                                                </div>
+                                                <div class="text-desc">
+                                                    <p>
+                                                        <i class="fa fa-calendar mr-2"></i>
+                                                        {{post.readTime}}
+                                                        Min Read</p>
+                                                    <p>{{post.postTitle}}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <hr>
+                                    </div>
+                                </ng-container>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
     </div>
-
-
-        
-
-
-      <div class="side-banner col-md-4 col-sm-12">
-          <!-- Search Widget -->
-        <div class="card mb-4">
-          <h5 class="card-header">Search</h5>
-          <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Categories Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6" *ngFor="let cat of catList ">
-                
-                <ul class="list-unstyled mb-0">
-                  
-                  <li>
-                    <a href="#">{{cat.catName}}</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#">CSS</a>
-                  </li>
-                  <li>
-                    <a href="#">Tutorials</a>
-                  </li>
-                </ul>
-              </div> -->
-            </div>
-          </div>
-        </div>
-
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
-          <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- Comments Form -->
 <section class="comment">
-  <div class="container">
-    <div class="row">
-      <div class="card col-md-8 my-4">
-        <h5 class="card-header">Leave a Comment:</h5>
-        <div class="card-body">
-          <!-- <form>
-            <div class="form-group">
-              <textarea class="form-control" class="form-control" rows="3"></textarea>
+    <div class="container">
+        <div class="row">
+            <div class="card col-md-8 my-4">
+                <h5 class="card-header">Leave a Comment:</h5>
+                <div
+                    class="card-body">
+                    <!-- <form>
+                                <div class="form-group">
+                                  <textarea class="form-control" class="form-control" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </form> -->
+                    <disqus [identifier]="pageId" [url]="url" [category]="catId" [language]="language" (newComment)="onNewComment($event)" (paginate)="onPaginate($event)"></disqus>
+
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form> -->
-          <disqus [identifier]="pageId" [url]="url" [category]="catId"
-        [language]="language" (newComment)="onNewComment($event)"
-        (ready)="onReady($event)" (paginate)="onPaginate($event)"></disqus>
-        
         </div>
-      </div>
     </div>
-  </div>
-<!-- <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
-                            
+    <!-- <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
+
 </section>

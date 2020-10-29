@@ -29,6 +29,7 @@ export class PostAddComponent implements OnInit {
   postContent = '';
   postReference = '';
   postImgUrl = '';
+  readTime = '';
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
   categories: Category[] = [];
@@ -48,7 +49,8 @@ export class PostAddComponent implements OnInit {
       postDesc : [null, Validators.required],
       postContent : [null, Validators.required],
       postReference : [null, Validators.required],
-      postImgUrl : [null, Validators.required]
+      postImgUrl : [null, Validators.required],
+      readTime: [null, Validators.required]
     });
   }
 

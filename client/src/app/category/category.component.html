@@ -3,6 +3,19 @@
         *ngIf="isLoadingResults">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
+
+  <div class="container">
+    <div class="d-flex">
+      
+      <h1 class="mr-3">
+        <a routerLink="/post">Posts</a>
+      </h1>
+      <h1 class="ml-3">
+        <a routerLink="/category">Category</a>
+      </h1>
+    </div>
+  </div>
+
   <div class="button-row">
     <a mat-flat-button color="primary" [routerLink]="['add']"><mat-icon>add</mat-icon></a>
   </div>
