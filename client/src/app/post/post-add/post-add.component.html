@@ -40,7 +40,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-          <ckeditor matCkeditor placehoder="Post Content" formControlName="postContent"></ckeditor>
+          <ckeditor matCkeditor placeholder="Post Content" formControlName="postContent"></ckeditor>
           <mat-error>
             <span *ngIf="!postForm.get('postContent').valid && postForm.get('postContent').touched">Please enter Post Content</span>
           </mat-error>

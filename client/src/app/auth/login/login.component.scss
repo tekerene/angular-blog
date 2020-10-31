@@ -1,3 +1,30 @@
+@import '../../../assets/style/~variable.scss';
+
 .example-container {
+    background-color: $lightBlue;
     margin-top: 10em;
+    height: 60vh;
+    h2 {
+        color: $primaryWhite;
+        font-size: 2.5em;
+        font-weight: 600;
+    }
+    .example-card{
+        background-color: $primaryWhite;
+        border-radius: 22px;
+        padding: 2em;
+        // background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0,0,0,0.2)), url('../../../assets/style/photo-1568992688065-536aad8a12f6.jpeg');
+    .button-row {
+        button{
+        width: 100%;
+        padding: 5px;
+        border-radius: 27px;
+        font-size: 1.3em;
+        font-weight: 600;
+        }
+        .button-register {
+            background-color: $primaryGreen;
+        }
+    }
+    }
 }

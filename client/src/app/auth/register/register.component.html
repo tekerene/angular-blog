@@ -1,8 +1,10 @@
 <div class="example-container mat-elevation-z8">
-  <div class="container">
+  <div class="container-fluid">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
   <div class="example-loading-shade" *ngIf="isLoadingResults">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
+  <h2 class="m-3 text-center">Registration Form</h2>
   <mat-card class="example-card">
     <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)">
       <mat-form-field class="example-full-width">
@@ -28,18 +30,10 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <textarea matCkeditor placehoder="Bio" formControlName="bio"></textarea>
+        <input type="text" matInput placeholder="Bio(breif discription)" formControlName="bio" [errorStateMatcher]="matcher" autocomplete="off">
         <mat-error>
           <span *ngIf="!registerForm.get('bio').valid && registerForm.get('bio').touched">User Brief description
             (bio)</span>
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input type="userProfileReference" matInput placeholder="userProfileReference" formControlName="userProfileReference"
-          [errorStateMatcher]="matcher">
-        <mat-error>
-          <span *ngIf="!registerForm.get('userProfileReference').valid && registerForm.get('userProfileReference').touched">Please enter
-            userProfile image Reference</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
@@ -50,10 +44,22 @@
             enter userPrifile Image URL</span>
         </mat-error>
       </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input type="userProfileReference" matInput placeholder="userProfileReference" formControlName="userProfileReference"
+          [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!registerForm.get('userProfileReference').valid && registerForm.get('userProfileReference').touched">Please enter
+            userProfile image Reference</span>
+        </mat-error>
+      </mat-form-field>
       <div class="button-row">
-        <button type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary">Register</button>
+        <button  type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary">Register</button>
+      </div>
+      <div class="button-row">
+        <button class="button-register" type="submit" mat-flat-button color="primary">Login</button>
       </div>
     </form>
   </mat-card>
 </div>
+  </div>
 </div>
