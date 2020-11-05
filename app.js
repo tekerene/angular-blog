@@ -37,10 +37,10 @@ app.use('/api/post', post);
 app.use('/api/public', indexRouter);
 app.use('/users', usersRouter);
 
-// const port = 3000;
+//const port = 3000;
 // const port = process.env.PORT || 3000;
 // const server = app.listen(port, () => {
-//   console.log('Connected to port ' + port)
+//   console.log('Connected to port' + port)
 // })
 
 module.exports = app;
