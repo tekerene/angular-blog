@@ -43,5 +43,5 @@ app.use('/users', usersRouter);
 //   console.log('Connected to port' + port)
 // })
 
-//module.exports = app;
+module.exports = app;
 
