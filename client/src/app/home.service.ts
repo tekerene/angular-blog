@@ -5,8 +5,8 @@ import { catchError, tap } from 'rxjs/operators';
 import { Category } from './category/category';
 import { Post } from './post/post';
 
-// const apiUrl = 'http://localhost:3000/api/public/';
-const apiUrl = 'api/public/';
+ const apiUrl = 'http://localhost:3000/api/public/';
+//const apiUrl = 'api/public/';
 
 @Injectable({
   providedIn: 'root'
