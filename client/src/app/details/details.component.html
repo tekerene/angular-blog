@@ -14,14 +14,7 @@
                             <mat-card-header>
                                 <!-- <div mat-card-avatar class="example-header-image"></div> -->
                                 <mat-card-title class="post-title">{{post.postTitle}}</mat-card-title>
-                                <ng-container *ngIf="cat">
-                                    <p>
-                                        Category:
-                                        {{cat.catName}}
-                                    </p>
-                                </ng-container>
-
-
+                          
                                 <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>
                             </mat-card-header>
                             <img class="post-image" mat-card-image src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
@@ -39,9 +32,9 @@
                                             <i class="fa fa-eye mr-2"></i>23</p>
                                         <p>{{post.readTime}}
                                             min Read</p>
-                                        <ng-container>
+                                        <!-- <ng-container>
                                             <p>{{catList.catName}}</p>
-                                        </ng-container>
+                                        </ng-container> -->
 
 
                                     </div>
@@ -238,7 +231,8 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                               </form> -->
-                    <disqus [identifier]="pageId" [url]="url" [category]="catId" [language]="language" (newComment)="onNewComment($event)" (paginate)="onPaginate($event)"></disqus>
+                    <disqus [identifier]="pageId" [category]="disquss.catId"></disqus>
+                    <!-- <disqus [identifier]="pageId" [url]="url" [category]="catId" [language]="language" (newComment)="onNewComment($event)" (paginate)="onPaginate($event)"></disqus> -->
 
                 </div>
             </div>

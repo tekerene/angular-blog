@@ -13,9 +13,12 @@ import { PostService } from '../post.service';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-
-  pageId = '';
-  catList:any[] = [];
+pageId = ''
+  disquss : {
+    pageId: '';
+    catId: ''
+  }
+  catList = [];
   categories = [];
   postList = [];
   users = [];
@@ -29,7 +32,8 @@ export class DetailsComponent implements OnInit {
     postReference: '',
     postImgUrl: '',
     created: null,
-    updated: null
+    updated: null,
+    readTime: null
   };
   
   checkCat: Category = {
@@ -43,12 +47,12 @@ export class DetailsComponent implements OnInit {
   isLoadingResults = true;
 
   constructor(
-    private authApi: AuthService, 
-    private route: ActivatedRoute,
-    private cat: CategoryService, 
-    private api: HomeService,
-    private postService: PostService, 
-    private router: Router) { }
+    public authApi: AuthService, 
+    public route: ActivatedRoute,
+    public cat: CategoryService, 
+    public api: HomeService,
+    public postService: PostService, 
+    public router: Router) { }
 
   ngOnInit() {
     this.getPostDetails(this.route.snapshot.params.id);
@@ -76,6 +80,7 @@ export class DetailsComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
+
   getPostCategory(id: any) {
     this.cat.getCategory(id)
       .subscribe((data: any) => {
@@ -85,6 +90,7 @@ export class DetailsComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
+
   getPost() {
     this.postService.getPosts().subscribe((res : any) => {
         this.postList = res;

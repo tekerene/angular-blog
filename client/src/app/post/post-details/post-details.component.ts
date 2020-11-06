@@ -20,7 +20,8 @@ export class PostDetailsComponent implements OnInit {
     postReference: '',
     postImgUrl: '',
     created: null,
-    updated: null
+    updated: null,
+    readTime : ''
   };
   isLoadingResults = true;
 

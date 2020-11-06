@@ -13,12 +13,12 @@ export class BlogComponent implements OnInit {
    * filter
    */
     // postFilter: string;
-    selectedUser : number;
+    selectedUser : string;
     posts = [];
     isLoadingResults = true;
     // data: Array<any>
-    totalRecords : String;
-    page :number = 1;
+    totalRecords : any;
+    page :any = 1;
     pageOfItems : Array<any>;
     categories = [];
     users = [];
@@ -89,25 +89,6 @@ export class BlogComponent implements OnInit {
         });
 
     }
-
-    // customSearchFn(term : string, item : any) {
-    //     term = term.toLowerCase();
-
-    //     // Creating and array of space saperated term and removinf the empty values using filter
-    //     let splitTerm = term.split(' ').filter(t => t);
-
-    //     let isWordThere = [];
-
-    //     // Pushing True/False if match is found
-    //     splitTerm.forEach(arr_term => {
-    //         let search = item['search_label'].toLowerCase();
-    //         isWordThere.push(search.indexOf(arr_term) != -1);
-    //     });
-
-    //     const all_words = (this_word) => this_word;
-    //     // Every method will return true if all values are true in isWordThere.
-    //     return isWordThere.every(all_words);
-    // }
 
     getCategories() {
         this.catApi.getCategories().subscribe((res : any) => {

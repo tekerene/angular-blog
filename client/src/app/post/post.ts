@@ -7,6 +7,7 @@ export class Post {
   postContent: string;
   postReference: string;
   postImgUrl: string;
+  readTime: string;
   created: Date;
   updated: Date;
 }

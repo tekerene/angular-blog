@@ -44,7 +44,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BlogComponent } from './blog/blog.component';
-import { JwPaginationComponent } from 'jw-angular-pagination';
+// import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DisqusModule } from 'ngx-disqus';
 import { DISQUS_SHORTNAME } from 'ngx-disqus';
@@ -76,7 +76,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FooterComponent,
     HeaderComponent,
     BlogComponent,
-    JwPaginationComponent
+    // JwPaginationComponent
   ],
   imports: [
     BrowserModule,

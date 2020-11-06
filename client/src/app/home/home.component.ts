@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   posts: Post[] = [];
   isLoadingResults = true;
-  totalRecords: String;
+  totalRecords: string;
   page:any = 1;
   pageOfItems: [];
 
