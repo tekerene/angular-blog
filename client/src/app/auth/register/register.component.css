@@ -1,0 +1,34 @@
+.example-container {
+  background-color: #007bc7;
+  margin-top: 7em;
+  height: 85vh;
+}
+
+.example-container h2 {
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+.example-container .example-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0.4em 1em;
+}
+
+.example-container .example-card mat-form-field {
+  padding: 2px 15px;
+}
+
+.example-container .example-card .button-row button {
+  width: 100%;
+  padding: 5px;
+  border-radius: 27px;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.example-container .example-card .button-row .button-register {
+  background-color: #01ba94;
+}
+/*# sourceMappingURL=register.component.css.map */

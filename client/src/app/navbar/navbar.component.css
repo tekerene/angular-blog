@@ -1,0 +1,45 @@
+.navbar {
+  padding: 1em 1em 1em 1em;
+}
+
+.navbar .container .sarkblog-logo {
+  height: 69px;
+  width: 200px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.navbar .container a {
+  color: #7f7f7f;
+  font-size: 18px;
+}
+
+.navbar .container .navbar-brand {
+  color: #0061f2;
+  letter-spacing: 2px;
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.navbar .container .navbar-nav {
+  padding: 1em 0em 0em 2em;
+}
+
+.navbar .container .nav-button {
+  background-color: #01ba94;
+  margin: 0.2em 1em 1em 1em;
+  border-radius: 27px;
+}
+
+.navbar .container .nav-button button {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.navbar .container .nav-button button i {
+  margin-left: 5px;
+  font-size: 1em;
+}
+/*# sourceMappingURL=navbar.component.css.map */

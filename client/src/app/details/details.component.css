@@ -1,0 +1,180 @@
+.detail-banner .post-image {
+  width: calc(100% + 32px);
+  margin: 0 -16px 16px;
+}
+
+.detail-banner .main-banner .post-title {
+  font-size: 2em;
+  font-weight: 600;
+  line-height: 43px;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.detail-banner .main-banner .post-info .post-info-sub p {
+  border-right: 2px solid gray;
+  margin-left: 5px;
+  padding: 0 10px 0 0;
+}
+
+.detail-banner .main-banner .post-info .post-info-sub p span {
+  background: #05ab9f;
+  font-size: 1.2em;
+  color: #fff;
+  font-weight: 500;
+}
+
+.detail-banner .main-banner .post-info .post-info-sub p strong {
+  margin-right: 5px;
+  padding-left: 0.8em;
+}
+
+.detail-banner .main-banner mat-card-content {
+  font-size: 1.1em;
+  width: 100%;
+}
+
+.detail-banner .side-banner {
+  margin-top: 10em;
+  -webkit-box-shadow: 0 0 10px -4px black;
+          box-shadow: 0 0 10px -4px black;
+}
+
+.detail-banner .side-banner .post-share-area {
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.detail-banner .side-banner .post-share-area p {
+  padding-top: 15px;
+  font-size: 2em;
+  font-weight: 600;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.detail-banner .side-banner .post-share-area ul {
+  list-style-type: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.detail-banner .side-banner .post-share-area ul li {
+  margin-right: 0.5em;
+}
+
+.detail-banner .side-banner .post-share-area ul li a {
+  list-style: none;
+}
+
+.detail-banner .side-banner .trending-posts {
+  margin-bottom: 0rem;
+}
+
+.detail-banner .side-banner .trending-posts .topic-border {
+  position: relative;
+  border-bottom: 2px solid #000;
+}
+
+.detail-banner .side-banner .trending-posts .topic-border .topic-box-lg:before {
+  z-index: 2;
+  content: "";
+  top: 0;
+  right: -8px;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.detail-banner .side-banner .trending-posts .topic-border .topic-box-lg {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  height: 40px;
+  background-color: #000;
+  padding: 0 20px;
+  line-height: 40px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.detail-banner .side-banner .trending-posts .topic-border .topic-box-lg:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.detail-banner .side-banner .trending-posts .topic-border:after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  width: 100%;
+  height: 2px;
+}
+
+.detail-banner .side-banner .trending-posts .color-cod-gray:before {
+  border-top: 8px solid #111;
+  border-right: 8px solid transparent;
+}
+
+.detail-banner .side-banner .card-body {
+  width: 100%;
+  margin-top: 1em;
+  padding: 0px 3px;
+}
+
+.detail-banner .side-banner .card-body .user-image {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.detail-banner .side-banner .card-body .trending-posts .image-post {
+  width: 100%;
+}
+
+.detail-banner .side-banner .card-body .trending-posts .image-post img {
+  width: 100%;
+  height: 100px auto;
+}
+
+.detail-banner .side-banner .card-body .trending-posts .image-post p:first-child {
+  font-size: 10px;
+}
+
+.detail-banner .side-banner .card-body .trending-posts .image-post p {
+  font-size: 12px !important;
+}
+
+.detail-banner .side-banner .card-body .trending-posts .text-desc {
+  margin-left: 10px;
+  width: 100%;
+  color: #a7abb3;
+  cursor: pointer;
+}
+
+.detail-banner .side-banner .card-body .trending-posts .text-desc p:first-child {
+  font-size: 10px;
+}
+
+.detail-banner .side-banner .card-body .trending-posts .text-desc p {
+  font-size: 12px !important;
+}
+/*# sourceMappingURL=details.component.css.map */

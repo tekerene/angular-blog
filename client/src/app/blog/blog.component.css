@@ -1,0 +1,242 @@
+.page-header-dark {
+  color: #fff;
+  background-color: #1f2d41;
+}
+
+.page-header {
+  position: relative;
+  padding-top: 20rem;
+  padding-bottom: 0;
+}
+
+.bg-img-cover {
+  background-position: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.7))), url("../../assets/style/photo-1568992688065-536aad8a12f6.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url("../../assets/style/photo-1568992688065-536aad8a12f6.jpeg");
+}
+
+header .svg-border-rounded {
+  border: none;
+}
+
+.blog-header {
+  padding-top: 4em;
+  position: relative;
+}
+
+.blog-header .post-preview-featured-img {
+  height: 100%;
+  width: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.7))), url("../../assets/style/computer.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url("../../assets/style/computer.jpeg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.blog-header .bg-light {
+  background-color: #eff3f9 !important;
+}
+
+.blog-header .card.lift {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-header .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.35rem;
+}
+
+.blog-header .lift {
+  -webkit-box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15);
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15);
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  /* transition: transform .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-transform .15s ease-in-out,-webkit-box-shadow .15s ease-in-out; */
+}
+
+.blog-header .no-gutters {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.blog-header .no-gutters .card-body {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.35rem;
+}
+
+.blog-header .no-gutters .card-body .card-title {
+  font-size: 1.75rem;
+  color: #304069;
+}
+
+.blog-header .no-gutters .card-body .card-text {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.blog-header .no-gutters .card-body .post-preview-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.blog-header .no-gutters .card-body .post-preview-meta img {
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 72px;
+  width: auto;
+}
+
+.blog-header .no-gutters .card-body .post-preview-meta .post-preview-meta-details {
+  padding: 0.5em;
+}
+
+.blog-banner .recent-blog {
+  font-size: 3em;
+}
+
+.blog-banner .card-img-top {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 220px;
+  border: none;
+}
+
+.blog-banner .card-body p {
+  color: #a0a7b0;
+  font-size: 1em;
+  word-spacing: 0.2em;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.blog-banner .card-body p:hover {
+  text-decoration: none;
+}
+
+.blog-banner .card {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.35rem;
+  text-decoration: none;
+  -webkit-box-shadow: 0 -0.85rem 4.8rem 0 rgba(31, 45, 65, 0.15);
+  box-shadow: 0 -0.85rem 4.8rem 0 rgba(31, 45, 65, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-banner .card .card-body .card-title {
+  margin-bottom: 0.75rem;
+  color: #304069;
+}
+
+.blog-banner .card .card-footer {
+  border: none;
+}
+
+.blog-banner .card .card-footer .post-preview-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #8e95a0;
+}
+
+.blog-banner .card .card-footer .post-preview-meta img {
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 72px;
+  width: auto;
+}
+
+.blog-banner .card .card-footer .post-preview-meta-details {
+  padding: 0.5em;
+}
+
+.blog-banner .card .card-footer .post-update {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.blog-banner .card .card-footer .post-update .post-preview-meta-details-name {
+  margin: 16px 1px 13px 2px;
+}
+
+.blog-banner .lift {
+  -webkit-box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15);
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15);
+  -webkit-transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  /* transition: transform .15s ease-in-out,box-shadow .15s ease-in-out; */
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.blog-banner .lift:hover {
+  -webkit-transform: translateY(-0.33333rem);
+  transform: translateY(-0.33333rem);
+  -webkit-box-shadow: 0 0.5rem 2rem 0 rgba(31, 45, 65, 0.25);
+  box-shadow: 0 0.5rem 2rem 0 rgba(31, 45, 65, 0.25);
+}
+
+.pagination-banner .pagination-blog .page-item .page-link {
+  border-radius: 0.35rem;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.pagination-banner .page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #0061f2;
+  border-color: #0061f2;
+}
+
+.pagination-banner .page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #0061f2;
+  background-color: #fff;
+  border: 1px solid #d7dce3;
+}
+
+.pagination-banner .pagination-blog .page-item {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+/*# sourceMappingURL=blog.component.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "post-details.component.scss"
+    ],
+    "names": [],
+    "file": "post-details.component.css"
+}

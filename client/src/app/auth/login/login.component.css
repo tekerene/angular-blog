@@ -1,0 +1,30 @@
+.example-container {
+  background-color: #007bc7;
+  margin-top: 10em;
+  height: 60vh;
+}
+
+.example-container h2 {
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+.example-container .example-card {
+  background-color: #fff;
+  border-radius: 22px;
+  padding: 2em;
+}
+
+.example-container .example-card .button-row button {
+  width: 100%;
+  padding: 5px;
+  border-radius: 27px;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.example-container .example-card .button-row .button-register {
+  background-color: #01ba94;
+}
+/*# sourceMappingURL=login.component.css.map */
