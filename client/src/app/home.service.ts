@@ -5,8 +5,8 @@ import { catchError, tap } from 'rxjs/operators';
 import { Category } from './category/category';
 import { Post } from './post/post';
 
- const apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/public/';
-//const apiUrl = 'api/public/';
+// const apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/public/';
+const apiUrl = 'api/public/';
 
 @Injectable({
   providedIn: 'root'
