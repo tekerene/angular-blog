@@ -4,8 +4,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Category } from './category/category';
 
- //const apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/category/';
-const apiUrl = 'api/category/';
+ const apiUrl = 'https://gentle-basin-45440.herokuapp.com/home/api/category/';
+//const apiUrl = 'api/category/';
 
 @Injectable({
   providedIn: 'root'

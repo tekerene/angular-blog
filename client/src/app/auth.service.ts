@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { User } from './auth/user'
- //const apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/auth/';
-const apiUrl = 'api/auth/';
+ const apiUrl = 'https://gentle-basin-45440.herokuapp.com/home/api/auth/';
+//const apiUrl = 'api/auth/';
 
 @Injectable({
   providedIn: 'root'
