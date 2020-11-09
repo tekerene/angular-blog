@@ -23,7 +23,7 @@ export class BycategoryComponent implements OnInit {
 
   getPostsByCategory(id: any) {
     this.posts = [];
-    console.log(this.posts, "######+++++ category post")
+    console.log(this.posts, "######+++++ category ")
     this.api.getPostsByCategory(id)
       .subscribe((res: any) => {
         this.posts = res;

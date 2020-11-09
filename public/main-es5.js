@@ -1791,7 +1791,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
 
-    var apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/auth/'; //const apiUrl = 'api/auth/';
+    var apiUrl = 'https://sarkblog.herokuapp.com//api/auth/'; //const apiUrl = 'api/auth/';
 
     var AuthService = /*#__PURE__*/function () {
       function AuthService(http) {
@@ -2596,7 +2596,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this16 = this;
 
           this.posts = [];
-          console.log(this.posts, "######+++++ category post");
+          console.log(this.posts, "######+++++ category ");
           this.api.getPostsByCategory(id).subscribe(function (res) {
             _this16.posts = res;
             console.log(_this16.posts);
@@ -2681,7 +2681,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
 
-    var apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/category/'; //const apiUrl = 'api/category/';
+    var apiUrl = 'https://sarkblog.herokuapp.com/api/category/'; //const apiUrl = 'api/category/';
 
     var CategoryService = /*#__PURE__*/function () {
       function CategoryService(http) {
@@ -3883,7 +3883,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
 
-    var apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/public/'; // const apiUrl = 'api/public/';
+    var apiUrl = 'https://sarkblog.herokuapp.com/api/public/'; // const apiUrl = 'api/public/';
 
     var HomeService = /*#__PURE__*/function () {
       function HomeService(http) {
@@ -4335,7 +4335,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
 
-    var apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/post/'; //const apiUrl = 'api/post/';
+    var apiUrl = 'https://sarkblog.herokuapp.com/api/post/'; //const apiUrl = 'api/post/';
 
     var PostService = /*#__PURE__*/function () {
       function PostService(http) {

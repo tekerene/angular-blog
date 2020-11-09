@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Post } from './post/post';
 
- const apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/post/';
+ const apiUrl = 'https://sarkblog.herokuapp.com/api/post/';
 //const apiUrl = 'api/post/';
 
 @Injectable({

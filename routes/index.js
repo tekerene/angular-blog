@@ -19,18 +19,14 @@ router.get('/post', function(req, res, next) {
   Post.find(function (err, posts) {
     if (err) return next(err);
     res.json(posts);
-   
   });
-   console.log(posts)
 });
 
 router.get('/bycategory/:id', function(req, res, next) {
   Post.find({category: req.params.id}, function (err, posts) {
     if (err) return next(err);
     res.json(posts);
-    console.log(posts);
   });
-  
 });
 
 router.get('/post/:id', function(req, res, next) {

@@ -985,7 +985,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/auth/';
+const apiUrl = 'https://sarkblog.herokuapp.com//api/auth/';
 //const apiUrl = 'api/auth/';
 let AuthService = class AuthService {
     constructor(http) {
@@ -1452,7 +1452,7 @@ let BycategoryComponent = class BycategoryComponent {
     }
     getPostsByCategory(id) {
         this.posts = [];
-        console.log(this.posts, "######+++++ category post");
+        console.log(this.posts, "######+++++ category ");
         this.api.getPostsByCategory(id)
             .subscribe((res) => {
             this.posts = res;
@@ -1500,7 +1500,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/category/';
+const apiUrl = 'https://sarkblog.herokuapp.com/api/category/';
 //const apiUrl = 'api/category/';
 let CategoryService = class CategoryService {
     constructor(http) {
@@ -2202,7 +2202,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/public/';
+const apiUrl = 'https://sarkblog.herokuapp.com/api/public/';
 // const apiUrl = 'api/public/';
 let HomeService = class HomeService {
     constructor(http) {
@@ -2457,7 +2457,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const apiUrl = 'https://gentle-basin-45440.herokuapp.com/api/post/';
+const apiUrl = 'https://sarkblog.herokuapp.com/api/post/';
 //const apiUrl = 'api/post/';
 let PostService = class PostService {
     constructor(http) {
