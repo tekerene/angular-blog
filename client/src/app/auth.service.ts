@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { User } from './auth/user'
- const apiUrl = 'https://sarkblog.herokuapp.com//api/auth/';
+ const apiUrl = 'https://sarkblog.herokuapp.com/api/auth/';
 //const apiUrl = 'api/auth/';
 
 @Injectable({

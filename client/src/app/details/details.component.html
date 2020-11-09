@@ -1,7 +1,6 @@
 <section class="detail-banner">
     <div class="container">
         <div class="row">
-
             <div class="col-md-9 col-sm-12">
 
                 <div class="main-banner">
@@ -14,7 +13,7 @@
                             <mat-card-header>
                                 <!-- <div mat-card-avatar class="example-header-image"></div> -->
                                 <mat-card-title class="post-title">{{post.postTitle}}</mat-card-title>
-                          
+
                                 <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>
                             </mat-card-header>
                             <img class="post-image" mat-card-image src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
@@ -56,29 +55,31 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="side-banner col-md-3 col-sm-12">
                 <div class="post-share-area mb-40 item-shadow-1 ">
-                    <p>share this post!</p>
+                    <p>Social Accounts!</p>
                     <ul class="social-default item-inline d-flex">
                         <li>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.sarkblog.com/blog" class="social-button facebook" id="" title="">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.sarkblog.com/blog"
+                                class="social-button facebook" id="" title="">
                                 <span class="fab fa-facebook"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/intent/tweet?text=Default+share+text&amp;url=https://www.sarkblog.com/blog" class="social-button twitter" id="" title="">
+                            <a href="https://twitter.com/intent/tweet?text=Default+share+text&amp;url=https://www.sarkblog.com/blog"
+                                class="social-button twitter" id="" title="">
                                 <span class="fab fa-twitter"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.sarkblog.com/blog" class="social-button linkedin" id="" title="">
+                            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.sarkblog.com/blog"
+                                class="social-button linkedin" id="" title="">
                                 <span class="fab fa-linkedin"></span>
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" href="https://wa.me/?text=https://www.sarkblog.com/blog" class="social-button whatsapp" id="" title="">
+                            <a target="_blank" href="https://wa.me/?text=https://www.sarkblog.com/blog"
+                                class="social-button whatsapp" id="" title="">
                                 <span class="fab fa-whatsapp"></span>
                             </a>
                         </li>
@@ -125,12 +126,35 @@
                             <div class="topic-border color-cod-gray mb-30">
                                 <div class="topic-box-lg color-cod-gray">About The Author</div>
                             </div>
-                            <h6 class="text-center">{{user.fullName}}</h6>
-                            <div class="card-body">
-                                <img class="user-image img-fluid" src="{{user.userProfileUrl}}" alt="{{user.username}}">
+                            <div class="card-body "> 
+                                
+                                <div class="author">
+                                    <h6 class="text-center">{{user.fullName}}</h6>
+                                    <div class="user-img">
+                                        <img class="user-image img-fluid" src="{{user.userProfileUrl}}" alt="{{user.username}}">
+                                    </div>
+                                
+                                    <p>{{user.bio}}</p>
+
+                                    <div class="border">
+                                        <div class="social-accounts">
+                                            <h3>follow me on</h3>
+                                            <div class="social-icons">
+                                                <a href="#" class="fab fa-twitter"></a>
+                                                <a href="#" class="fab fa-facebook"></a>
+                                                <a href="#" class="fab fa-instagram"></a>
+                                                <a href="#" class="fab fa-whatsapp"></a>
+                                                <a href="#" class="fab fa-linkedin"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
 
                             </div>
-                            <!-- <p>{{user.bio}}</p> -->
+                           
+
+                            <!--  -->
                         </div>
                     </ng-container>
                 </div>
@@ -142,22 +166,29 @@
                         </div>
                         <div class="card-body">
                             <div class="sidebar-box">
-                                <div class="newsletter-area bg-primary">
-                                    <h2 class="title-medium-light size-xl pl-30 pr-30">Save Your Money Today!
+                                <div class="newsletter-area">
+                                    <h2 class="title-medium-light size-xl pl-30 pr-30">Subscribe to our news letter!
                                     </h2>
-                                    <img style="width:100px" alt="newsletter" class="lazy img-fluid m-auto mb-15 loaded" loading="lazy" src="https://bproo.com/public/img/banner/newsletter.png" data-ll-status="loaded">
-                                    <p id="leftSideSubscribeBox">By receiving free stock articles and smart tutorials to advance your
-                                                            career.</p>
-                                    <form action="" id="leftSide-form" class="subscription-needs-validation1" novalidate="">
-                                        <input type="hidden" name="_token" value="vgo0OwcAG1jyVzJuCttQHPDeODM4oG2GMAKNr8yM">
+                                    <img style="width:120px" alt="newsletter" class="lazy img-fluid m-auto mb-15 loaded"
+                                        loading="lazy" src="https://bproo.com/public/img/banner/newsletter.png"
+                                        data-ll-status="loaded">
+                                    <p id="leftSideSubscribeBox">By receiving free stock articles and smart tutorials to
+                                        advance your
+                                        career.</p>
+                                    <form action="" id="leftSide-form" class="subscription-needs-validation1"
+                                        novalidate="">
+                                        <input type="hidden" name="_token"
+                                            value="vgo0OwcAG1jyVzJuCttQHPDeODM4oG2GMAKNr8yM">
                                         <div class="input-group stylish-input-group mb-3">
-                                            <input type="text" name="name" placeholder="Enter your first-name" class="form-control" required="">
+                                            <input type="text" name="name" placeholder="Enter your first-name"
+                                                class="form-control" required="">
                                             <div class="invalid-feedback" style="font-size: 1.5rem;">
                                                 Please provide your name.
                                             </div>
                                         </div>
                                         <div class="input-group stylish-input-group">
-                                            <input type="text" name="email" placeholder="Enter your mail" class="form-control" required="">
+                                            <input type="text" name="email" placeholder="Enter your mail"
+                                                class="form-control" required="">
                                             <div class="invalid-feedback" style="font-size: 1.5rem;">
                                                 Please provide a valid email.
                                             </div>
@@ -172,7 +203,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="my-4">
@@ -182,9 +212,10 @@
                         </div>
                         <div class="card-body">
 
-                            <tr *ngIf="postList.length <=0" class="no-data text-center">There is no Post added yet!></tr>
+                            <tr *ngIf="postList.length <=0" class="no-data text-center">There is no Post added yet!>
+                            </tr>
 
-                            <div *ngIf="postList.length > 2">
+                            <div>
                                 <ng-container *ngFor="let post of postList.reverse() , let i = index;">
                                     <div *ngIf="i<3">
                                         <a href="details/{{post._id}}">
@@ -223,8 +254,7 @@
         <div class="row">
             <div class="card col-md-8 my-4">
                 <h5 class="card-header">Leave a Comment:</h5>
-                <div
-                    class="card-body">
+                <div class="card-body">
                     <!-- <form>
                                 <div class="form-group">
                                   <textarea class="form-control" class="form-control" rows="3"></textarea>

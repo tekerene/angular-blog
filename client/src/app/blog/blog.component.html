@@ -99,18 +99,18 @@
           <div data-v-0cc2979f="" data-v-0e51b078="" class="card-footer">
             <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta">
               <ng-container *ngFor="let user of users">
-                <img data-v-0cc2979f="" data-v-0e51b078="" src="{{user.userProfileReference}}" 
-                class="post-preview-meta-img">
+                <!-- <img data-v-0cc2979f="" data-v-0e51b078="" src="{{user.userProfileUrl}}" 
+                class="post-preview-meta-img"> -->
               </ng-container>
               <!-- <img data-v-0cc2979f="" data-v-0e51b078="" src="{{user.userProfileReference}}" 
               class="post-preview-meta-img"> -->
               <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details">
                 <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">{{post.postAuthor}}</div>
-                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-date">{{post.updated | date: 'dd MMM yyyy'}}· {{post.readTime}} min read</div>
+                <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-date">{{post.updated | date: 'dd MMM yyyy'}}</div>
               </div>
               <div data-v-0cc2979f="" data-v-0e51b078="" class="post-update">
                 <div data-v-0cc2979f="" data-v-0e51b078="" class="post-preview-meta-details-name">
-                  <!-- {{post.category}} -->
+                  {{post.readTime}} min read
                 </div>
               </div>
             </div>

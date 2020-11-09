@@ -52,11 +52,10 @@
             }
             padding: 0;
             background-color: #f8f8f8;
-            ul {
+            .social-default {
                 list-style-type: none;
                 justify-content: center;
                 align-items: center;
-                margin: 0;
                 font-size: 2.5em;
                 li {
                     margin-right: 0.5em;
@@ -145,6 +144,7 @@
                     font-size: 12px !important;
                 }
              } 
+
              .text-desc{
                  margin-left: 10px;
                  width: 100%; 
@@ -157,7 +157,125 @@
                      font-size: 12px !important;
                  }
              }  
+             
+            }
+            .author {
+                h6 {
+                    margin-top: 1.5em;
+                    font-size: 1.5em;
+                    text-transform: capitalize;
+                }
+                .user-img{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100px;
+                    height: 100px;
+                    object-fit: cover;
+                }
+                }
+                
+                p {
+                    font-size: 1em;
+                    text-transform: capitalize;
+                    text-align: center;
+                    margin: 1em;
+                }
+                .social-accounts {
+                    h3 {
+                        padding: 0.4em 0em;
+                        font-size: 1.5em;
+                        font-weight: 600;
+                        text-transform: capitalize;
+                        text-align: center;
+                    }
+                    .social-icons {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        a {
+                            font-size: 1.8em;
+                            text-align: center;
+                            margin: 8px;
+
+                        }
+                    }
+                }
+            }
+            .active {
+                color: $primaryTeal;
+                background: $secondaryDark;
+            }
+            
+            .newsletter-area {
+                 padding: 0.8em;
+                 background-color: $primaryBlue;
+                 h2 {
+                     font-size: 1.8em;
+                     color: $primaryBlack;
+                     font-weight: 700;
+                     text-align: center;
+                 }
+                 img {
+                     display: flex;
+                     flex-direction: column;
+                     align-items: center;
+                 }
+                 .subscription-needs-validation1 {
+                     .input-group {
+                         .input-group-addon {
+                             button {
+                                border: none;
+                                 i {
+                                     font-size: 2.1em;
+                                    
+
+                                 }
+                             }
+                         }
+                     }
+                 }
+                 
+
+             }
+
+        }
+    }
+   
+}
+@media(min-width: 768px) and (max-width: 991px) {
+.side-banner {
+    .post-share-area {
+        .social-default {
+            font-size: 1.8em !important;
+            margin-right: 1em;
+            li {
+                margin-right: 0.5em !important;
             }
         }
     }
+    .author {
+        p {
+            margin: 0.1em !important;
+        }
+    }
+    .social-accounts {
+        h3 {
+            font-size: 1em;
+        }
+        .social-icons {
+            a {
+                font-size: 1.4em !important;
+                margin: 5px !important;
+    
+            }
+        }
+    }
+}
 }
