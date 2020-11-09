@@ -236,6 +236,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/contact/contact.component.html":
+  /*!**************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/contact/contact.component.html ***!
+    \**************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppContactContactComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"contact\">\n    <div class=\"container\">\n        <div class=\"jumbotron\">\n            <h1 class=\"m-4\">Welcome to the contact Page</h1>\n        </div>\n    </div>\n</div>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/details/details.component.html":
   /*!**************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/details/details.component.html ***!
@@ -331,7 +351,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = " \n <div class=\"navbar-banner\">\n   <nav class=\"navbar fixed-top navbar-expand-md navbar-dark bg-light\"> \n    <div class=\"container\">\n\n      <a class=\"navbar-brand\" href=\"#\">\n        <img class=\"img-fluid sarkblog-logo\" src=\"../../assets/style/sark (1).png\" alt=\"\">\n      </a>\n      <button class=\"bg-info navbar-toggler navbar-toggler-right\" (click)=\"toggleNavbarCollapsing()\" \n      type=\"button\" data-toggle=\"collapse\" \n      data-target=\"#navbarResponsive\" \n      aria-controls=\"navbarResponsive\" \n      aria-expanded=\"false\" \n      aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" [class.collapse]=\"navbarCollapsed\" id=\"navbarResponsive\">\n        <ul class=\"navbar-nav ml-auto\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"/home\" >Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"/blog\">Blog</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">Contact</a>\n          </li>\n          <li class=\"nav-button\">\n            <button class=\"btn\">Join Us<i class=\"fas fa-arrow-right\"></i></button>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n</div>";
+    __webpack_exports__["default"] = " \n <div class=\"navbar-banner\">\n   <nav class=\"navbar fixed-top navbar-expand-md navbar-dark bg-light\"> \n    <div class=\"container\">\n\n      <a class=\"navbar-brand\" href=\"#\">\n        <img class=\"img-fluid sarkblog-logo\" src=\"../../assets/style/sark (1).png\" alt=\"\">\n      </a>\n      <button class=\"bg-info navbar-toggler navbar-toggler-right\" (click)=\"toggleNavbarCollapsing()\" \n      type=\"button\" data-toggle=\"collapse\" \n      data-target=\"#navbarResponsive\" \n      aria-controls=\"navbarResponsive\" \n      aria-expanded=\"false\" \n      aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" [class.collapse]=\"navbarCollapsed\" id=\"navbarResponsive\">\n        <ul class=\"navbar-nav ml-auto\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/home\" routerlinkactive=\"active\">Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/blog\" routerlinkactive=\"active\">Blog</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/contact\" routerlinkactive=\"active\">Contact</a>\n          </li>\n          <li class=\"nav-button\">\n            <button class=\"btn\">Join Us<i class=\"fas fa-arrow-right\"></i></button>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n</div>";
     /***/
   },
 
@@ -1189,6 +1209,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _blog_blog_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ./blog/blog.component */
     "./src/app/blog/blog.component.ts");
+    /* harmony import */
+
+
+    var _contact_contact_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! ./contact/contact.component */
+    "./src/app/contact/contact.component.ts");
 
     var routes = [{
       path: 'header',
@@ -1227,6 +1253,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       component: _blog_blog_component__WEBPACK_IMPORTED_MODULE_19__["BlogComponent"],
       data: {
         title: 'Show All Blogs '
+      }
+    }, {
+      path: 'contact',
+      component: _contact_contact_component__WEBPACK_IMPORTED_MODULE_20__["ContactComponent"],
+      data: {
+        title: 'Show contact page '
       }
     }, {
       path: 'category',
@@ -1680,7 +1712,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var ng2_search_filter__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
     /*! ng2-search-filter */
-    "./node_modules/ng2-search-filter/ng2-search-filter.js"); // import { NgSelectModule } from '@ng-select/ng-select';
+    "./node_modules/ng2-search-filter/ng2-search-filter.js");
+    /* harmony import */
+
+
+    var _contact_contact_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
+    /*! ./contact/contact.component */
+    "./src/app/contact/contact.component.ts"); // import { NgSelectModule } from '@ng-select/ng-select';
     // import { NgSelectConfig } from '@ng-select/ng-select';
     //  import { ɵs } from '@ng-select/ng-select';
     // import { ConsoleService } from '@ng-select/ng-select/lib/console.service';
@@ -1691,7 +1729,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _auth_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _auth_register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"], _details_details_component__WEBPACK_IMPORTED_MODULE_8__["DetailsComponent"], _category_category_component__WEBPACK_IMPORTED_MODULE_9__["CategoryComponent"], _post_post_component__WEBPACK_IMPORTED_MODULE_10__["PostComponent"], _category_category_details_category_details_component__WEBPACK_IMPORTED_MODULE_11__["CategoryDetailsComponent"], _category_category_add_category_add_component__WEBPACK_IMPORTED_MODULE_12__["CategoryAddComponent"], _category_category_edit_category_edit_component__WEBPACK_IMPORTED_MODULE_13__["CategoryEditComponent"], _post_post_details_post_details_component__WEBPACK_IMPORTED_MODULE_14__["PostDetailsComponent"], _post_post_add_post_add_component__WEBPACK_IMPORTED_MODULE_15__["PostAddComponent"], _post_post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_16__["PostEditComponent"], _bycategory_bycategory_component__WEBPACK_IMPORTED_MODULE_22__["BycategoryComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_25__["AdminComponent"], _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_26__["NavbarComponent"], _footer_footer_component__WEBPACK_IMPORTED_MODULE_27__["FooterComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_28__["HeaderComponent"], _blog_blog_component__WEBPACK_IMPORTED_MODULE_29__["BlogComponent"], jw_angular_pagination__WEBPACK_IMPORTED_MODULE_30__["JwPaginationComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _auth_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _auth_register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"], _details_details_component__WEBPACK_IMPORTED_MODULE_8__["DetailsComponent"], _category_category_component__WEBPACK_IMPORTED_MODULE_9__["CategoryComponent"], _post_post_component__WEBPACK_IMPORTED_MODULE_10__["PostComponent"], _category_category_details_category_details_component__WEBPACK_IMPORTED_MODULE_11__["CategoryDetailsComponent"], _category_category_add_category_add_component__WEBPACK_IMPORTED_MODULE_12__["CategoryAddComponent"], _category_category_edit_category_edit_component__WEBPACK_IMPORTED_MODULE_13__["CategoryEditComponent"], _post_post_details_post_details_component__WEBPACK_IMPORTED_MODULE_14__["PostDetailsComponent"], _post_post_add_post_add_component__WEBPACK_IMPORTED_MODULE_15__["PostAddComponent"], _post_post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_16__["PostEditComponent"], _bycategory_bycategory_component__WEBPACK_IMPORTED_MODULE_22__["BycategoryComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_25__["AdminComponent"], _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_26__["NavbarComponent"], _footer_footer_component__WEBPACK_IMPORTED_MODULE_27__["FooterComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_28__["HeaderComponent"], _blog_blog_component__WEBPACK_IMPORTED_MODULE_29__["BlogComponent"], jw_angular_pagination__WEBPACK_IMPORTED_MODULE_30__["JwPaginationComponent"], _contact_contact_component__WEBPACK_IMPORTED_MODULE_35__["ContactComponent"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_19__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_21__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_21__["ReactiveFormsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatTableModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatPaginatorModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatSortModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatGridListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatSelectModule"], _angular_material__WEBPACK_IMPORTED_MODULE_20__["MatOptionModule"], ckeditor4_angular__WEBPACK_IMPORTED_MODULE_23__["CKEditorModule"], mat_contenteditable__WEBPACK_IMPORTED_MODULE_24__["MatContenteditableModule"], ngx_pagination__WEBPACK_IMPORTED_MODULE_31__["NgxPaginationModule"], ngx_disqus__WEBPACK_IMPORTED_MODULE_32__["DisqusModule"].forRoot('sarkblog'), _angular_common__WEBPACK_IMPORTED_MODULE_33__["CommonModule"], ng2_search_filter__WEBPACK_IMPORTED_MODULE_34__["Ng2SearchPipeModule"]],
       providers: [{
         provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HTTP_INTERCEPTORS"],
@@ -3322,6 +3360,83 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./category.component.scss */
       "./src/app/category/category.component.scss"))["default"]]
     })], CategoryComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/contact/contact.component.scss":
+  /*!************************************************!*\
+    !*** ./src/app/contact/contact.component.scss ***!
+    \************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppContactContactComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".contact {\n  margin-top: 10em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZhY3Rvci9EZXNrdG9wL3Byb2plY3Qvc2Fya2Jsb2cgbWVhbiBzdGFjay9jbGllbnQvc3JjL2FwcC9jb250YWN0L2NvbnRhY3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbnRhY3QvY29udGFjdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9jb250YWN0L2NvbnRhY3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFjdCB7XG4gICAgbWFyZ2luLXRvcDogMTBlbTtcbn0iLCIuY29udGFjdCB7XG4gIG1hcmdpbi10b3A6IDEwZW07XG59Il19 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/contact/contact.component.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/contact/contact.component.ts ***!
+    \**********************************************/
+
+  /*! exports provided: ContactComponent */
+
+  /***/
+  function srcAppContactContactComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ContactComponent", function () {
+      return ContactComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var ContactComponent = /*#__PURE__*/function () {
+      function ContactComponent() {
+        _classCallCheck(this, ContactComponent);
+      }
+
+      _createClass(ContactComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return ContactComponent;
+    }();
+
+    ContactComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-contact',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./contact.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/contact/contact.component.html"))["default"],
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./contact.component.scss */
+      "./src/app/contact/contact.component.scss"))["default"]]
+    })], ContactComponent);
     /***/
   },
 

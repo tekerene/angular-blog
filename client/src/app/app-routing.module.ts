@@ -17,6 +17,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { BlogComponent } from './blog/blog.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -56,6 +57,11 @@ const routes: Routes = [
             path: 'blog',
             component: BlogComponent,
             data: { title: 'Show All Blogs ' }
+          },
+          {
+            path: 'contact',
+            component: ContactComponent,
+            data: { title: 'Show contact page ' }
           },
           
           {
