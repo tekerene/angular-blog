@@ -227,7 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (" \n <div class=\"navbar-banner\">\n   <nav class=\"navbar fixed-top navbar-expand-md navbar-dark bg-light\"> \n    <div class=\"container\">\n\n      <a class=\"navbar-brand\" href=\"#\">\n        <img class=\"img-fluid sarkblog-logo\" src=\"../../assets/style/sark (1).png\" alt=\"\">\n      </a>\n      <button class=\"bg-info navbar-toggler navbar-toggler-right\" (click)=\"toggleNavbarCollapsing()\" \n      type=\"button\" data-toggle=\"collapse\" \n      data-target=\"#navbarResponsive\" \n      aria-controls=\"navbarResponsive\" \n      aria-expanded=\"false\" \n      aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" [class.collapse]=\"navbarCollapsed\" id=\"navbarResponsive\">\n        <ul class=\"navbar-nav ml-auto\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/home\" routerlinkactive=\"active\">Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/blog\" routerlinkactive=\"active\">Blog</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/contact\" routerlinkactive=\"active\">Contact</a>\n          </li>\n          <li class=\"nav-button\">\n            <button class=\"btn\">Join Us<i class=\"fas fa-arrow-right\"></i></button>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = (" \n <div class=\"navbar-banner\">\n   <nav class=\"navbar fixed-top navbar-expand-md navbar-dark bg-light\"> \n    <div class=\"container\">\n\n      <a class=\"navbar-brand\" href=\"#\">\n        <img class=\"img-fluid sarkblog-logo\" src=\"../../assets/style/sark (1).png\" alt=\"\">\n      </a>\n      <button class=\"bg-info navbar-toggler navbar-toggler-right\" (click)=\"toggleNavbarCollapsing()\" \n      type=\"button\" data-toggle=\"collapse\" \n      data-target=\"#navbarResponsive\" \n      aria-controls=\"navbarResponsive\" \n      aria-expanded=\"false\" \n      aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" [class.collapse]=\"navbarCollapsed\" id=\"navbarResponsive\">\n        <ul class=\"navbar-nav ml-auto\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/home\" routerlinkactive=\"active\">Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/blog\" routerlinkactive=\"active\">Blog</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/contact\" routerlinkactive=\"active\">Contact</a>\n          </li>\n          <li class=\"nav-button\">\n            <button class=\"btn\" routerLink=\"/login\">Join Us<i class=\"fas fa-arrow-right\"></i></button>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n</div>");
 
 /***/ }),
 
@@ -1416,7 +1416,7 @@ BlogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2J5Y2F0ZWdvcnkvYnljYXRlZ29yeS5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".example-container {\n  margin-top: 10em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZhY3Rvci9EZXNrdG9wL3Byb2plY3Qvc2Fya2Jsb2cgbWVhbiBzdGFjay9jbGllbnQvc3JjL2FwcC9ieWNhdGVnb3J5L2J5Y2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2J5Y2F0ZWdvcnkvYnljYXRlZ29yeS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9ieWNhdGVnb3J5L2J5Y2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhhbXBsZS1jb250YWluZXIge1xuICAgIG1hcmdpbi10b3A6IDEwZW07XG59IiwiLmV4YW1wbGUtY29udGFpbmVyIHtcbiAgbWFyZ2luLXRvcDogMTBlbTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -1452,6 +1452,7 @@ let BycategoryComponent = class BycategoryComponent {
     }
     getPostsByCategory(id) {
         this.posts = [];
+        console.log(this.posts, "######+++++ category post");
         this.api.getPostsByCategory(id)
             .subscribe((res) => {
             this.posts = res;
@@ -1901,7 +1902,7 @@ CategoryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".contact {\n  margin-top: 10em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZhY3Rvci9EZXNrdG9wL3Byb2plY3Qvc2Fya2Jsb2cgbWVhbiBzdGFjay9jbGllbnQvc3JjL2FwcC9jb250YWN0L2NvbnRhY3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbnRhY3QvY29udGFjdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9jb250YWN0L2NvbnRhY3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFjdCB7XG4gICAgbWFyZ2luLXRvcDogMTBlbTtcbn0iLCIuY29udGFjdCB7XG4gIG1hcmdpbi10b3A6IDEwZW07XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".contact {\n  margin-top: 12em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2ZhY3Rvci9EZXNrdG9wL3Byb2plY3Qvc2Fya2Jsb2cgbWVhbiBzdGFjay9jbGllbnQvc3JjL2FwcC9jb250YWN0L2NvbnRhY3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbnRhY3QvY29udGFjdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9jb250YWN0L2NvbnRhY3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFjdCB7XG4gICAgbWFyZ2luLXRvcDogMTJlbTtcbn0iLCIuY29udGFjdCB7XG4gIG1hcmdpbi10b3A6IDEyZW07XG59Il19 */");
 
 /***/ }),
 
