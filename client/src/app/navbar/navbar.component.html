@@ -26,7 +26,9 @@
             <a class="nav-link" routerLink="/contact" routerlinkactive="active">Contact</a>
           </li>
           <li class="nav-button">
-            <button class="btn" routerLink="/login">Join Us<i class="fas fa-arrow-right"></i></button>
+            <button class="btn" *ngIf="auth" routerLink="/login">Join Us<i class="fas fa-arrow-right"></i></button>
+            <button class="btn" *ngIf="!auth"  (click)="logout()"><i class="fa fa-user"></i>Log Out</button>
+
           </li>
         </ul>
       </div>

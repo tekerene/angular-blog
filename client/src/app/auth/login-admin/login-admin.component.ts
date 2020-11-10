@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { AuthService } from '../../auth.service';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material';
 import { Router } from '@angular/router';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { AuthService } from 'src/app/auth.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -13,12 +13,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-login-admin',
+  templateUrl: './login-admin.component.html',
+  styleUrls: ['./login-admin.component.scss']
 })
-export class LoginComponent implements OnInit {
-
+export class LoginAdminComponent implements OnInit {
   loginForm: FormGroup;
   username = '';
   password = '';
@@ -40,7 +39,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         if (res.token) {
           localStorage.setItem('token', res.token);
-          this.router.navigate(['home']);
+          this.router.navigate(['post']);
         }
       }, (err) => {
         console.log(err);

@@ -55,6 +55,7 @@ import { CommonModule } from '@angular/common';
 // import { ConsoleService } from '@ng-select/ng-select/lib/console.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ContactComponent } from './contact/contact.component';
+import { LoginAdminComponent } from './auth/login-admin/login-admin.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ContactComponent } from './contact/contact.component';
     HeaderComponent,
     BlogComponent,
     JwPaginationComponent,
-    ContactComponent
+    ContactComponent,
+    LoginAdminComponent,
   ],
   imports: [
     BrowserModule,

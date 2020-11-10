@@ -18,6 +18,7 @@ import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginAdminComponent } from './auth/login-admin/login-admin.component';
 
 
 const routes: Routes = [
@@ -118,6 +119,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     data: { title: 'Login' }
+  },
+  {
+    path: 'login-admin',
+    component: LoginAdminComponent,
+    data: { title: 'Login-user'}
   },
   {
     path: 'register',
