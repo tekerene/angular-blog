@@ -45,6 +45,7 @@ pageId = ''
     updated: null
   }
   isLoadingResults = true;
+  serviceCount: any;
 
   constructor(
     public authApi: AuthService, 
@@ -68,7 +69,10 @@ pageId = ''
         console.log(err);
         this.isLoadingResults = false;
       });
-  
+  /**
+   * @VISITOR COUNTER
+   */
+  this.api.incrementPageCount().then(data => this.serviceCount.changeCount(data));
   }
 
   getPostDetails(id: any) {

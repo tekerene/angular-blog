@@ -40,6 +40,7 @@ export class AuthService {
         tap(_ => {
           this.isLoggedIn.emit(true);
           this.loggedInStatus = true;
+          localStorage.setItem('status', 'true');
         }),
         catchError(this.handleError('login', []))
       );

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Category } from './category/category';
 import { Post } from './post/post';
@@ -14,6 +14,23 @@ const apiUrl = 'https://sarkblog.herokuapp.com/api/public/';
 export class HomeService {
 
   constructor(private http: HttpClient) { }
+
+  private _pageCount = new BehaviorSubject<number>(0);
+  count$ = this._pageCount.asObservable();
+  af: any;
+  counter = 0;
+   
+
+  incrementPageCount(){
+    
+    const pageCount = this.af.object('/pageCount/').$ref
+      .ref.transaction(count => {
+        this.counter = count
+        return this.counter + 1;
+      }).then((data) => {return data.snapshot.node_.value_;});
+
+    return pageCount;
+  }
 
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(apiUrl + 'category')
