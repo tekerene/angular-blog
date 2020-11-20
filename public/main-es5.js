@@ -111,7 +111,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"example-container mat-elevation-z8\">\n  <div class=\"container-fluid\">\n    <div class=\"col-sm-9 col-md-7 col-lg-5 mx-auto\">\n  <div class=\"example-loading-shade\"\n       *ngIf=\"isLoadingResults\">\n    <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n  </div>\n  <h2 class=\"m-3 text-center\">Login Form</h2>\n  <mat-card class=\"example-card\">\n    <form [formGroup]=\"loginForm\" (ngSubmit)=\"onFormSubmit(loginForm.value)\">\n      <mat-form-field class=\"example-full-width\">\n        <input matInput type=\"email\" placeholder=\"Email\" formControlName=\"username\"\n               [errorStateMatcher]=\"matcher\">\n        <mat-error>\n          <span *ngIf=\"!loginForm.get('username').valid && loginForm.get('username').touched\">Please enter your username</span>\n        </mat-error>\n      </mat-form-field>\n      <mat-form-field class=\"example-full-width\">\n        <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\"\n               [errorStateMatcher]=\"matcher\">\n        <mat-error>\n          <span *ngIf=\"!loginForm.get('password').valid && loginForm.get('password').touched\">Please enter your password</span>\n        </mat-error>\n      </mat-form-field>\n      <div class=\"custom-control custom-checkbox mb-3\">\n        <input type=\"checkbox\" class=\"custom-control-input\" id=\"customCheck1\">\n        <label class=\"custom-control-label\" for=\"customCheck1\">Remember password</label>\n      </div>\n      <div class=\"button-row\">\n        <button  type=\"submit\" [disabled]=\"!loginForm.valid\" mat-flat-button color=\"primary\">Login</button>\n      </div>\n      <div class=\"button-row\">\n        <button class=\"button-register\" type=\"button\" mat-flat-button color=\"primary\" (click)=\"register()\">Register</button>\n      </div>\n    </form>\n  </mat-card>\n</div>\n</div>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"example-container mat-elevation-z8\">\n  <div class=\"container-fluid\">\n    <div class=\"col-sm-9 col-md-7 col-lg-5 mx-auto\">\n      <div class=\"example-loading-shade\" *ngIf=\"isLoadingResults\">\n        <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n      </div>\n      <h2 class=\"m-3 text-center\">Login Form</h2>\n      <mat-card class=\"example-card\">\n        <form [formGroup]=\"loginForm\" (ngSubmit)=\"onFormSubmit(loginForm.value)\">\n          <mat-form-field class=\"example-full-width\">\n            <input matInput type=\"email\" placeholder=\"Email\" formControlName=\"username\" [errorStateMatcher]=\"matcher\">\n            <mat-error>\n              <span *ngIf=\"!loginForm.get('username').valid && loginForm.get('username').touched\">Please enter your\n                username</span>\n            </mat-error>\n          </mat-form-field>\n          <mat-form-field class=\"example-full-width\">\n            <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\"\n              [errorStateMatcher]=\"matcher\">\n            <mat-error>\n              <span *ngIf=\"!loginForm.get('password').valid && loginForm.get('password').touched\">Please enter your\n                password</span>\n            </mat-error>\n          </mat-form-field>\n          <div class=\"custom-control custom-checkbox mb-3\">\n            <input type=\"checkbox\" class=\"custom-control-input\" id=\"customCheck1\">\n            <label class=\"custom-control-label\" for=\"customCheck1\">Remember password</label>\n          </div>\n          <div class=\"button-row\">\n            <button type=\"submit\" [disabled]=\"!loginForm.valid\" mat-flat-button color=\"primary\">Login</button>\n          </div>\n          <div class=\"button-row\">\n            <button class=\"button-register\" type=\"button\" mat-flat-button color=\"primary\"\n              (click)=\"register()\">Register</button>\n          </div>\n        </form>\n      </mat-card>\n    </div>\n  </div>\n</div>";
     /***/
   },
 
@@ -291,7 +291,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<section class=\"detail-banner\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-9 col-sm-12\">\n\n                <div class=\"main-banner\">\n\n                    <div class=\"example-container mat-elevation-z8\">\n                        <div class=\"example-loading-shade\" *ngIf=\"isLoadingResults\">\n                            <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n                        </div>\n                        <mat-card class=\"example-card\" [routerLink]=\"['/details/', post.id]\">\n                            <mat-card-header>\n                                <!-- <div mat-card-avatar class=\"example-header-image\"></div> -->\n                                <mat-card-title class=\"post-title\">{{post.postTitle}}</mat-card-title>\n\n                                <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>\n                            </mat-card-header>\n                            <img class=\"post-image\" mat-card-image src=\"{{post.postImgUrl}}\" alt=\"{{post.postTitle}}\">\n                            <div class=\"post-info\">\n                                <h5>Posted on:\n                                    {{post.updated | date: 'dd MMM yyyy'}},</h5>\n                                <ng-container>\n                                    <div class=\"post-info-sub d-flex\">\n                                        <p class=\"mr-4\">\n                                            <span>Author:\n                                            </span>\n                                            <strong>{{post.postAuthor}}</strong>\n                                        </p>\n                                        <p>\n                                            <i class=\"fa fa-eye mr-2\"></i>23</p>\n                                        <p>{{post.readTime}}\n                                            min Read</p>\n                                        <!-- <ng-container>\n                                            <p>{{catList.catName}}</p>\n                                        </ng-container> -->\n\n\n                                    </div>\n                                </ng-container>\n\n\n                            </div>\n                            <!-- <div class=\"content\">\n                                        <div class=\"text-contain text-center\" [innerHTML]=\"post.postContent\"></div>\n                                        </div> -->\n                            <mat-card-content [innerHTML]=\"post.postContent\"></mat-card-content>\n                            <mat-card-actions>\n                                <button mat-button>LIKE</button>\n                                <button mat-button>SHARE</button>\n                                <button mat-button>Comment</button>\n                                <button mat-button>Follow</button>\n                            </mat-card-actions>\n                        </mat-card>\n                    </div>\n                </div>\n            </div>\n            <div class=\"side-banner col-md-3 col-sm-12\">\n                <div class=\"post-share-area mb-40 item-shadow-1 \">\n                    <p>Social Accounts!</p>\n                    <ul class=\"social-default item-inline d-flex\">\n                        <li>\n                            <a href=\"https://www.facebook.com/sharer/sharer.php?u=https://www.sarkblog.com/blog\"\n                                class=\"social-button facebook\" id=\"\" title=\"\">\n                                <span class=\"fab fa-facebook\"></span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href=\"https://twitter.com/intent/tweet?text=Default+share+text&amp;url=https://www.sarkblog.com/blog\"\n                                class=\"social-button twitter\" id=\"\" title=\"\">\n                                <span class=\"fab fa-twitter\"></span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href=\"http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.sarkblog.com/blog\"\n                                class=\"social-button linkedin\" id=\"\" title=\"\">\n                                <span class=\"fab fa-linkedin\"></span>\n                            </a>\n                        </li>\n                        <li>\n                            <a target=\"_blank\" href=\"https://wa.me/?text=https://www.sarkblog.com/blog\"\n                                class=\"social-button whatsapp\" id=\"\" title=\"\">\n                                <span class=\"fab fa-whatsapp\"></span>\n                            </a>\n                        </li>\n                    </ul>\n                </div>\n                <!-- Search Widget -->\n                <div class=\"card mb-4\">\n                    <h5 class=\"card-header\">Search</h5>\n                    <div class=\"card-body\">\n                        <div class=\"input-group\">\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\">\n                            <span class=\"input-group-append\">\n                                <button class=\"btn btn-secondary\" type=\"button\">Go!</button>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n\n                <!-- Categories Widget -->\n                <div class=\"card my-4\">\n                    <div class=\"trending-posts\">\n                        <div class=\"topic-border color-cod-gray mb-30\">\n                            <div class=\"topic-box-lg color-cod-gray\">Categories</div>\n                        </div>\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col-lg-6\" *ngFor=\"let cat of catList\">\n\n                                    <ul class=\"list-unstyled mb-0\">\n                                        <li>\n                                            <a href=\"#\">{{cat.catName}}</a>\n                                        </li>\n                                    </ul>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <!-- Side Widget -->\n                <div class=\"card my-4\">\n                    <ng-container *ngFor=\"let user of users.reverse(), let i = index\">\n                        <div *ngIf=\"i<1\" class=\"m-0 p-0 trending-posts\">\n                            <div class=\"topic-border color-cod-gray mb-30\">\n                                <div class=\"topic-box-lg color-cod-gray\">About The Author</div>\n                            </div>\n                            <div class=\"card-body \"> \n                                \n                                <div class=\"author\">\n                                    <h6 class=\"text-center\">{{user.fullName}}</h6>\n                                    <div class=\"user-img\">\n                                        <img class=\"user-image img-fluid\" src=\"{{user.userProfileUrl}}\" alt=\"{{user.username}}\">\n                                    </div>\n                                \n                                    <p>{{user.bio}}</p>\n\n                                    <div class=\"border\">\n                                        <div class=\"social-accounts\">\n                                            <h3>follow me on</h3>\n                                            <div class=\"social-icons\">\n                                                <a href=\"#\" class=\"fab fa-twitter\"></a>\n                                                <a href=\"#\" class=\"fab fa-facebook\"></a>\n                                                <a href=\"#\" class=\"fab fa-instagram\"></a>\n                                                <a href=\"#\" class=\"fab fa-whatsapp\"></a>\n                                                <a href=\"#\" class=\"fab fa-linkedin\"></a>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                                \n\n                            </div>\n                           \n\n                            <!--  -->\n                        </div>\n                    </ng-container>\n                </div>\n\n                <div class=\"card my-4\">\n                    <div class=\"trending-posts\">\n                        <div class=\"topic-border color-cod-gray mb-30\">\n                            <div class=\"topic-box-lg color-cod-gray\">News Letter</div>\n                        </div>\n                        <div class=\"card-body\">\n                            <div class=\"sidebar-box\">\n                                <div class=\"newsletter-area\">\n                                    <h2 class=\"title-medium-light size-xl pl-30 pr-30\">Subscribe to our news letter!\n                                    </h2>\n                                    <img style=\"width:120px\" alt=\"newsletter\" class=\"lazy img-fluid m-auto mb-15 loaded\"\n                                        loading=\"lazy\" src=\"https://bproo.com/public/img/banner/newsletter.png\"\n                                        data-ll-status=\"loaded\">\n                                    <p id=\"leftSideSubscribeBox\">By receiving free stock articles and smart tutorials to\n                                        advance your\n                                        career.</p>\n                                    <form action=\"\" id=\"leftSide-form\" class=\"subscription-needs-validation1\"\n                                        novalidate=\"\">\n                                        <input type=\"hidden\" name=\"_token\"\n                                            value=\"vgo0OwcAG1jyVzJuCttQHPDeODM4oG2GMAKNr8yM\">\n                                        <div class=\"input-group stylish-input-group mb-3\">\n                                            <input type=\"text\" name=\"name\" placeholder=\"Enter your first-name\"\n                                                class=\"form-control\" required=\"\">\n                                            <div class=\"invalid-feedback\" style=\"font-size: 1.5rem;\">\n                                                Please provide your name.\n                                            </div>\n                                        </div>\n                                        <div class=\"input-group stylish-input-group\">\n                                            <input type=\"text\" name=\"email\" placeholder=\"Enter your mail\"\n                                                class=\"form-control\" required=\"\">\n                                            <div class=\"invalid-feedback\" style=\"font-size: 1.5rem;\">\n                                                Please provide a valid email.\n                                            </div>\n                                            <span class=\"input-group-addon\">\n                                                <button type=\"button\" name=\"subscribe1\">\n                                                    <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n                                                </button>\n                                            </span>\n                                        </div>\n                                    </form>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"my-4\">\n                    <div class=\"trending-posts\">\n                        <div class=\"topic-border color-cod-gray mb-30\">\n                            <div class=\"topic-box-lg color-cod-gray\">Trending Posts</div>\n                        </div>\n                        <div class=\"card-body\">\n\n                            <tr *ngIf=\"postList.length <=0\" class=\"no-data text-center\">There is no Post added yet!>\n                            </tr>\n\n                            <div>\n                                <ng-container *ngFor=\"let post of postList.reverse() , let i = index;\">\n                                    <div *ngIf=\"i<3\">\n                                        <a href=\"details/{{post._id}}\">\n                                            <div class=\"d-flex trending-posts\">\n                                                <div class=\"image-post\">\n                                                    <img src=\"{{post.postImgUrl}}\" alt=\"{{post.postTitle}}\">\n                                                    <p>Posted on:\n                                                        {{post.updated | date: 'dd MMM yyyy'}}</p>\n                                                </div>\n                                                <div class=\"text-desc\">\n                                                    <p>\n                                                        <i class=\"fa fa-calendar mr-2\"></i>\n                                                        {{post.readTime}}\n                                                        Min Read</p>\n                                                    <p>{{post.postTitle}}</p>\n                                                </div>\n                                            </div>\n                                        </a>\n                                        <hr>\n                                    </div>\n                                </ng-container>\n\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</section>\n\n<!-- Comments Form -->\n<section class=\"comment\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"card col-md-8 my-4\">\n                <h5 class=\"card-header\">Leave a Comment:</h5>\n                <div class=\"card-body\">\n                    <!-- <form>\n                                <div class=\"form-group\">\n                                  <textarea class=\"form-control\" class=\"form-control\" rows=\"3\"></textarea>\n                                </div>\n                                <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n                              </form> -->\n                    <disqus [identifier]=\"pageId\"></disqus>\n                    <!-- <disqus [identifier]=\"pageId\" [url]=\"url\" [category]=\"catId\" [language]=\"language\" (newComment)=\"onNewComment($event)\" (paginate)=\"onPaginate($event)\"></disqus> -->\n\n                </div>\n            </div>\n        </div>\n    </div>\n    <!-- <noscript>Please enable JavaScript to view the <a href=\"https://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript> -->\n\n</section>";
+    __webpack_exports__["default"] = "<section class=\"detail-banner\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-9 col-sm-12\">\n\n                <div class=\"main-banner\">\n\n                    <div class=\"example-container mat-elevation-z8\">\n                        <div class=\"example-loading-shade\" *ngIf=\"isLoadingResults\">\n                            <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n                        </div>\n                        <mat-card class=\"example-card\" [routerLink]=\"['/details/', post.id]\">\n                            <mat-card-header>\n                                <!-- <div mat-card-avatar class=\"example-header-image\"></div> -->\n                                <mat-card-title class=\"post-title\">{{post.postTitle}}</mat-card-title>\n\n                                <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>\n                            </mat-card-header>\n                            <img class=\"post-image\" mat-card-image src=\"{{post.postImgUrl}}\" alt=\"{{post.postTitle}}\">\n                            <div class=\"post-info\">\n                                <h5>Posted on:\n                                    {{post.updated | date: 'dd MMM yyyy'}},</h5>\n                                <ng-container>\n                                    <div class=\"post-info-sub d-flex\">\n                                        <p class=\"mr-4\">\n                                            <span>Author:\n                                            </span>\n                                            <strong>{{post.postAuthor}}</strong>\n                                        </p>\n                                        <p>\n                                            <i class=\"fa fa-eye mr-2\"></i>{{serviceCount}}</p>\n                                        <p>{{post.readTime}}\n                                            min Read</p>\n                                        <!-- <ng-container>\n                                            <p>{{catList.catName}}</p>\n                                        </ng-container> -->\n\n\n                                    </div>\n                                </ng-container>\n\n\n                            </div>\n                            <!-- <div class=\"content\">\n                                        <div class=\"text-contain text-center\" [innerHTML]=\"post.postContent\"></div>\n                                        </div> -->\n                            <mat-card-content [innerHTML]=\"post.postContent\"></mat-card-content>\n                            <mat-card-actions>\n                                <button mat-button>LIKE</button>\n                                <button mat-button>SHARE</button>\n                                <button mat-button>Comment</button>\n                                <button mat-button>Follow</button>\n                            </mat-card-actions>\n                        </mat-card>\n                    </div>\n                </div>\n            </div>\n            <div class=\"side-banner col-md-3 col-sm-12\">\n                <div class=\"post-share-area mb-40 item-shadow-1 \">\n                    <p>Social Accounts!</p>\n                    <ul class=\"social-default item-inline d-flex\">\n                        <li>\n                            <a href=\"https://www.facebook.com/sharer/sharer.php?u=https://www.sarkblog.com/blog\"\n                                class=\"social-button facebook\" id=\"\" title=\"\">\n                                <span class=\"fab fa-facebook\"></span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href=\"https://twitter.com/intent/tweet?text=Default+share+text&amp;url=https://www.sarkblog.com/blog\"\n                                class=\"social-button twitter\" id=\"\" title=\"\">\n                                <span class=\"fab fa-twitter\"></span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href=\"http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.sarkblog.com/blog\"\n                                class=\"social-button linkedin\" id=\"\" title=\"\">\n                                <span class=\"fab fa-linkedin\"></span>\n                            </a>\n                        </li>\n                        <li>\n                            <a target=\"_blank\" href=\"https://wa.me/?text=https://www.sarkblog.com/blog\"\n                                class=\"social-button whatsapp\" id=\"\" title=\"\">\n                                <span class=\"fab fa-whatsapp\"></span>\n                            </a>\n                        </li>\n                    </ul>\n                </div>\n                <!-- Search Widget -->\n                <div class=\"card mb-4\">\n                    <h5 class=\"card-header\">Search</h5>\n                    <div class=\"card-body\">\n                        <div class=\"input-group\">\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\">\n                            <span class=\"input-group-append\">\n                                <button class=\"btn btn-secondary\" type=\"button\">Go!</button>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n\n                <!-- Categories Widget -->\n                <div class=\"card my-4\">\n                    <div class=\"trending-posts\">\n                        <div class=\"topic-border color-cod-gray mb-30\">\n                            <div class=\"topic-box-lg color-cod-gray\">Categories</div>\n                        </div>\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col-lg-6\" *ngFor=\"let cat of catList\">\n\n                                    <ul class=\"list-unstyled mb-0\">\n                                        <li>\n                                            <a href=\"#\">{{cat.catName}}</a>\n                                        </li>\n                                    </ul>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <!-- Side Widget -->\n                <div class=\"card my-4\">\n                    <ng-container *ngFor=\"let user of users.reverse(), let i = index\">\n                        <div *ngIf=\"i<1\" class=\"m-0 p-0 trending-posts\">\n                            <div class=\"topic-border color-cod-gray mb-30\">\n                                <div class=\"topic-box-lg color-cod-gray\">About The Author</div>\n                            </div>\n                            <div class=\"card-body \"> \n                                \n                                <div class=\"author\">\n                                    <h6 class=\"text-center\">{{user.fullName}}</h6>\n                                    <div class=\"user-img\">\n                                        <img class=\"user-image img-fluid\" src=\"{{user.userProfileUrl}}\" alt=\"{{user.username}}\">\n                                    </div>\n                                \n                                    <p>{{user.bio}}</p>\n\n                                    <div class=\"border\">\n                                        <div class=\"social-accounts\">\n                                            <h3>follow me on</h3>\n                                            <div class=\"social-icons\">\n                                                <a href=\"#\" class=\"fab fa-twitter\"></a>\n                                                <a href=\"#\" class=\"fab fa-facebook\"></a>\n                                                <a href=\"#\" class=\"fab fa-instagram\"></a>\n                                                <a href=\"#\" class=\"fab fa-whatsapp\"></a>\n                                                <a href=\"#\" class=\"fab fa-linkedin\"></a>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                                \n\n                            </div>\n                           \n\n                            <!--  -->\n                        </div>\n                    </ng-container>\n                </div>\n\n                <div class=\"card my-4\">\n                    <div class=\"trending-posts\">\n                        <div class=\"topic-border color-cod-gray mb-30\">\n                            <div class=\"topic-box-lg color-cod-gray\">News Letter</div>\n                        </div>\n                        <div class=\"card-body\">\n                            <div class=\"sidebar-box\">\n                                <div class=\"newsletter-area\">\n                                    <h2 class=\"title-medium-light size-xl pl-30 pr-30\">Subscribe to our news letter!\n                                    </h2>\n                                    <img style=\"width:120px\" alt=\"newsletter\" class=\"lazy img-fluid m-auto mb-15 loaded\"\n                                        loading=\"lazy\" src=\"https://bproo.com/public/img/banner/newsletter.png\"\n                                        data-ll-status=\"loaded\">\n                                    <p id=\"leftSideSubscribeBox\">By receiving free stock articles and smart tutorials to\n                                        advance your\n                                        career.</p>\n                                    <form action=\"\" id=\"leftSide-form\" class=\"subscription-needs-validation1\"\n                                        novalidate=\"\">\n                                        <input type=\"hidden\" name=\"_token\"\n                                            value=\"vgo0OwcAG1jyVzJuCttQHPDeODM4oG2GMAKNr8yM\">\n                                        <div class=\"input-group stylish-input-group mb-3\">\n                                            <input type=\"text\" name=\"name\" placeholder=\"Enter your first-name\"\n                                                class=\"form-control\" required=\"\">\n                                            <div class=\"invalid-feedback\" style=\"font-size: 1.5rem;\">\n                                                Please provide your name.\n                                            </div>\n                                        </div>\n                                        <div class=\"input-group stylish-input-group\">\n                                            <input type=\"text\" name=\"email\" placeholder=\"Enter your mail\"\n                                                class=\"form-control\" required=\"\">\n                                            <div class=\"invalid-feedback\" style=\"font-size: 1.5rem;\">\n                                                Please provide a valid email.\n                                            </div>\n                                            <span class=\"input-group-addon\">\n                                                <button type=\"button\" name=\"subscribe1\">\n                                                    <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n                                                </button>\n                                            </span>\n                                        </div>\n                                    </form>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"my-4\">\n                    <div class=\"trending-posts\">\n                        <div class=\"topic-border color-cod-gray mb-30\">\n                            <div class=\"topic-box-lg color-cod-gray\">Trending Posts</div>\n                        </div>\n                        <div class=\"card-body\">\n\n                            <tr *ngIf=\"postList.length <=0\" class=\"no-data text-center\">There is no Post added yet!>\n                            </tr>\n\n                            <div>\n                                <ng-container *ngFor=\"let post of postList.reverse() , let i = index;\">\n                                    <div *ngIf=\"i<3\">\n                                        <a href=\"details/{{post._id}}\">\n                                            <div class=\"d-flex trending-posts\">\n                                                <div class=\"image-post\">\n                                                    <img src=\"{{post.postImgUrl}}\" alt=\"{{post.postTitle}}\">\n                                                    <p>Posted on:\n                                                        {{post.updated | date: 'dd MMM yyyy'}}</p>\n                                                </div>\n                                                <div class=\"text-desc\">\n                                                    <p>\n                                                        <i class=\"fa fa-calendar mr-2\"></i>\n                                                        {{post.readTime}}\n                                                        Min Read</p>\n                                                    <p>{{post.postTitle}}</p>\n                                                </div>\n                                            </div>\n                                        </a>\n                                        <hr>\n                                    </div>\n                                </ng-container>\n\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</section>\n\n<!-- Comments Form -->\n<section class=\"comment\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"card col-md-8 my-4\">\n                <h5 class=\"card-header\">Leave a Comment:</h5>\n                <div class=\"card-body\">\n                    <!-- <form>\n                                <div class=\"form-group\">\n                                  <textarea class=\"form-control\" class=\"form-control\" rows=\"3\"></textarea>\n                                </div>\n                                <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n                              </form> -->\n                    <disqus [identifier]=\"pageId\"></disqus>\n                    <!-- <disqus [identifier]=\"pageId\" [url]=\"url\" [category]=\"catId\" [language]=\"language\" (newComment)=\"onNewComment($event)\" (paginate)=\"onPaginate($event)\"></disqus> -->\n\n                </div>\n            </div>\n        </div>\n    </div>\n    <!-- <noscript>Please enable JavaScript to view the <a href=\"https://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript> -->\n\n</section>";
     /***/
   },
 
@@ -1866,6 +1866,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this4.isLoggedIn.emit(true);
 
             _this4.loggedInStatus = true;
+            localStorage.setItem('status', 'true');
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('login', [])));
         }
       }, {
@@ -1995,7 +1996,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "checkLogin",
         value: function checkLogin(url) {
-          if (this.authService.loggedInStatus) {
+          var status = localStorage.getItem('status');
+
+          if (status === 'true') {
             return true;
           } // Store the attempted URL for redirecting
 
@@ -3789,6 +3792,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(err);
             _this26.isLoadingResults = false;
           });
+          /**
+           * @VISITOR COUNTER
+           */
+
+          this.api.incrementPageCount().then(function (data) {
+            return _this26.serviceCount.changeCount(data);
+          });
         }
       }, {
         key: "getPostDetails",
@@ -4100,33 +4110,49 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _classCallCheck(this, HomeService);
 
         this.http = http;
+        this._pageCount = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](0);
+        this.count$ = this._pageCount.asObservable();
+        this.counter = 0;
       }
 
       _createClass(HomeService, [{
-        key: "getCategories",
-        value: function getCategories() {
+        key: "incrementPageCount",
+        value: function incrementPageCount() {
           var _this32 = this;
 
+          var pageCount = this.af.object('/pageCount/').$ref.ref.transaction(function (count) {
+            _this32.counter = count;
+            return _this32.counter + 1;
+          }).then(function (data) {
+            return data.snapshot.node_.value_;
+          });
+          return pageCount;
+        }
+      }, {
+        key: "getCategories",
+        value: function getCategories() {
+          var _this33 = this;
+
           return this.http.get(apiUrl + 'category').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) {
-            return _this32.log('fetched Categories');
+            return _this33.log('fetched Categories');
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getCategories', [])));
         }
       }, {
         key: "getPosts",
         value: function getPosts() {
-          var _this33 = this;
+          var _this34 = this;
 
           return this.http.get(apiUrl + 'post').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) {
-            return _this33.log('fetched Posts');
+            return _this34.log('fetched Posts');
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getPosts', [])));
         }
       }, {
         key: "getPostsByCategory",
         value: function getPostsByCategory(id) {
-          var _this34 = this;
+          var _this35 = this;
 
           return this.http.get(apiUrl + 'bycategory/' + id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) {
-            return _this34.log('fetched Posts');
+            return _this35.log('fetched Posts');
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getPosts', [])));
         }
       }, {
@@ -4139,14 +4165,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "handleError",
         value: function handleError() {
-          var _this35 = this;
+          var _this36 = this;
 
           var operation = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'operation';
           var result = arguments.length > 1 ? arguments[1] : undefined;
           return function (error) {
             console.error(error); // log to console instead
 
-            _this35.log("".concat(operation, " failed: ").concat(error.message));
+            _this36.log("".concat(operation, " failed: ").concat(error.message));
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
           };
@@ -4251,15 +4277,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(HomeComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this36 = this;
+          var _this37 = this;
 
           this.api.getPosts().subscribe(function (res) {
-            _this36.posts = res;
-            console.log(_this36.posts);
-            _this36.isLoadingResults = false;
+            _this37.posts = res;
+            console.log(_this37.posts);
+            _this37.isLoadingResults = false;
           }, function (err) {
             console.log(err);
-            _this36.isLoadingResults = false;
+            _this37.isLoadingResults = false;
           });
         }
       }]);
@@ -4353,7 +4379,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(TokenInterceptor, [{
         key: "intercept",
         value: function intercept(request, next) {
-          var _this37 = this;
+          var _this38 = this;
 
           var token = localStorage.getItem('token');
 
@@ -4386,7 +4412,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(error);
 
             if (error.status === 401) {
-              _this37.router.navigate(['login']);
+              _this38.router.navigate(['login']);
             }
 
             if (error.status === 400) {
@@ -4584,10 +4610,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(PostService, [{
         key: "getPosts",
         value: function getPosts() {
-          var _this38 = this;
+          var _this39 = this;
 
           return this.http.get(apiUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) {
-            return _this38.log('fetched Posts');
+            return _this39.log('fetched Posts');
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getPosts', [])));
         }
       }, {
@@ -4624,14 +4650,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "handleError",
         value: function handleError() {
-          var _this39 = this;
+          var _this40 = this;
 
           var operation = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'operation';
           var result = arguments.length > 1 ? arguments[1] : undefined;
           return function (error) {
             console.error(error); // log to console instead
 
-            _this39.log("".concat(operation, " failed: ").concat(error.message));
+            _this40.log("".concat(operation, " failed: ").concat(error.message));
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
           };
@@ -4797,31 +4823,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onFormSubmit",
         value: function onFormSubmit() {
-          var _this40 = this;
+          var _this41 = this;
 
           this.isLoadingResults = true;
           this.api.addPost(this.postForm.value).subscribe(function (res) {
             var id = res._id;
-            _this40.isLoadingResults = false;
+            _this41.isLoadingResults = false;
 
-            _this40.router.navigate(['/post/details', id]);
+            _this41.router.navigate(['/post/details', id]);
           }, function (err) {
             console.log(err);
-            _this40.isLoadingResults = false;
+            _this41.isLoadingResults = false;
           });
         }
       }, {
         key: "getCategories",
         value: function getCategories() {
-          var _this41 = this;
+          var _this42 = this;
 
           this.catApi.getCategories().subscribe(function (res) {
-            _this41.categories = res;
-            console.log(_this41.categories);
-            _this41.isLoadingResults = false;
+            _this42.categories = res;
+            console.log(_this42.categories);
+            _this42.isLoadingResults = false;
           }, function (err) {
             console.log(err);
-            _this41.isLoadingResults = false;
+            _this42.isLoadingResults = false;
           });
         }
       }]);
@@ -4948,28 +4974,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPostDetails",
         value: function getPostDetails(id) {
-          var _this42 = this;
+          var _this43 = this;
 
           this.api.getPost(id).subscribe(function (data) {
-            _this42.post = data;
-            _this42.post.id = data._id;
-            console.log(_this42.post);
-            _this42.isLoadingResults = false;
+            _this43.post = data;
+            _this43.post.id = data._id;
+            console.log(_this43.post);
+            _this43.isLoadingResults = false;
           });
         }
       }, {
         key: "deletePost",
         value: function deletePost(id) {
-          var _this43 = this;
+          var _this44 = this;
 
           this.isLoadingResults = true;
           this.api.deletePost(id).subscribe(function (res) {
-            _this43.isLoadingResults = false;
+            _this44.isLoadingResults = false;
 
-            _this43.router.navigate(['/post']);
+            _this44.router.navigate(['/post']);
           }, function (err) {
             console.log(err);
-            _this43.isLoadingResults = false;
+            _this44.isLoadingResults = false;
           });
         }
       }]);
@@ -5142,12 +5168,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPost",
         value: function getPost(id) {
-          var _this44 = this;
+          var _this45 = this;
 
           this.api.getPost(id).subscribe(function (data) {
-            _this44.id = data._id;
+            _this45.id = data._id;
 
-            _this44.postForm.setValue({
+            _this45.postForm.setValue({
               category: data.category,
               postTitle: data.postTitle,
               postAuthor: data.postAuthor,
@@ -5162,31 +5188,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCategories",
         value: function getCategories() {
-          var _this45 = this;
+          var _this46 = this;
 
           this.catApi.getCategories().subscribe(function (res) {
-            _this45.categories = res;
-            console.log(_this45.categories);
-            _this45.isLoadingResults = false;
+            _this46.categories = res;
+            console.log(_this46.categories);
+            _this46.isLoadingResults = false;
           }, function (err) {
             console.log(err);
-            _this45.isLoadingResults = false;
+            _this46.isLoadingResults = false;
           });
         }
       }, {
         key: "onFormSubmit",
         value: function onFormSubmit() {
-          var _this46 = this;
+          var _this47 = this;
 
           this.isLoadingResults = true;
           this.api.updatePost(this.id, this.postForm.value).subscribe(function (res) {
             var id = res._id;
-            _this46.isLoadingResults = false;
+            _this47.isLoadingResults = false;
 
-            _this46.router.navigate(['/post/details', id]);
+            _this47.router.navigate(['/post/details', id]);
           }, function (err) {
             console.log(err);
-            _this46.isLoadingResults = false;
+            _this47.isLoadingResults = false;
           });
         }
       }, {
@@ -5296,15 +5322,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(PostComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this47 = this;
+          var _this48 = this;
 
           this.api.getPosts().subscribe(function (res) {
-            _this47.data = res;
-            console.log(_this47.data);
-            _this47.isLoadingResults = false;
+            _this48.data = res;
+            console.log(_this48.data);
+            _this48.isLoadingResults = false;
           }, function (err) {
             console.log(err);
-            _this47.isLoadingResults = false;
+            _this48.isLoadingResults = false;
           });
         }
       }]);
