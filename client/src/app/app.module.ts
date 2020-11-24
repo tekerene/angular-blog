@@ -56,6 +56,7 @@ import { CommonModule } from '@angular/common';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ContactComponent } from './contact/contact.component';
 import { LoginAdminComponent } from './auth/login-admin/login-admin.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,7 @@ import { LoginAdminComponent } from './auth/login-admin/login-admin.component';
     DisqusModule.forRoot('sarkblog'),
     CommonModule,
     Ng2SearchPipeModule,
-  
+    ToastrModule.forRoot()
   ],
   providers: [
     {

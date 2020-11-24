@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../post/post';
 import { HomeService } from '../home.service';
 import { PostService } from '../post.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   page:any = 1;
   pageOfItems: [];
 
-  constructor(private api: HomeService, private postService: PostService) {
+  constructor(private api: HomeService, private postService: PostService, private toast: ToastrService) {
     //this.posts = new Array<any>();
    }
 
@@ -31,5 +32,9 @@ export class HomeComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
+  toastSuccess(){
+    this.toast.success("successfull", "toast up")
+      }
+ 
 
 }
