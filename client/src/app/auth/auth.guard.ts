@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
   }
 
   checkLogin(url: string): boolean {
-    let status = localStorage.getItem('status');
+    let status = localStorage.getItem('sarkblog');
     if (status === 'true') { return true; }
 
     // Store the attempted URL for redirecting
