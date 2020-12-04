@@ -48,7 +48,7 @@
         <div class="card-img-left  d-md-flex">
           <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
         </div>
-        <h2 class="m-3 text-center">Login Form</h2>
+        <h2 class="text-center">Login Form</h2>
         <div class="card-body">
           <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)" class="form-signin">
             <div class="form-label-group">
@@ -58,22 +58,15 @@
             </div>
 
             <hr>
-            <mat-form-field class="example-full-width">
-              <input matInput type="password" placeholder="Password" formControlName="password"
-                [errorStateMatcher]="matcher">
-              <mat-error>
-                <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your
-                  password</span>
-              </mat-error>
-            </mat-form-field>
-            <!-- <div class="form-label-group">
+           
+            <div class="form-label-group">
               <input type="password" placeholder="Password" formControlName="password"
               [errorStateMatcher]="matcher">
               <div>
                 <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your
                   password</span>
               </div>
-            </div> -->
+            </div>
             
             <hr>
 

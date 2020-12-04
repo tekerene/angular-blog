@@ -55,7 +55,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var src_app_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/auth.service */ "ccyI");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/_services/auth.service */ "7Vn+");
 
 
 
@@ -105,7 +105,7 @@ let LoginAdminComponent = class LoginAdminComponent {
 LoginAdminComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
-    { type: src_app_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"] }
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"] }
 ];
 LoginAdminComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -145,6 +145,77 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "5p0G":
+/*!*******************************************!*\
+  !*** ./src/app/_services/post.service.ts ***!
+  \*******************************************/
+/*! exports provided: PostService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostService", function() { return PostService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/environments/environment */ "AytR");
+
+
+
+
+
+
+const apiUrl = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].baseUrl}api/post/`;
+//const apiUrl = 'api/post/';
+let PostService = class PostService {
+    constructor(http) {
+        this.http = http;
+    }
+    getPosts() {
+        return this.http.get(apiUrl)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Posts')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getPosts', [])));
+    }
+    getPost(id) {
+        const url = `${apiUrl}/${id}`;
+        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`fetched post by id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError(`getPost id=${id}`)));
+    }
+    addPost(post) {
+        return this.http.post(apiUrl, post).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((prod) => console.log(`added post w/ id=${post.id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('addPost')));
+    }
+    updatePost(id, post) {
+        const url = `${apiUrl}/${id}`;
+        return this.http.put(url, post).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`updated post id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('updatePost')));
+    }
+    deletePost(id) {
+        const url = `${apiUrl}/${id}`;
+        return this.http.delete(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`deleted post id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('deletePost')));
+    }
+    handleError(operation = 'operation', result) {
+        return (error) => {
+            console.error(error); // log to console instead
+            this.log(`${operation} failed: ${error.message}`);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
+    }
+    log(message) {
+        console.log(message);
+    }
+};
+PostService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+PostService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], PostService);
+
+
+
+/***/ }),
+
 /***/ "6Cpu":
 /*!****************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/category/category.component.html ***!
@@ -174,8 +245,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _category_add_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./category-add.component.scss */ "ENbU");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _category_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../category.service */ "rx/G");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var src_app_services_category_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/_services/category.service */ "AfT/");
 
 
 
@@ -204,10 +275,10 @@ let CategoryAddComponent = class CategoryAddComponent {
     }
     ngOnInit() {
         this.categoryForm = this.formBuilder.group({
-            catName: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            catDesc: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            catImgUrl: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            catContent: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
+            catName: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            catDesc: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            catImgUrl: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            catContent: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
         });
     }
     onFormSubmit() {
@@ -225,8 +296,8 @@ let CategoryAddComponent = class CategoryAddComponent {
 };
 CategoryAddComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _category_service__WEBPACK_IMPORTED_MODULE_5__["CategoryService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
+    { type: src_app_services_category_service__WEBPACK_IMPORTED_MODULE_6__["CategoryService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
 ];
 CategoryAddComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -235,6 +306,101 @@ CategoryAddComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         styles: [_category_add_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
 ], CategoryAddComponent);
+
+
+
+/***/ }),
+
+/***/ "7Vn+":
+/*!*******************************************!*\
+  !*** ./src/app/_services/auth.service.ts ***!
+  \*******************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/environments/environment */ "AytR");
+
+
+
+
+
+
+const apiUrl = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].baseUrl}api/auth/`;
+let AuthService = class AuthService {
+    constructor(http) {
+        this.http = http;
+        this.isLoggedIn = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.loggedInStatus = false;
+    }
+    getUsers() {
+        return this.http.get(apiUrl)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Users')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getUsers', [])));
+    }
+    getUser(id) {
+        const url = `${apiUrl}/${id}`;
+        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`fetched User by id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError(`getUser id=${id}`)));
+    }
+    login(data) {
+        return this.http.post(apiUrl + 'login', data)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => {
+            this.isLoggedIn.emit(true);
+            this.loggedInStatus = true;
+            localStorage.setItem('sarkblog', 'true');
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('login', [])));
+    }
+    // logout(): Observable<any> {
+    //   return this.http.post<any>(apiUrl + 'logout', {})
+    //     .pipe(
+    //       tap(_ => {
+    //         this.isLoggedIn.emit(false);
+    //         this.loggedInStatus = false;
+    //       }),
+    //       catchError(this.handleError('logout', []))
+    //     );
+    // }
+    logout() {
+        localStorage.clear();
+    }
+    register(data) {
+        return this.http.post(apiUrl + 'register', data)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('login')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('login', [])));
+    }
+    isAuthenticated() {
+        // Check whether the current time is past the
+        // access token's expiry time
+        const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+        return new Date().getTime() < expiresAt;
+    }
+    handleError(operation = 'operation', result) {
+        return (error) => {
+            console.error(error); // log to console instead
+            this.log(`${operation} failed: ${error.message}`);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
+    }
+    log(message) {
+        console.log(message);
+    }
+};
+AuthService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+AuthService.propDecorators = {
+    isLoggedIn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+};
+AuthService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthService);
 
 
 
@@ -268,10 +434,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _details_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./details.component.scss */ "aZnr");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _home_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../home.service */ "Ol7V");
-/* harmony import */ var _category_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../category.service */ "rx/G");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../auth.service */ "ccyI");
-/* harmony import */ var _post_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../post.service */ "fhD/");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../_services/auth.service */ "7Vn+");
+/* harmony import */ var _services_category_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../_services/category.service */ "AfT/");
+/* harmony import */ var _services_home_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../_services/home.service */ "x+LS");
+/* harmony import */ var _services_post_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../_services/post.service */ "5p0G");
 
 
 
@@ -386,11 +552,11 @@ let DetailsComponent = class DetailsComponent {
     }
 };
 DetailsComponent.ctorParameters = () => [
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_7__["AuthService"] },
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _category_service__WEBPACK_IMPORTED_MODULE_6__["CategoryService"] },
-    { type: _home_service__WEBPACK_IMPORTED_MODULE_5__["HomeService"] },
-    { type: _post_service__WEBPACK_IMPORTED_MODULE_8__["PostService"] },
+    { type: _services_category_service__WEBPACK_IMPORTED_MODULE_6__["CategoryService"] },
+    { type: _services_home_service__WEBPACK_IMPORTED_MODULE_7__["HomeService"] },
+    { type: _services_post_service__WEBPACK_IMPORTED_MODULE_8__["PostService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
 ];
 DetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -419,9 +585,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_home_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./home.component.html */ "Gd4t");
 /* harmony import */ var _home_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home.component.scss */ "bdh1");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _home_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../home.service */ "Ol7V");
-/* harmony import */ var _post_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../post.service */ "fhD/");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-toastr */ "5eHb");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "5eHb");
+/* harmony import */ var _services_post_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../_services/post.service */ "5p0G");
+/* harmony import */ var _services_home_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../_services/home.service */ "x+LS");
 
 
 
@@ -455,9 +621,9 @@ let HomeComponent = class HomeComponent {
     }
 };
 HomeComponent.ctorParameters = () => [
-    { type: _home_service__WEBPACK_IMPORTED_MODULE_4__["HomeService"] },
-    { type: _post_service__WEBPACK_IMPORTED_MODULE_5__["PostService"] },
-    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"] }
+    { type: _services_home_service__WEBPACK_IMPORTED_MODULE_6__["HomeService"] },
+    { type: _services_post_service__WEBPACK_IMPORTED_MODULE_5__["PostService"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] }
 ];
 HomeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -466,6 +632,77 @@ HomeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [_home_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
 ], HomeComponent);
+
+
+
+/***/ }),
+
+/***/ "AfT/":
+/*!***********************************************!*\
+  !*** ./src/app/_services/category.service.ts ***!
+  \***********************************************/
+/*! exports provided: CategoryService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoryService", function() { return CategoryService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/environments/environment */ "AytR");
+
+
+
+
+
+
+const apiUrl = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].baseUrl}/api/category/`;
+//const apiUrl = 'api/category/';
+let CategoryService = class CategoryService {
+    constructor(http) {
+        this.http = http;
+    }
+    getCategories() {
+        return this.http.get(apiUrl)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Categories')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getCategories', [])));
+    }
+    getCategory(id) {
+        const url = `${apiUrl}/${id}`;
+        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`fetched category by id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError(`getCategory id=${id}`)));
+    }
+    addCategory(category) {
+        return this.http.post(apiUrl, category).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((prod) => console.log(`added category w/ id=${category.id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('addCategory')));
+    }
+    updateCategory(id, category) {
+        const url = `${apiUrl}/${id}`;
+        return this.http.put(url, category).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`updated category id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('updateCategory')));
+    }
+    deleteCategory(id) {
+        const url = `${apiUrl}/${id}`;
+        return this.http.delete(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`deleted category id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('deleteCategory')));
+    }
+    handleError(operation = 'operation', result) {
+        return (error) => {
+            console.error(error); // log to console instead
+            this.log(`${operation} failed: ${error.message}`);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
+    }
+    log(message) {
+        console.log(message);
+    }
+};
+CategoryService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+CategoryService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], CategoryService);
 
 
 
@@ -485,7 +722,8 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false
+    production: false,
+    baseUrl: 'https://sarkblog.herokuapp.com/'
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -521,7 +759,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (" \n <div class=\"navbar-banner\">\n   <nav class=\"navbar fixed-top navbar-expand-md navbar-dark bg-light\"> \n    <div class=\"container\">\n\n      <a class=\"navbar-brand\" href=\"#\">\n        <img class=\"img-fluid sarkblog-logo\" src=\"../../assets/style/sark (1).png\" alt=\"\">\n      </a>\n      <button class=\"bg-info navbar-toggler navbar-toggler-right\" (click)=\"toggleNavbarCollapsing()\" \n      type=\"button\" data-toggle=\"collapse\" \n      data-target=\"#navbarResponsive\" \n      aria-controls=\"navbarResponsive\" \n      aria-expanded=\"false\" \n      aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" [class.collapse]=\"navbarCollapsed\" id=\"navbarResponsive\">\n        <ul class=\"navbar-nav ml-auto\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/home\" routerlinkactive=\"active\">Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/blog\" routerlinkactive=\"active\">Blog</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/contact\" routerlinkactive=\"active\">Contact</a>\n          </li>\n          <li class=\"nav-button\">\n            <button class=\"btn\" *ngIf=\"auth\" routerLink=\"/login\">Join Us<i class=\"fas fa-arrow-right\"></i></button>\n            <button class=\"btn\" *ngIf=\"!auth\"  (click)=\"logout()\"><i class=\"fa fa-user\"></i>Log Out</button>\n\n          </li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"navbar-banner\">\n  <nav class=\"navbar fixed-top navbar-expand-md navbar-dark bg-light\">\n    <div class=\"container\">\n\n      <a class=\"navbar-brand\">\n        <img class=\"img-fluid sarkblog-logo\" src=\"../../assets/style/sark (1).png\" alt=\"\">\n      </a>\n      <button class=\"bg-info navbar-toggler navbar-toggler-right\" (click)=\"toggleNavbarCollapsing()\" type=\"button\"\n        data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\"\n        aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" [class.collapse]=\"navbarCollapsed\" id=\"navbarResponsive\">\n        <ul class=\"navbar-nav ml-auto\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/home\" routerlinkactive=\"active\">Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/blog\" routerlinkactive=\"active\">Blog</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLink=\"/contact\" routerlinkactive=\"active\">Contact</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\">\n              <i class=\"fa fa-user\"></i>\n            </a>\n          </li>\n          <li class=\"nav-button\">\n            <button class=\"btn\" *ngIf=\"auth\" routerLink=\"/login\">Join Us<i class=\"fas fa-arrow-right\"></i></button>\n            <button class=\"btn\" *ngIf=\"!auth\" (click)=\"logout()\"><i class=\"fa fa-user\"></i>Log Out</button>\n\n          </li>\n\n        </ul>\n      </div>\n    </div>\n  </nav>\n</div>");
 
 /***/ }),
 
@@ -579,7 +817,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bycategory_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bycategory.component.scss */ "LNU8");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _home_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../home.service */ "Ol7V");
+/* harmony import */ var _services_home_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../_services/home.service */ "x+LS");
 
 
 
@@ -614,7 +852,7 @@ let BycategoryComponent = class BycategoryComponent {
 };
 BycategoryComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _home_service__WEBPACK_IMPORTED_MODULE_5__["HomeService"] }
+    { type: _services_home_service__WEBPACK_IMPORTED_MODULE_5__["HomeService"] }
 ];
 BycategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -689,7 +927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (":root {\n  --input-padding-x: 1.5rem;\n  --input-padding-y: .75rem;\n}\n\nbody {\n  background: #007bff;\n  background: linear-gradient(to right, #0062E6, #33AEFF);\n}\n\n.card-signin {\n  border: 0;\n  border-radius: 1rem;\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\n  overflow: hidden;\n}\n\n.card-signin .card-title {\n  margin-bottom: 2rem;\n  font-weight: 300;\n  font-size: 1.5rem;\n}\n\n.card-signin .card-img-left {\n  width: 45%;\n  /* Link to your background image using in the property below! */\n  background: scroll center url(\"https://source.unsplash.com/WEQbe2jBg40/414x512\");\n  background-size: cover;\n}\n\n.card-signin .card-body {\n  padding: 2rem;\n}\n\n.form-signin {\n  width: 100%;\n}\n\n.form-signin .btn {\n  font-size: 80%;\n  border-radius: 5rem;\n  letter-spacing: 0.1rem;\n  font-weight: bold;\n  padding: 1rem;\n  transition: all 0.2s;\n}\n\n.form-label-group {\n  position: relative;\n  margin-bottom: 1rem;\n}\n\n.form-label-group input {\n  height: auto;\n  border-radius: 2rem;\n}\n\n.form-label-group > input,\n.form-label-group > label {\n  padding: var(--input-padding-y) var(--input-padding-x);\n}\n\n.form-label-group > label {\n  position: absolute;\n  top: 0;\n  left: 0;\n  display: block;\n  width: 100%;\n  margin-bottom: 0;\n  /* Override default `<label>` margin */\n  line-height: 1.5;\n  color: #495057;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  transition: all 0.1s ease-in-out;\n}\n\n.form-label-group input::-moz-placeholder {\n  color: transparent;\n}\n\n.form-label-group input::placeholder {\n  color: transparent;\n}\n\n.form-label-group input:not(:-moz-placeholder-shown) {\n  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\n  padding-bottom: calc(var(--input-padding-y) / 3);\n}\n\n.form-label-group input:not(:placeholder-shown) {\n  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\n  padding-bottom: calc(var(--input-padding-y) / 3);\n}\n\n.form-label-group input:not(:-moz-placeholder-shown) ~ label {\n  padding-top: calc(var(--input-padding-y) / 3);\n  padding-bottom: calc(var(--input-padding-y) / 3);\n  font-size: 12px;\n  color: #777;\n}\n\n.form-label-group input:not(:placeholder-shown) ~ label {\n  padding-top: calc(var(--input-padding-y) / 3);\n  padding-bottom: calc(var(--input-padding-y) / 3);\n  font-size: 12px;\n  color: #777;\n}\n\n.btn-google {\n  color: white;\n  background-color: #ea4335;\n}\n\n.btn-facebook {\n  color: white;\n  background-color: #3b5998;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xvZ2luLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQWtDQTtFQUNJLHlCQUFBO0VBQ0EseUJBQUE7QUFqQ0o7O0FBb0NFO0VBQ0UsbUJBQUE7RUFDQSx1REFBQTtBQWpDSjs7QUFvQ0U7RUFDRSxTQUFBO0VBQ0EsbUJBQUE7RUFDQSw4Q0FBQTtFQUNBLGdCQUFBO0FBakNKOztBQW9DRTtFQUNFLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtBQWpDSjs7QUFvQ0U7RUFDRSxVQUFBO0VBQ0EsK0RBQUE7RUFDQSxnRkFBQTtFQUNBLHNCQUFBO0FBakNKOztBQW9DRTtFQUNFLGFBQUE7QUFqQ0o7O0FBb0NFO0VBQ0UsV0FBQTtBQWpDSjs7QUFvQ0U7RUFDRSxjQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBLGlCQUFBO0VBQ0EsYUFBQTtFQUNBLG9CQUFBO0FBakNKOztBQW9DRTtFQUNFLGtCQUFBO0VBQ0EsbUJBQUE7QUFqQ0o7O0FBb0NFO0VBQ0UsWUFBQTtFQUNBLG1CQUFBO0FBakNKOztBQW9DRTs7RUFFRSxzREFBQTtBQWpDSjs7QUFvQ0U7RUFDRSxrQkFBQTtFQUNBLE1BQUE7RUFDQSxPQUFBO0VBQ0EsY0FBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLHNDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxjQUFBO0VBQ0EsNkJBQUE7RUFDQSxzQkFBQTtFQUNBLGdDQUFBO0FBakNKOztBQWdERTtFQUNFLGtCQUFBO0FBakNKOztBQW9DRTtFQUNFLGtCQUFBO0FBakNKOztBQW9DRTtFQUNFLDRFQUFBO0VBQ0EsZ0RBQUE7QUFqQ0o7O0FBK0JFO0VBQ0UsNEVBQUE7RUFDQSxnREFBQTtBQWpDSjs7QUFvQ0U7RUFDRSw2Q0FBQTtFQUNBLGdEQUFBO0VBQ0EsZUFBQTtFQUNBLFdBQUE7QUFqQ0o7O0FBNkJFO0VBQ0UsNkNBQUE7RUFDQSxnREFBQTtFQUNBLGVBQUE7RUFDQSxXQUFBO0FBakNKOztBQW9DRTtFQUNFLFlBQUE7RUFDQSx5QkFBQTtBQWpDSjs7QUFvQ0U7RUFDRSxZQUFBO0VBQ0EseUJBQUE7QUFqQ0oiLCJmaWxlIjoibG9naW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0ICcuLi8uLi8uLi9hc3NldHMvc3R5bGUvfnZhcmlhYmxlLnNjc3MnO1xuXG4vLyAuZXhhbXBsZS1jb250YWluZXIge1xuLy8gICAgIGJhY2tncm91bmQtY29sb3I6ICRsaWdodEJsdWU7XG4vLyAgICAgbWFyZ2luLXRvcDogMTBlbTtcbi8vICAgICBoZWlnaHQ6IDYwdmg7XG4vLyAgICAgaDIge1xuLy8gICAgICAgICBjb2xvcjogJHByaW1hcnlXaGl0ZTtcbi8vICAgICAgICAgZm9udC1zaXplOiAyLjVlbTtcbi8vICAgICAgICAgZm9udC13ZWlnaHQ6IDYwMDtcbi8vICAgICB9XG4vLyAgICAgLmV4YW1wbGUtY2FyZHtcbi8vICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogJHByaW1hcnlXaGl0ZTtcbi8vICAgICAgICAgYm9yZGVyLXJhZGl1czogMjJweDtcbi8vICAgICAgICAgcGFkZGluZzogMmVtO1xuLy8gICAgICAgICAvLyBiYWNrZ3JvdW5kLWltYWdlOiBsaW5lYXItZ3JhZGllbnQodG8gYm90dG9tLCByZ2JhKDAsIDAsIDAsIDAuNCksIHJnYmEoMCwwLDAsMC4yKSksIHVybCgnLi4vLi4vLi4vYXNzZXRzL3N0eWxlL3Bob3RvLTE1Njg5OTI2ODgwNjUtNTM2YWFkOGExMmY2LmpwZWcnKTtcbi8vICAgICAuYnV0dG9uLXJvdyB7XG4vLyAgICAgICAgIGJ1dHRvbntcbi8vICAgICAgICAgd2lkdGg6IDEwMCU7XG4vLyAgICAgICAgIHBhZGRpbmc6IDVweDtcbi8vICAgICAgICAgYm9yZGVyLXJhZGl1czogMjdweDtcbi8vICAgICAgICAgZm9udC1zaXplOiAxLjNlbTtcbi8vICAgICAgICAgZm9udC13ZWlnaHQ6IDcwMDtcbi8vICAgICAgICAgfVxuLy8gICAgICAgICAuYnV0dG9uLXJlZ2lzdGVyIHtcbi8vICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICRwcmltYXJ5R3JlZW47XG4vLyAgICAgICAgIH1cbi8vICAgICB9XG4vLyAgICAgfVxuLy8gfVxuLy8gQG1lZGlhKG1heC13aWR0aDogNTc1Ljk4cHgpe1xuXG4vLyB9XG5cbjpyb290IHtcbiAgICAtLWlucHV0LXBhZGRpbmcteDogMS41cmVtO1xuICAgIC0taW5wdXQtcGFkZGluZy15OiAuNzVyZW07XG4gIH1cbiAgXG4gIGJvZHkge1xuICAgIGJhY2tncm91bmQ6ICMwMDdiZmY7XG4gICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCAjMDA2MkU2LCAjMzNBRUZGKTtcbiAgfVxuICBcbiAgLmNhcmQtc2lnbmluIHtcbiAgICBib3JkZXI6IDA7XG4gICAgYm9yZGVyLXJhZGl1czogMXJlbTtcbiAgICBib3gtc2hhZG93OiAwIDAuNXJlbSAxcmVtIDAgcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gIH1cbiAgXG4gIC5jYXJkLXNpZ25pbiAuY2FyZC10aXRsZSB7XG4gICAgbWFyZ2luLWJvdHRvbTogMnJlbTtcbiAgICBmb250LXdlaWdodDogMzAwO1xuICAgIGZvbnQtc2l6ZTogMS41cmVtO1xuICB9XG4gIFxuICAuY2FyZC1zaWduaW4gLmNhcmQtaW1nLWxlZnQge1xuICAgIHdpZHRoOiA0NSU7XG4gICAgLyogTGluayB0byB5b3VyIGJhY2tncm91bmQgaW1hZ2UgdXNpbmcgaW4gdGhlIHByb3BlcnR5IGJlbG93ISAqL1xuICAgIGJhY2tncm91bmQ6IHNjcm9sbCBjZW50ZXIgdXJsKCdodHRwczovL3NvdXJjZS51bnNwbGFzaC5jb20vV0VRYmUyakJnNDAvNDE0eDUxMicpO1xuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIH1cbiAgXG4gIC5jYXJkLXNpZ25pbiAuY2FyZC1ib2R5IHtcbiAgICBwYWRkaW5nOiAycmVtO1xuICB9XG4gIFxuICAuZm9ybS1zaWduaW4ge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG4gIFxuICAuZm9ybS1zaWduaW4gLmJ0biB7XG4gICAgZm9udC1zaXplOiA4MCU7XG4gICAgYm9yZGVyLXJhZGl1czogNXJlbTtcbiAgICBsZXR0ZXItc3BhY2luZzogLjFyZW07XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgcGFkZGluZzogMXJlbTtcbiAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycztcbiAgfVxuICBcbiAgLmZvcm0tbGFiZWwtZ3JvdXAge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBtYXJnaW4tYm90dG9tOiAxcmVtO1xuICB9XG4gIFxuICAuZm9ybS1sYWJlbC1ncm91cCBpbnB1dCB7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIGJvcmRlci1yYWRpdXM6IDJyZW07XG4gIH1cbiAgXG4gIC5mb3JtLWxhYmVsLWdyb3VwPmlucHV0LFxuICAuZm9ybS1sYWJlbC1ncm91cD5sYWJlbCB7XG4gICAgcGFkZGluZzogdmFyKC0taW5wdXQtcGFkZGluZy15KSB2YXIoLS1pbnB1dC1wYWRkaW5nLXgpO1xuICB9XG4gIFxuICAuZm9ybS1sYWJlbC1ncm91cD5sYWJlbCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMDtcbiAgICBsZWZ0OiAwO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbi1ib3R0b206IDA7XG4gICAgLyogT3ZlcnJpZGUgZGVmYXVsdCBgPGxhYmVsPmAgbWFyZ2luICovXG4gICAgbGluZS1oZWlnaHQ6IDEuNTtcbiAgICBjb2xvcjogIzQ5NTA1NztcbiAgICBib3JkZXI6IDFweCBzb2xpZCB0cmFuc3BhcmVudDtcbiAgICBib3JkZXItcmFkaXVzOiAuMjVyZW07XG4gICAgdHJhbnNpdGlvbjogYWxsIC4xcyBlYXNlLWluLW91dDtcbiAgfVxuICBcbiAgLmZvcm0tbGFiZWwtZ3JvdXAgaW5wdXQ6Oi13ZWJraXQtaW5wdXQtcGxhY2Vob2xkZXIge1xuICAgIGNvbG9yOiB0cmFuc3BhcmVudDtcbiAgfVxuICBcbiAgLmZvcm0tbGFiZWwtZ3JvdXAgaW5wdXQ6LW1zLWlucHV0LXBsYWNlaG9sZGVyIHtcbiAgICBjb2xvcjogdHJhbnNwYXJlbnQ7XG4gIH1cbiAgXG4gIC5mb3JtLWxhYmVsLWdyb3VwIGlucHV0OjotbXMtaW5wdXQtcGxhY2Vob2xkZXIge1xuICAgIGNvbG9yOiB0cmFuc3BhcmVudDtcbiAgfVxuICBcbiAgLmZvcm0tbGFiZWwtZ3JvdXAgaW5wdXQ6Oi1tb3otcGxhY2Vob2xkZXIge1xuICAgIGNvbG9yOiB0cmFuc3BhcmVudDtcbiAgfVxuICBcbiAgLmZvcm0tbGFiZWwtZ3JvdXAgaW5wdXQ6OnBsYWNlaG9sZGVyIHtcbiAgICBjb2xvcjogdHJhbnNwYXJlbnQ7XG4gIH1cbiAgXG4gIC5mb3JtLWxhYmVsLWdyb3VwIGlucHV0Om5vdCg6cGxhY2Vob2xkZXItc2hvd24pIHtcbiAgICBwYWRkaW5nLXRvcDogY2FsYyh2YXIoLS1pbnB1dC1wYWRkaW5nLXkpICsgdmFyKC0taW5wdXQtcGFkZGluZy15KSAqICgyIC8gMykpO1xuICAgIHBhZGRpbmctYm90dG9tOiBjYWxjKHZhcigtLWlucHV0LXBhZGRpbmcteSkgLyAzKTtcbiAgfVxuICBcbiAgLmZvcm0tbGFiZWwtZ3JvdXAgaW5wdXQ6bm90KDpwbGFjZWhvbGRlci1zaG93bil+bGFiZWwge1xuICAgIHBhZGRpbmctdG9wOiBjYWxjKHZhcigtLWlucHV0LXBhZGRpbmcteSkgLyAzKTtcbiAgICBwYWRkaW5nLWJvdHRvbTogY2FsYyh2YXIoLS1pbnB1dC1wYWRkaW5nLXkpIC8gMyk7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGNvbG9yOiAjNzc3O1xuICB9XG4gIFxuICAuYnRuLWdvb2dsZSB7XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNlYTQzMzU7XG4gIH1cbiAgXG4gIC5idG4tZmFjZWJvb2sge1xuICAgIGNvbG9yOiB3aGl0ZTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjM2I1OTk4O1xuICB9Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (":root {\n  --input-padding-x: 1.5rem;\n  --input-padding-y: .75rem;\n}\n\n.example-container {\n  background-color: #007bc7;\n  margin-top: 10em;\n  height: 70vh;\n}\n\n.example-container h2 {\n  color: #fff;\n  font-size: 2.5em;\n  font-weight: 600;\n}\n\n.example-container .example-card {\n  background-color: #fff;\n  border-radius: 22px;\n  padding: 2em;\n}\n\n.example-container .example-card .button-row button {\n  width: 100%;\n  padding: 5px;\n  border-radius: 27px;\n  font-size: 1.3em;\n  font-weight: 700;\n}\n\n.example-container .example-card .button-row .button-register {\n  background-color: #01ba94;\n}\n\n.example-container .card-signin {\n  border: 0;\n  border-radius: 1rem;\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);\n  overflow: hidden;\n}\n\n.example-container .card-signin .card-title {\n  margin-bottom: 2rem;\n  font-weight: 300;\n  font-size: 1.5rem;\n}\n\n.example-container .card-signin .card-img-left {\n  width: 45%;\n  /* Link to your background image using in the property below! */\n  background: scroll center url(\"https://source.unsplash.com/WEQbe2jBg40/414x512\");\n  background-size: cover;\n}\n\n.example-container .card-signin .card-body {\n  padding: 2rem;\n}\n\n.example-container .card-signin .card-body .form-signin {\n  width: 100%;\n}\n\n.example-container .card-signin .card-body .form-signin .btn {\n  font-size: 80%;\n  border-radius: 5rem;\n  letter-spacing: 0.1rem;\n  font-weight: bold;\n  padding: 1rem;\n  transition: all 0.2s;\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group {\n  position: relative;\n  margin-bottom: 1rem;\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group input {\n  height: auto;\n  border-radius: 2rem;\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group > input,\n.example-container .card-signin .card-body .form-signin .form-label-group > label {\n  padding: var(--input-padding-y) var(--input-padding-x);\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group > label {\n  position: absolute;\n  top: 0;\n  left: 0;\n  display: block;\n  width: 100%;\n  margin-bottom: 0;\n  /* Override default `<label>` margin */\n  line-height: 1.5;\n  color: #495057;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  transition: all 0.1s ease-in-out;\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group input::-moz-placeholder {\n  color: transparent;\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group input::placeholder {\n  color: transparent;\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group input:not(:-moz-placeholder-shown) {\n  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\n  padding-bottom: calc(var(--input-padding-y) / 3);\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group input:not(:placeholder-shown) {\n  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));\n  padding-bottom: calc(var(--input-padding-y) / 3);\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group input:not(:-moz-placeholder-shown) ~ label {\n  padding-top: calc(var(--input-padding-y) / 3);\n  padding-bottom: calc(var(--input-padding-y) / 3);\n  font-size: 12px;\n  color: #777;\n}\n\n.example-container .card-signin .card-body .form-signin .form-label-group input:not(:placeholder-shown) ~ label {\n  padding-top: calc(var(--input-padding-y) / 3);\n  padding-bottom: calc(var(--input-padding-y) / 3);\n  font-size: 12px;\n  color: #777;\n}\n\n.example-container .card-signin .card-body .form-signin .btn-google {\n  color: white;\n  background-color: #ea4335;\n}\n\n.example-container .card-signin .card-body .form-signin .btn-facebook {\n  color: white;\n  background-color: #3b5998;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwiLi4vLi4vLi4vLi4vLi4vLi4vLi4vYXNzZXRzL3N0eWxlL352YXJpYWJsZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBQ0UseUJBQUE7RUFDQSx5QkFBQTtBQUZGOztBQUtBO0VBQ0kseUJDSVE7RURIUixnQkFBQTtFQUNBLFlBQUE7QUFGSjs7QUFHSTtFQUNJLFdDVk87RURXUCxnQkFBQTtFQUNBLGdCQUFBO0FBRFI7O0FBR0k7RUFDSSxzQkNmTztFRGdCUCxtQkFBQTtFQUNBLFlBQUE7QUFEUjs7QUFJUTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0FBRlI7O0FBSVE7RUFDSSx5QkN6Qkc7QUR1QmY7O0FBT0s7RUFDQyxTQUFBO0VBQ0EsbUJBQUE7RUFDQSw4Q0FBQTtFQUNBLGdCQUFBO0FBTE47O0FBTU07RUFDRSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7QUFKUjs7QUFNTTtFQUNFLFVBQUE7RUFDQSwrREFBQTtFQUNBLGdGQUFBO0VBQ0Esc0JBQUE7QUFKUjs7QUFNTTtFQUNFLGFBQUE7QUFKUjs7QUFLUTtFQUNFLFdBQUE7QUFIVjs7QUFJVTtFQUNFLGNBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0EsaUJBQUE7RUFDQSxhQUFBO0VBQ0Esb0JBQUE7QUFGWjs7QUFJVTtFQUNFLGtCQUFBO0VBQ0EsbUJBQUE7QUFGWjs7QUFHWTtFQUNFLFlBQUE7RUFDQSxtQkFBQTtBQURkOztBQUlVOztFQUVFLHNEQUFBO0FBRlo7O0FBS1U7RUFDRSxrQkFBQTtFQUNBLE1BQUE7RUFDQSxPQUFBO0VBQ0EsY0FBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLHNDQUFBO0VBQ0EsZ0JBQUE7RUFDQSxjQUFBO0VBQ0EsNkJBQUE7RUFDQSxzQkFBQTtFQUNBLGdDQUFBO0FBSFo7O0FBS1U7RUFDRSxrQkFBQTtBQUhaOztBQUVVO0VBQ0Usa0JBQUE7QUFIWjs7QUFNRTtFQUNFLDRFQUFBO0VBQ0EsZ0RBQUE7QUFKSjs7QUFFRTtFQUNFLDRFQUFBO0VBQ0EsZ0RBQUE7QUFKSjs7QUFPRTtFQUNFLDZDQUFBO0VBQ0EsZ0RBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtBQUxKOztBQUNFO0VBQ0UsNkNBQUE7RUFDQSxnREFBQTtFQUNBLGVBQUE7RUFDQSxXQUFBO0FBTEo7O0FBUUU7RUFDRSxZQUFBO0VBQ0EseUJBQUE7QUFOSjs7QUFTRTtFQUNFLFlBQUE7RUFDQSx5QkFBQTtBQVBKIiwiZmlsZSI6ImxvZ2luLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnLi4vLi4vLi4vYXNzZXRzL3N0eWxlL352YXJpYWJsZS5zY3NzJztcblxuXG46cm9vdCB7XG4gIC0taW5wdXQtcGFkZGluZy14OiAxLjVyZW07XG4gIC0taW5wdXQtcGFkZGluZy15OiAuNzVyZW07XG59XG5cbi5leGFtcGxlLWNvbnRhaW5lciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogJGxpZ2h0Qmx1ZTtcbiAgICBtYXJnaW4tdG9wOiAxMGVtO1xuICAgIGhlaWdodDogNzB2aDtcbiAgICBoMiB7XG4gICAgICAgIGNvbG9yOiAkcHJpbWFyeVdoaXRlO1xuICAgICAgICBmb250LXNpemU6IDIuNWVtO1xuICAgICAgICBmb250LXdlaWdodDogNjAwO1xuICAgIH1cbiAgICAuZXhhbXBsZS1jYXJke1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkcHJpbWFyeVdoaXRlO1xuICAgICAgICBib3JkZXItcmFkaXVzOiAyMnB4O1xuICAgICAgICBwYWRkaW5nOiAyZW07XG4gICAgICAgIC8vIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byBib3R0b20sIHJnYmEoMCwgMCwgMCwgMC40KSwgcmdiYSgwLDAsMCwwLjIpKSwgdXJsKCcuLi8uLi8uLi9hc3NldHMvc3R5bGUvcGhvdG8tMTU2ODk5MjY4ODA2NS01MzZhYWQ4YTEyZjYuanBlZycpO1xuICAgIC5idXR0b24tcm93IHtcbiAgICAgICAgYnV0dG9ue1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgcGFkZGluZzogNXB4O1xuICAgICAgICBib3JkZXItcmFkaXVzOiAyN3B4O1xuICAgICAgICBmb250LXNpemU6IDEuM2VtO1xuICAgICAgICBmb250LXdlaWdodDogNzAwO1xuICAgICAgICB9XG4gICAgICAgIC5idXR0b24tcmVnaXN0ZXIge1xuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogJHByaW1hcnlHcmVlbjtcbiAgICAgICAgfVxuICAgIH1cbiAgICB9XG5cbiAgICAgLmNhcmQtc2lnbmluIHtcbiAgICAgIGJvcmRlcjogMDtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDFyZW07XG4gICAgICBib3gtc2hhZG93OiAwIDAuNXJlbSAxcmVtIDAgcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICAgIC5jYXJkLXRpdGxlIHtcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMnJlbTtcbiAgICAgICAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgICAgICAgZm9udC1zaXplOiAxLjVyZW07XG4gICAgICB9XG4gICAgICAuY2FyZC1pbWctbGVmdCB7XG4gICAgICAgIHdpZHRoOiA0NSU7XG4gICAgICAgIC8qIExpbmsgdG8geW91ciBiYWNrZ3JvdW5kIGltYWdlIHVzaW5nIGluIHRoZSBwcm9wZXJ0eSBiZWxvdyEgKi9cbiAgICAgICAgYmFja2dyb3VuZDogc2Nyb2xsIGNlbnRlciB1cmwoJ2h0dHBzOi8vc291cmNlLnVuc3BsYXNoLmNvbS9XRVFiZTJqQmc0MC80MTR4NTEyJyk7XG4gICAgICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gICAgICB9XG4gICAgICAuY2FyZC1ib2R5IHtcbiAgICAgICAgcGFkZGluZzogMnJlbTtcbiAgICAgICAgLmZvcm0tc2lnbmluIHtcbiAgICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgICAuYnRuIHtcbiAgICAgICAgICAgIGZvbnQtc2l6ZTogODAlO1xuICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXJlbTtcbiAgICAgICAgICAgIGxldHRlci1zcGFjaW5nOiAuMXJlbTtcbiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgICAgICAgICAgcGFkZGluZzogMXJlbTtcbiAgICAgICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzO1xuICAgICAgICAgIH1cbiAgICAgICAgICAuZm9ybS1sYWJlbC1ncm91cCB7XG4gICAgICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxcmVtO1xuICAgICAgICAgICAgaW5wdXQge1xuICAgICAgICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDJyZW07XG4gICAgICAgICAgICB9XG4gICAgICAgICAgfVxuICAgICAgICAgIC5mb3JtLWxhYmVsLWdyb3VwPmlucHV0LFxuICAgICAgICAgIC5mb3JtLWxhYmVsLWdyb3VwPmxhYmVsIHtcbiAgICAgICAgICAgIHBhZGRpbmc6IHZhcigtLWlucHV0LXBhZGRpbmcteSkgdmFyKC0taW5wdXQtcGFkZGluZy14KTtcbiAgICAgICAgICB9XG4gICAgICAgICAgXG4gICAgICAgICAgLmZvcm0tbGFiZWwtZ3JvdXA+bGFiZWwge1xuICAgICAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICAgICAgdG9wOiAwO1xuICAgICAgICAgICAgbGVmdDogMDtcbiAgICAgICAgICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAwO1xuICAgICAgICAgICAgLyogT3ZlcnJpZGUgZGVmYXVsdCBgPGxhYmVsPmAgbWFyZ2luICovXG4gICAgICAgICAgICBsaW5lLWhlaWdodDogMS41O1xuICAgICAgICAgICAgY29sb3I6ICM0OTUwNTc7XG4gICAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB0cmFuc3BhcmVudDtcbiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IC4yNXJlbTtcbiAgICAgICAgICAgIHRyYW5zaXRpb246IGFsbCAuMXMgZWFzZS1pbi1vdXQ7XG4gICAgICAgICAgfVxuICAgICAgICAgIC5mb3JtLWxhYmVsLWdyb3VwIGlucHV0OjpwbGFjZWhvbGRlciB7XG4gICAgICAgICAgICBjb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgICAgICAgfVxuICAgICAgICAgIFxuICAuZm9ybS1sYWJlbC1ncm91cCBpbnB1dDpub3QoOnBsYWNlaG9sZGVyLXNob3duKSB7XG4gICAgcGFkZGluZy10b3A6IGNhbGModmFyKC0taW5wdXQtcGFkZGluZy15KSArIHZhcigtLWlucHV0LXBhZGRpbmcteSkgKiAoMiAvIDMpKTtcbiAgICBwYWRkaW5nLWJvdHRvbTogY2FsYyh2YXIoLS1pbnB1dC1wYWRkaW5nLXkpIC8gMyk7XG4gIH1cbiAgXG4gIC5mb3JtLWxhYmVsLWdyb3VwIGlucHV0Om5vdCg6cGxhY2Vob2xkZXItc2hvd24pfmxhYmVsIHtcbiAgICBwYWRkaW5nLXRvcDogY2FsYyh2YXIoLS1pbnB1dC1wYWRkaW5nLXkpIC8gMyk7XG4gICAgcGFkZGluZy1ib3R0b206IGNhbGModmFyKC0taW5wdXQtcGFkZGluZy15KSAvIDMpO1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICBjb2xvcjogIzc3NztcbiAgfVxuICBcbiAgLmJ0bi1nb29nbGUge1xuICAgIGNvbG9yOiB3aGl0ZTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWE0MzM1O1xuICB9XG4gIFxuICAuYnRuLWZhY2Vib29rIHtcbiAgICBjb2xvcjogd2hpdGU7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzNiNTk5ODtcbiAgfVxuICAgICAgICB9XG4gICAgICB9XG4gIH1cbn1cblxuXG5cblxuIFxuIFxuICAiLCJcblxuJHByaW1hcnlDb2xvcjogIzdmN2Y3ZjtcbiRwcmltYXJ5V2hpdGU6ICNmZmY7XG4kcHJpbWFyeUJsYWNrOiAjMDAwO1xuJHByaW1hcnlCbHVlOiAjMDA2MWYyO1xuJHByaW1hcnlHcmVlbjogIzAxYmE5NDtcbiRwcmltYXJ5VGVhbDogIzA1YWI5ZjtcbiRwcmltYXJ5RGFyazojMWYyZDQxO1xuJHNlY29uZGFyeVdoaXRlOiAjYTdhYmIzO1xuJHNlY29uZGFyeURhcms6ICNhMGE3YjA7XG4kc2Vjb25kYXJ5Q29sb3I6ICMzMDQwNjk7XG4kcHJpbWFyeUdyYXk6ICM4ZTk1YTA7XG4kbGlnaHRCbHVlOiAjMDA3YmM3OyJdfQ== */");
 
 /***/ }),
 
@@ -733,10 +971,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_blog_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./blog.component.html */ "iJX/");
 /* harmony import */ var _blog_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blog.component.scss */ "F7z0");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _home_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../home.service */ "Ol7V");
-/* harmony import */ var _category_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../category.service */ "rx/G");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../auth.service */ "ccyI");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../_services/auth.service */ "7Vn+");
+/* harmony import */ var _services_category_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../_services/category.service */ "AfT/");
+/* harmony import */ var _services_home_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../_services/home.service */ "x+LS");
 
 
 
@@ -824,14 +1062,67 @@ let BlogComponent = class BlogComponent {
     }
 };
 BlogComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"] },
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"] },
-    { type: _category_service__WEBPACK_IMPORTED_MODULE_5__["CategoryService"] },
-    { type: _home_service__WEBPACK_IMPORTED_MODULE_4__["HomeService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] },
+    { type: _services_category_service__WEBPACK_IMPORTED_MODULE_6__["CategoryService"] },
+    { type: _services_home_service__WEBPACK_IMPORTED_MODULE_7__["HomeService"] }
 ];
 BlogComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({ selector: 'app-blog', template: _raw_loader_blog_component_html__WEBPACK_IMPORTED_MODULE_1__["default"], styles: [_blog_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]] })
 ], BlogComponent);
+
+
+
+/***/ }),
+
+/***/ "LoHQ":
+/*!******************************************!*\
+  !*** ./src/app/_authGuard/auth.guard.ts ***!
+  \******************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/auth.service */ "7Vn+");
+
+
+
+
+let AuthGuard = class AuthGuard {
+    constructor(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    canActivate(next, state) {
+        const url = state.url;
+        return this.checkLogin(url);
+    }
+    checkLogin(url) {
+        let status = localStorage.getItem('sarkblog');
+        if (status === 'true') {
+            return true;
+        }
+        // Store the attempted URL for redirecting
+        this.authService.redirectUrl = url;
+        // Navigate to the login page with extras
+        this.router.navigate(['/login']);
+        return false;
+    }
+};
+AuthGuard.ctorParameters = () => [
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+AuthGuard = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthGuard);
 
 
 
@@ -863,82 +1154,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "Ol7V":
-/*!*********************************!*\
-  !*** ./src/app/home.service.ts ***!
-  \*********************************/
-/*! exports provided: HomeService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeService", function() { return HomeService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-
-
-
-
-
-const apiUrl = 'https://sarkblog.herokuapp.com/api/public/';
-// const apiUrl = 'api/public/';
-let HomeService = class HomeService {
-    constructor(http) {
-        this.http = http;
-        this._pageCount = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](0);
-        this.count$ = this._pageCount.asObservable();
-        this.counter = 0;
-    }
-    incrementPageCount() {
-        const pageCount = this.af.object('/pageCount/').$ref
-            .ref.transaction(count => {
-            this.counter = count;
-            return this.counter + 1;
-        }).then((data) => { return data.snapshot.node_.value_; });
-        return pageCount;
-    }
-    getCategories() {
-        return this.http.get(apiUrl + 'category')
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Categories')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getCategories', [])));
-    }
-    getPosts() {
-        return this.http.get(apiUrl + 'post')
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Posts')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getPosts', [])));
-    }
-    getPostsByCategory(id) {
-        return this.http.get(apiUrl + 'bycategory/' + id)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Posts')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getPosts', [])));
-    }
-    getPost(id) {
-        return this.http.get(apiUrl + 'post/' + id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`fetched post by id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError(`getPost id=${id}`)));
-    }
-    handleError(operation = 'operation', result) {
-        return (error) => {
-            console.error(error); // log to console instead
-            this.log(`${operation} failed: ${error.message}`);
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
-        };
-    }
-    log(message) {
-        console.log(message);
-    }
-};
-HomeService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
-];
-HomeService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], HomeService);
-
-
-
-/***/ }),
-
 /***/ "OzAx":
 /*!**************************************************!*\
   !*** ./src/app/category/category.component.scss ***!
@@ -952,59 +1167,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "P+IX":
-/*!************************************!*\
-  !*** ./src/app/auth/auth.guard.ts ***!
-  \************************************/
-/*! exports provided: AuthGuard */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../auth.service */ "ccyI");
-
-
-
-
-let AuthGuard = class AuthGuard {
-    constructor(authService, router) {
-        this.authService = authService;
-        this.router = router;
-    }
-    canActivate(next, state) {
-        const url = state.url;
-        return this.checkLogin(url);
-    }
-    checkLogin(url) {
-        let status = localStorage.getItem('sarkblog');
-        if (status === 'true') {
-            return true;
-        }
-        // Store the attempted URL for redirecting
-        this.authService.redirectUrl = url;
-        // Navigate to the login page with extras
-        this.router.navigate(['/login']);
-        return false;
-    }
-};
-AuthGuard.ctorParameters = () => [
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
-];
-AuthGuard = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], AuthGuard);
-
-
-
-/***/ }),
-
 /***/ "RkmP":
 /*!********************************************!*\
   !*** ./src/app/admin/admin.component.scss ***!
@@ -1015,6 +1177,79 @@ AuthGuard = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "SIlP":
+/*!****************************************************!*\
+  !*** ./src/app/_interceptors/token.interceptor.ts ***!
+  \****************************************************/
+/*! exports provided: TokenInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TokenInterceptor", function() { return TokenInterceptor; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
+
+
+
+
+
+
+let TokenInterceptor = class TokenInterceptor {
+    constructor(router) {
+        this.router = router;
+    }
+    intercept(request, next) {
+        const token = localStorage.getItem('token');
+        if (token) {
+            request = request.clone({
+                setHeaders: {
+                    Authorization: token
+                }
+            });
+        }
+        if (!request.headers.has('Content-Type')) {
+            request = request.clone({
+                setHeaders: {
+                    'content-type': 'application/json'
+                }
+            });
+        }
+        request = request.clone({
+            headers: request.headers.set('Accept', 'application/json')
+        });
+        return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((event) => {
+            if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
+                console.log('event--->>>', event);
+            }
+            return event;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])((error) => {
+            console.log(error);
+            if (error.status === 401) {
+                this.router.navigate(['login']);
+            }
+            if (error.status === 400) {
+                alert(error.error);
+            }
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
+        }));
+    }
+};
+TokenInterceptor.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+];
+TokenInterceptor = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], TokenInterceptor);
+
+
 
 /***/ }),
 
@@ -1046,8 +1281,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component.scss */ "ynWL");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _home_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home.service */ "Ol7V");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth.service */ "ccyI");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_services/auth.service */ "7Vn+");
+/* harmony import */ var _services_home_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_services/home.service */ "x+LS");
 
 
 
@@ -1082,18 +1317,33 @@ let AppComponent = class AppComponent {
             console.log(err);
         });
     }
+    // logout() {
+    //   this.authService.logout()
+    //     .subscribe((res: any) => {
+    //       this.router.navigate(['/']);
+    //     }, err => {
+    //       console.log(err);
+    //     });
+    // }
+    getActiveAdmin() {
+        if (Boolean(localStorage.getItem("username")) &&
+            Boolean(localStorage.getItem("imageurl")) && Boolean(localStorage.getItem("bio"))) {
+            this.activeAdmin.username = localStorage.getItem("username");
+            this.activeAdmin.userProfileUrl = localStorage.getItem("imageurl");
+            this.activeAdmin.bio = localStorage.getItem("bio");
+        }
+        else {
+            this.activeAdmin = Object.assign({}, JSON.parse(localStorage.getItem("sark_blog_admin_details")));
+        }
+    }
     logout() {
-        this.authService.logout()
-            .subscribe((res) => {
-            this.router.navigate(['/']);
-        }, err => {
-            console.log(err);
-        });
+        this.authService.logout();
+        this.router.navigate(["/"]);
     }
 };
 AppComponent.ctorParameters = () => [
-    { type: _home_service__WEBPACK_IMPORTED_MODULE_5__["HomeService"] },
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"] },
+    { type: _services_home_service__WEBPACK_IMPORTED_MODULE_6__["HomeService"] },
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
 ];
 AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1211,7 +1461,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _category_details_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./category-details.component.scss */ "MY8x");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _category_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../category.service */ "rx/G");
+/* harmony import */ var src_app_services_category_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/_services/category.service */ "AfT/");
 
 
 
@@ -1252,7 +1502,7 @@ let CategoryDetailsComponent = class CategoryDetailsComponent {
 };
 CategoryDetailsComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _category_service__WEBPACK_IMPORTED_MODULE_5__["CategoryService"] },
+    { type: src_app_services_category_service__WEBPACK_IMPORTED_MODULE_5__["CategoryService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
 ];
 CategoryDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1295,7 +1545,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _post_post_add_post_add_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./post/post-add/post-add.component */ "uj5D");
 /* harmony import */ var _post_post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./post/post-edit/post-edit.component */ "vrb6");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var _interceptors_token_interceptor__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./interceptors/token.interceptor */ "hkG8");
+/* harmony import */ var _interceptors_token_interceptor__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./_interceptors/token.interceptor */ "SIlP");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material */ "vdoh");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
@@ -1458,8 +1708,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./register.component.scss */ "XgRU");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../auth.service */ "ccyI");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/_services/auth.service */ "7Vn+");
 
 
 
@@ -1510,8 +1760,8 @@ let RegisterComponent = class RegisterComponent {
 };
 RegisterComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"] }
 ];
 RegisterComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -1567,8 +1817,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login.component.scss */ "H8dG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../auth.service */ "ccyI");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/_services/auth.service */ "7Vn+");
 
 
 
@@ -1617,8 +1867,8 @@ let LoginComponent = class LoginComponent {
 };
 LoginComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"] }
 ];
 LoginComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -1668,94 +1918,6 @@ ContactComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "ccyI":
-/*!*********************************!*\
-  !*** ./src/app/auth.service.ts ***!
-  \*********************************/
-/*! exports provided: AuthService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-
-
-
-
-
-const apiUrl = 'https://sarkblog.herokuapp.com/api/auth/';
-//const apiUrl = 'api/auth/';
-let AuthService = class AuthService {
-    constructor(http) {
-        this.http = http;
-        this.isLoggedIn = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.loggedInStatus = false;
-    }
-    getUsers() {
-        return this.http.get(apiUrl)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Users')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getUsers', [])));
-    }
-    getUser(id) {
-        const url = `${apiUrl}/${id}`;
-        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`fetched User by id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError(`getUser id=${id}`)));
-    }
-    login(data) {
-        return this.http.post(apiUrl + 'login', data)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => {
-            this.isLoggedIn.emit(true);
-            this.loggedInStatus = true;
-            localStorage.setItem('sarkblog', 'true');
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('login', [])));
-    }
-    logout() {
-        return this.http.post(apiUrl + 'logout', {})
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => {
-            this.isLoggedIn.emit(false);
-            this.loggedInStatus = false;
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('logout', [])));
-    }
-    register(data) {
-        return this.http.post(apiUrl + 'register', data)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('login')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('login', [])));
-    }
-    isAuthenticated() {
-        // Check whether the current time is past the
-        // access token's expiry time
-        const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-        return new Date().getTime() < expiresAt;
-    }
-    handleError(operation = 'operation', result) {
-        return (error) => {
-            console.error(error); // log to console instead
-            this.log(`${operation} failed: ${error.message}`);
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
-        };
-    }
-    log(message) {
-        console.log(message);
-    }
-};
-AuthService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
-];
-AuthService.propDecorators = {
-    isLoggedIn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
-};
-AuthService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], AuthService);
-
-
-
-/***/ }),
-
 /***/ "clsX":
 /*!************************************************!*\
   !*** ./src/app/category/category.component.ts ***!
@@ -1770,7 +1932,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_category_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./category.component.html */ "6Cpu");
 /* harmony import */ var _category_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./category.component.scss */ "OzAx");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _category_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../category.service */ "rx/G");
+/* harmony import */ var _services_category_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_services/category.service */ "AfT/");
 
 
 
@@ -1796,7 +1958,7 @@ let CategoryComponent = class CategoryComponent {
     }
 };
 CategoryComponent.ctorParameters = () => [
-    { type: _category_service__WEBPACK_IMPORTED_MODULE_4__["CategoryService"] }
+    { type: _services_category_service__WEBPACK_IMPORTED_MODULE_4__["CategoryService"] }
 ];
 CategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -1886,7 +2048,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_post_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./post.component.html */ "ZGUQ");
 /* harmony import */ var _post_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./post.component.scss */ "GB7h");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _post_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../post.service */ "fhD/");
+/* harmony import */ var _services_post_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_services/post.service */ "5p0G");
 
 
 
@@ -1912,7 +2074,7 @@ let PostComponent = class PostComponent {
     }
 };
 PostComponent.ctorParameters = () => [
-    { type: _post_service__WEBPACK_IMPORTED_MODULE_4__["PostService"] }
+    { type: _services_post_service__WEBPACK_IMPORTED_MODULE_4__["PostService"] }
 ];
 PostComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -1921,75 +2083,6 @@ PostComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [_post_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
 ], PostComponent);
-
-
-
-/***/ }),
-
-/***/ "fhD/":
-/*!*********************************!*\
-  !*** ./src/app/post.service.ts ***!
-  \*********************************/
-/*! exports provided: PostService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostService", function() { return PostService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-
-
-
-
-
-const apiUrl = 'https://sarkblog.herokuapp.com/api/post/';
-//const apiUrl = 'api/post/';
-let PostService = class PostService {
-    constructor(http) {
-        this.http = http;
-    }
-    getPosts() {
-        return this.http.get(apiUrl)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Posts')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getPosts', [])));
-    }
-    getPost(id) {
-        const url = `${apiUrl}/${id}`;
-        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`fetched post by id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError(`getPost id=${id}`)));
-    }
-    addPost(post) {
-        return this.http.post(apiUrl, post).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((prod) => console.log(`added post w/ id=${post.id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('addPost')));
-    }
-    updatePost(id, post) {
-        const url = `${apiUrl}/${id}`;
-        return this.http.put(url, post).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`updated post id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('updatePost')));
-    }
-    deletePost(id) {
-        const url = `${apiUrl}/${id}`;
-        return this.http.delete(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`deleted post id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('deletePost')));
-    }
-    handleError(operation = 'operation', result) {
-        return (error) => {
-            console.error(error); // log to console instead
-            this.log(`${operation} failed: ${error.message}`);
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
-        };
-    }
-    log(message) {
-        console.log(message);
-    }
-};
-PostService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
-];
-PostService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], PostService);
 
 
 
@@ -2047,8 +2140,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _category_edit_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./category-edit.component.scss */ "huvq");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _category_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../category.service */ "rx/G");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var src_app_services_category_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/_services/category.service */ "AfT/");
 
 
 
@@ -2081,10 +2174,10 @@ let CategoryEditComponent = class CategoryEditComponent {
     ngOnInit() {
         this.getCategory(this.route.snapshot.params.id);
         this.categoryForm = this.formBuilder.group({
-            catName: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            catDesc: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            catImgUrl: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            catContent: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
+            catName: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            catDesc: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            catImgUrl: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            catContent: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
         });
     }
     getCategory(id) {
@@ -2117,8 +2210,8 @@ let CategoryEditComponent = class CategoryEditComponent {
 CategoryEditComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _category_service__WEBPACK_IMPORTED_MODULE_5__["CategoryService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
+    { type: src_app_services_category_service__WEBPACK_IMPORTED_MODULE_6__["CategoryService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
 ];
 CategoryEditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -2127,79 +2220,6 @@ CategoryEditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         styles: [_category_edit_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
 ], CategoryEditComponent);
-
-
-
-/***/ }),
-
-/***/ "hkG8":
-/*!***************************************************!*\
-  !*** ./src/app/interceptors/token.interceptor.ts ***!
-  \***************************************************/
-/*! exports provided: TokenInterceptor */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TokenInterceptor", function() { return TokenInterceptor; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
-
-
-
-
-
-
-let TokenInterceptor = class TokenInterceptor {
-    constructor(router) {
-        this.router = router;
-    }
-    intercept(request, next) {
-        const token = localStorage.getItem('token');
-        if (token) {
-            request = request.clone({
-                setHeaders: {
-                    Authorization: token
-                }
-            });
-        }
-        if (!request.headers.has('Content-Type')) {
-            request = request.clone({
-                setHeaders: {
-                    'content-type': 'application/json'
-                }
-            });
-        }
-        request = request.clone({
-            headers: request.headers.set('Accept', 'application/json')
-        });
-        return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((event) => {
-            if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
-                console.log('event--->>>', event);
-            }
-            return event;
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])((error) => {
-            console.log(error);
-            if (error.status === 401) {
-                this.router.navigate(['login']);
-            }
-            if (error.status === 400) {
-                alert(error.error);
-            }
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
-        }));
-    }
-};
-TokenInterceptor.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
-];
-TokenInterceptor = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
-], TokenInterceptor);
 
 
 
@@ -2271,7 +2291,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_navbar_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./navbar.component.html */ "CO2p");
 /* harmony import */ var _navbar_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar.component.scss */ "l2CK");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../auth.service */ "ccyI");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_services/auth.service */ "7Vn+");
 
 
 
@@ -2298,7 +2318,7 @@ let NavbarComponent = class NavbarComponent {
     }
 };
 NavbarComponent.ctorParameters = () => [
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] }
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] }
 ];
 NavbarComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -2366,7 +2386,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _post_details_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./post-details.component.scss */ "s/Hl");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _post_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../post.service */ "fhD/");
+/* harmony import */ var src_app_services_post_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/_services/post.service */ "5p0G");
 
 
 
@@ -2419,7 +2439,7 @@ let PostDetailsComponent = class PostDetailsComponent {
 };
 PostDetailsComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _post_service__WEBPACK_IMPORTED_MODULE_5__["PostService"] },
+    { type: src_app_services_post_service__WEBPACK_IMPORTED_MODULE_5__["PostService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
 ];
 PostDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -2429,75 +2449,6 @@ PostDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         styles: [_post_details_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
 ], PostDetailsComponent);
-
-
-
-/***/ }),
-
-/***/ "rx/G":
-/*!*************************************!*\
-  !*** ./src/app/category.service.ts ***!
-  \*************************************/
-/*! exports provided: CategoryService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoryService", function() { return CategoryService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-
-
-
-
-
-const apiUrl = 'https://sarkblog.herokuapp.com/api/category/';
-//const apiUrl = 'api/category/';
-let CategoryService = class CategoryService {
-    constructor(http) {
-        this.http = http;
-    }
-    getCategories() {
-        return this.http.get(apiUrl)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Categories')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getCategories', [])));
-    }
-    getCategory(id) {
-        const url = `${apiUrl}/${id}`;
-        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`fetched category by id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError(`getCategory id=${id}`)));
-    }
-    addCategory(category) {
-        return this.http.post(apiUrl, category).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((prod) => console.log(`added category w/ id=${category.id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('addCategory')));
-    }
-    updateCategory(id, category) {
-        const url = `${apiUrl}/${id}`;
-        return this.http.put(url, category).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`updated category id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('updateCategory')));
-    }
-    deleteCategory(id) {
-        const url = `${apiUrl}/${id}`;
-        return this.http.delete(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`deleted category id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('deleteCategory')));
-    }
-    handleError(operation = 'operation', result) {
-        return (error) => {
-            console.error(error); // log to console instead
-            this.log(`${operation} failed: ${error.message}`);
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
-        };
-    }
-    log(message) {
-        console.log(message);
-    }
-};
-CategoryService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
-];
-CategoryService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], CategoryService);
 
 
 
@@ -2532,14 +2483,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _post_add_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./post-add.component.scss */ "DA75");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _post_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../post.service */ "fhD/");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _category_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../category.service */ "rx/G");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var src_app_services_post_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/_services/post.service */ "5p0G");
+/* harmony import */ var src_app_services_category_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/_services/category.service */ "AfT/");
 
 
 
 
 
+//import { PostService } from '../../post.service';
 
 
 
@@ -2571,14 +2523,14 @@ let PostAddComponent = class PostAddComponent {
     ngOnInit() {
         this.getCategories();
         this.postForm = this.formBuilder.group({
-            category: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postTitle: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postAuthor: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postDesc: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postContent: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postReference: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postImgUrl: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            readTime: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
+            category: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postTitle: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postAuthor: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postDesc: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postContent: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postReference: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postImgUrl: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            readTime: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
         });
     }
     onFormSubmit() {
@@ -2607,9 +2559,9 @@ let PostAddComponent = class PostAddComponent {
 };
 PostAddComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _post_service__WEBPACK_IMPORTED_MODULE_5__["PostService"] },
-    { type: _category_service__WEBPACK_IMPORTED_MODULE_7__["CategoryService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
+    { type: src_app_services_post_service__WEBPACK_IMPORTED_MODULE_6__["PostService"] },
+    { type: src_app_services_category_service__WEBPACK_IMPORTED_MODULE_7__["CategoryService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
 ];
 PostAddComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -2649,12 +2601,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _post_post_add_post_add_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./post/post-add/post-add.component */ "uj5D");
 /* harmony import */ var _post_post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./post/post-edit/post-edit.component */ "vrb6");
 /* harmony import */ var _bycategory_bycategory_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./bycategory/bycategory.component */ "EPmy");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./auth/auth.guard */ "P+IX");
-/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/admin.component */ "TRGY");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./header/header.component */ "fECr");
-/* harmony import */ var _blog_blog_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./blog/blog.component */ "LgBW");
-/* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./contact/contact.component */ "bzTf");
-/* harmony import */ var _auth_login_admin_login_admin_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./auth/login-admin/login-admin.component */ "0ydo");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/admin.component */ "TRGY");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./header/header.component */ "fECr");
+/* harmony import */ var _blog_blog_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./blog/blog.component */ "LgBW");
+/* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./contact/contact.component */ "bzTf");
+/* harmony import */ var _auth_login_admin_login_admin_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./auth/login-admin/login-admin.component */ "0ydo");
+/* harmony import */ var _authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./_authGuard/auth.guard */ "LoHQ");
 
 
 
@@ -2680,7 +2632,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: 'header',
-        component: _header_header_component__WEBPACK_IMPORTED_MODULE_18__["HeaderComponent"],
+        component: _header_header_component__WEBPACK_IMPORTED_MODULE_17__["HeaderComponent"],
     },
     {
         path: '',
@@ -2694,8 +2646,8 @@ const routes = [
     },
     {
         path: 'admin',
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
-        component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_17__["AdminComponent"],
+        canActivate: [_authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]],
+        component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_16__["AdminComponent"],
         data: { title: 'Blog Admin' }
     },
     {
@@ -2710,59 +2662,59 @@ const routes = [
     },
     {
         path: 'blog',
-        component: _blog_blog_component__WEBPACK_IMPORTED_MODULE_19__["BlogComponent"],
+        component: _blog_blog_component__WEBPACK_IMPORTED_MODULE_18__["BlogComponent"],
         data: { title: 'Show All Blogs ' }
     },
     {
         path: 'contact',
-        component: _contact_contact_component__WEBPACK_IMPORTED_MODULE_20__["ContactComponent"],
+        component: _contact_contact_component__WEBPACK_IMPORTED_MODULE_19__["ContactComponent"],
         data: { title: 'Show contact page ' }
     },
     {
         path: 'category',
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
+        canActivate: [_authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]],
         component: _category_category_component__WEBPACK_IMPORTED_MODULE_7__["CategoryComponent"],
         data: { title: 'Category' }
     },
     {
         path: 'category/details/:id',
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
+        canActivate: [_authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]],
         component: _category_category_details_category_details_component__WEBPACK_IMPORTED_MODULE_9__["CategoryDetailsComponent"],
         data: { title: 'Category Details' }
     },
     {
         path: 'category/add',
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
+        canActivate: [_authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]],
         component: _category_category_add_category_add_component__WEBPACK_IMPORTED_MODULE_10__["CategoryAddComponent"],
         data: { title: 'Category Add' }
     },
     {
         path: 'category/edit/:id',
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
+        canActivate: [_authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]],
         component: _category_category_edit_category_edit_component__WEBPACK_IMPORTED_MODULE_11__["CategoryEditComponent"],
         data: { title: 'Category Edit' }
     },
     {
         path: 'post',
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
+        canActivate: [_authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]],
         component: _post_post_component__WEBPACK_IMPORTED_MODULE_8__["PostComponent"],
         data: { title: 'Post' }
     },
     {
         path: 'post/details/:id',
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
+        canActivate: [_authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]],
         component: _post_post_details_post_details_component__WEBPACK_IMPORTED_MODULE_12__["PostDetailsComponent"],
         data: { title: 'Post Details' }
     },
     {
         path: 'post/add',
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
+        canActivate: [_authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]],
         component: _post_post_add_post_add_component__WEBPACK_IMPORTED_MODULE_13__["PostAddComponent"],
         data: { title: 'Post Add' }
     },
     {
         path: 'post/edit/:id',
-        canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
+        canActivate: [_authGuard_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]],
         component: _post_post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_14__["PostEditComponent"],
         data: { title: 'Post Edit' }
     },
@@ -2775,7 +2727,7 @@ const routes = [
     },
     {
         path: 'login-admin',
-        component: _auth_login_admin_login_admin_component__WEBPACK_IMPORTED_MODULE_21__["LoginAdminComponent"],
+        component: _auth_login_admin_login_admin_component__WEBPACK_IMPORTED_MODULE_20__["LoginAdminComponent"],
         data: { title: 'Login-user' }
     },
     {
@@ -2813,9 +2765,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _post_edit_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./post-edit.component.scss */ "CRz0");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _post_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../post.service */ "fhD/");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _category_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../category.service */ "rx/G");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var src_app_services_post_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/_services/post.service */ "5p0G");
+/* harmony import */ var src_app_services_category_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/_services/category.service */ "AfT/");
 
 
 
@@ -2856,14 +2808,14 @@ let PostEditComponent = class PostEditComponent {
         this.getCategories();
         this.getPost(this.route.snapshot.params.id);
         this.postForm = this.formBuilder.group({
-            category: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postTitle: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postAuthor: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postDesc: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postContent: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postReference: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            postImgUrl: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-            readTime: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
+            category: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postTitle: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postAuthor: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postDesc: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postContent: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postReference: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            postImgUrl: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            readTime: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
         });
     }
     getPost(id) {
@@ -2911,9 +2863,9 @@ let PostEditComponent = class PostEditComponent {
 PostEditComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _post_service__WEBPACK_IMPORTED_MODULE_5__["PostService"] },
-    { type: _category_service__WEBPACK_IMPORTED_MODULE_7__["CategoryService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
+    { type: src_app_services_post_service__WEBPACK_IMPORTED_MODULE_6__["PostService"] },
+    { type: src_app_services_category_service__WEBPACK_IMPORTED_MODULE_7__["CategoryService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
 ];
 PostEditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -2922,6 +2874,84 @@ PostEditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [_post_edit_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     })
 ], PostEditComponent);
+
+
+
+/***/ }),
+
+/***/ "x+LS":
+/*!*******************************************!*\
+  !*** ./src/app/_services/home.service.ts ***!
+  \*******************************************/
+/*! exports provided: HomeService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeService", function() { return HomeService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/environments/environment */ "AytR");
+
+
+
+
+
+
+const apiUrl = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].baseUrl}api/public/`;
+// const apiUrl = 'api/public/';
+let HomeService = class HomeService {
+    constructor(http) {
+        this.http = http;
+        this._pageCount = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](0);
+        this.count$ = this._pageCount.asObservable();
+        this.counter = 0;
+    }
+    incrementPageCount() {
+        const pageCount = this.af.object('/pageCount/').$ref
+            .ref.transaction(count => {
+            this.counter = count;
+            return this.counter + 1;
+        }).then((data) => { return data.snapshot.node_.value_; });
+        return pageCount;
+    }
+    getCategories() {
+        return this.http.get(apiUrl + 'category')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Categories')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getCategories', [])));
+    }
+    getPosts() {
+        return this.http.get(apiUrl + 'post')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Posts')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getPosts', [])));
+    }
+    getPostsByCategory(id) {
+        return this.http.get(apiUrl + 'bycategory/' + id)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched Posts')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getPosts', [])));
+    }
+    getPost(id) {
+        return this.http.get(apiUrl + 'post/' + id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => console.log(`fetched post by id=${id}`)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError(`getPost id=${id}`)));
+    }
+    handleError(operation = 'operation', result) {
+        return (error) => {
+            console.error(error); // log to console instead
+            this.log(`${operation} failed: ${error.message}`);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
+    }
+    log(message) {
+        console.log(message);
+    }
+};
+HomeService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+HomeService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], HomeService);
 
 
 
@@ -3001,7 +3031,7 @@ webpackEmptyAsyncContext.id = "zn8P";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"example-container mat-elevation-z8\">\n  <div class=\"container-fluid\">\n    <div class=\"col-sm-9 col-md-7 col-lg-5 mx-auto\">\n      <div class=\"example-loading-shade\" *ngIf=\"isLoadingResults\">\n        <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n      </div>\n      <h2 class=\"m-3 text-center\">Login Form</h2>\n      \n      <mat-card class=\"example-card\">\n        <form [formGroup]=\"loginForm\" (ngSubmit)=\"onFormSubmit(loginForm.value)\">\n          <mat-form-field class=\"example-full-width\">\n            <input matInput type=\"email\" placeholder=\"Email\" formControlName=\"username\" [errorStateMatcher]=\"matcher\">\n            <mat-error>\n              <span *ngIf=\"!loginForm.get('username').valid && loginForm.get('username').touched\">Please enter your\n                username</span>\n            </mat-error>\n          </mat-form-field>\n          <mat-form-field class=\"example-full-width\">\n            <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\"\n              [errorStateMatcher]=\"matcher\">\n            <mat-error>\n              <span *ngIf=\"!loginForm.get('password').valid && loginForm.get('password').touched\">Please enter your\n                password</span>\n            </mat-error>\n          </mat-form-field>\n          <div class=\"custom-control custom-checkbox mb-3\">\n            <input type=\"checkbox\" class=\"custom-control-input\" id=\"customCheck1\">\n            <label class=\"custom-control-label\" for=\"customCheck1\">Remember password</label>\n          </div>\n          <div class=\"button-row\">\n            <button type=\"submit\" [disabled]=\"!loginForm.valid\" mat-flat-button color=\"primary\">Login</button>\n          </div>\n          <div class=\"button-row\">\n            <button class=\"button-register\" type=\"button\" mat-flat-button color=\"primary\"\n              (click)=\"register()\">Register</button>\n          </div>\n        </form>\n      </mat-card>\n    </div>\n  </div>\n</div> -->\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-10 col-xl-9 mx-auto\">\n      <div class=\"card card-signin flex-row my-5\">\n        <div class=\"card-img-left d-none d-md-flex\">\n           <!-- Background image for card set in CSS! -->\n        </div>\n        <div class=\"card-body\">\n          <div class=\"example-loading-shade\" *ngIf=\"isLoadingResults\">\n            <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n          </div>\n          <h2 class=\"m-3 text-center\">Login Form</h2>\n          <form class=\"form-signin\">\n            <div class=\"form-label-group\">\n              <input type=\"text\" id=\"inputUserame\" class=\"form-control\" placeholder=\"Username\" required autofocus>\n              <label for=\"inputUserame\">Username</label>\n            </div>\n\n            <div class=\"form-label-group\">\n              <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required>\n              <label for=\"inputEmail\">Email address</label>\n            </div>\n            \n            <hr>\n\n            <div class=\"form-label-group\">\n              <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>\n              <label for=\"inputPassword\">Password</label>\n            </div>\n            \n            <div class=\"form-label-group\">\n              <input type=\"password\" id=\"inputConfirmPassword\" class=\"form-control\" placeholder=\"Password\" required>\n              <label for=\"inputConfirmPassword\">Confirm password</label>\n            </div>\n\n            <button class=\"btn btn-lg btn-primary btn-block text-uppercase\" type=\"submit\">Register</button>\n            <a class=\"d-block text-center mt-2 small\" href=\"#\">Sign In</a>\n            <hr class=\"my-4\">\n            <button class=\"btn btn-lg btn-google btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-google mr-2\"></i> Sign up with Google</button>\n            <button class=\"btn btn-lg btn-facebook btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-facebook-f mr-2\"></i> Sign up with Facebook</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"example-container mat-elevation-z8\">\n  <div class=\"container-fluid\">\n    <div class=\"col-sm-9 col-md-7 col-lg-5 mx-auto\">\n      <div class=\"example-loading-shade\" *ngIf=\"isLoadingResults\">\n        <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n      </div>\n      <h2 class=\"m-3 text-center\">Login Form</h2>\n      \n      <mat-card class=\"example-card\">\n        <form [formGroup]=\"loginForm\" (ngSubmit)=\"onFormSubmit(loginForm.value)\">\n          <mat-form-field class=\"example-full-width\">\n            <input matInput type=\"email\" placeholder=\"Email\" formControlName=\"username\" [errorStateMatcher]=\"matcher\">\n            <mat-error>\n              <span *ngIf=\"!loginForm.get('username').valid && loginForm.get('username').touched\">Please enter your\n                username</span>\n            </mat-error>\n          </mat-form-field>\n          <mat-form-field class=\"example-full-width\">\n            <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\"\n              [errorStateMatcher]=\"matcher\">\n            <mat-error>\n              <span *ngIf=\"!loginForm.get('password').valid && loginForm.get('password').touched\">Please enter your\n                password</span>\n            </mat-error>\n          </mat-form-field>\n          <div class=\"custom-control custom-checkbox mb-3\">\n            <input type=\"checkbox\" class=\"custom-control-input\" id=\"customCheck1\">\n            <label class=\"custom-control-label\" for=\"customCheck1\">Remember password</label>\n          </div>\n          <div class=\"button-row\">\n            <button type=\"submit\" [disabled]=\"!loginForm.valid\" mat-flat-button color=\"primary\">Login</button>\n          </div>\n          <div class=\"button-row\">\n            <button class=\"button-register\" type=\"button\" mat-flat-button color=\"primary\"\n              (click)=\"register()\">Register</button>\n          </div>\n        </form>\n      </mat-card>\n    </div>\n  </div>\n</div> -->\n\n<div class=\"example-container mat-elevation-z8\">\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-10 col-xl-9 mx-auto\">\n      <div class=\"card card-signin flex-row my-5\">\n        <div class=\"card-img-left  d-md-flex\">\n          <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n        </div>\n        <h2 class=\"m-3 text-center\">Login Form</h2>\n        <div class=\"card-body\">\n          <form [formGroup]=\"loginForm\" (ngSubmit)=\"onFormSubmit(loginForm.value)\" class=\"form-signin\">\n            <div class=\"form-label-group\">\n              <input type=\"email\" placeholder=\"Email\" formControlName=\"username\" [errorStateMatcher]=\"matcher\" class=\"form-control\">\n              <span *ngIf=\"!loginForm.get('username').valid && loginForm.get('username').touched\">Please enter your\n                username</span>\n            </div>\n\n            <hr>\n            <mat-form-field class=\"example-full-width\">\n              <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\"\n                [errorStateMatcher]=\"matcher\">\n              <mat-error>\n                <span *ngIf=\"!loginForm.get('password').valid && loginForm.get('password').touched\">Please enter your\n                  password</span>\n              </mat-error>\n            </mat-form-field>\n            <!-- <div class=\"form-label-group\">\n              <input type=\"password\" placeholder=\"Password\" formControlName=\"password\"\n              [errorStateMatcher]=\"matcher\">\n              <div>\n                <span *ngIf=\"!loginForm.get('password').valid && loginForm.get('password').touched\">Please enter your\n                  password</span>\n              </div>\n            </div> -->\n            \n            <hr>\n\n           <div class=\"button-row\">\n            <button type=\"submit\" [disabled]=\"!loginForm.valid\" mat-flat-button color=\"primary\">Login</button>\n          </div>\n          <div class=\"button-row\">\n            <button class=\"button-register\" type=\"button\" mat-flat-button color=\"primary\"\n              (click)=\"register()\">Register</button>\n          </div>\n            <hr class=\"my-4\">\n            <button class=\"btn btn-lg btn-google btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-google mr-2\"></i> Sign up with Google</button>\n            <button class=\"btn btn-lg btn-facebook btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-facebook-f mr-2\"></i> Sign up with Facebook</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n</div>");
 
 /***/ })
 

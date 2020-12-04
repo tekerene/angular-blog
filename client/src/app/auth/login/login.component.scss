@@ -50,6 +50,9 @@
         background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
         background-size: cover;
       }
+      h2 {
+        width: 0%;
+      }
       .card-body {
         padding: 2rem;
         .form-signin {
@@ -68,6 +71,10 @@
             input {
               height: auto;
               border-radius: 2rem;
+              width: 100%;
+              height: 50px;
+              text-align: center;
+              border: none;
             }
           }
           .form-label-group>input,
