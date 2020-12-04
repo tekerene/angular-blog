@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../post/post';
-import { HomeService } from '../home.service';
 import { Category } from '../category/category';
-import { CategoryService } from '../category.service'
-import { AuthService } from '../auth.service';
-import { PostService } from '../post.service';
-
+import { AuthService } from '../_services/auth.service';
+import { CategoryService } from '../_services/category.service';
+import { HomeService } from '../_services/home.service';
+import { PostService } from '../_services/post.service';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',

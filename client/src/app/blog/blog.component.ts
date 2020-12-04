@@ -1,9 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {HomeService} from '../home.service';
-import {PostService} from '../post.service'
-import {CategoryService} from '../category.service';
-import {AuthService} from '../auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
+import { CategoryService } from '../_services/category.service';
+import { HomeService } from '../_services/home.service';
 
 @Component({selector: 'app-blog', templateUrl: './blog.component.html', styleUrls: ['./blog.component.scss']})
 export class BlogComponent implements OnInit {
