@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   password = '';
   matcher = new MyErrorStateMatcher();
   isLoadingResults = false;
+  toastService: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
 
@@ -36,15 +37,18 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
+    this.isLoadingResults = true;
     this.authService.login(form)
       .subscribe(res => {
         console.log(res);
         if (res.token) {
           localStorage.setItem('token', res.token);
           this.router.navigate(['home']);
+          this.isLoadingResults = false;
         }
       }, (err) => {
-        console.log(err);
+          this.isLoadingResults = false;
+          this.toastService.showErrorToast(err.error.message, "Oups!!!");
       });
   }
 
