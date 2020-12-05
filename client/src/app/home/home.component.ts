@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post/post';
-import { HomeService } from '../home.service';
-import { PostService } from '../post.service';
 import { ToastrService } from 'ngx-toastr';
+import { PostService } from '../_services/post.service';
+import { HomeService } from '../_services/home.service';
 
 @Component({
   selector: 'app-home',

@@ -1,4 +1,4 @@
-<div class="example-container mat-elevation-z8">
+<!-- <div class="example-container mat-elevation-z8">
   <div class="container-fluid">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="example-loading-shade" *ngIf="isLoadingResults">
@@ -38,4 +38,52 @@
       </mat-card>
     </div>
   </div>
+</div> -->
+
+<div class="example-container mat-elevation-z8">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <div class="card-img-left  d-md-flex">
+          <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+        <h2 class="text-center">Login Form</h2>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)" class="form-signin">
+            <div class="form-label-group">
+              <input type="email" placeholder="Email" formControlName="username" [errorStateMatcher]="matcher" class="form-control">
+              <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Please enter your
+                username</span>
+            </div>
+
+            <hr>
+           
+            <div class="form-label-group">
+              <input type="password" placeholder="Password" formControlName="password"
+              [errorStateMatcher]="matcher">
+              <div>
+                <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your
+                  password</span>
+              </div>
+            </div>
+            
+            <hr>
+
+           <div class="button-row">
+            <button type="submit" [disabled]="!loginForm.valid" mat-flat-button color="primary">Login</button>
+          </div>
+          <div class="button-row">
+            <button class="button-register" type="button" mat-flat-button color="primary"
+              (click)="register()">Register</button>
+          </div>
+            <hr class="my-4">
+            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

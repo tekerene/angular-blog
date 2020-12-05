@@ -13,12 +13,12 @@ import { PostDetailsComponent } from './post/post-details/post-details.component
 import { PostAddComponent } from './post/post-add/post-add.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { BycategoryComponent } from './bycategory/bycategory.component';
-import { AuthGuard } from './auth/auth.guard';
 import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginAdminComponent } from './auth/login-admin/login-admin.component';
+import { AuthGuard } from './_authGuard/auth.guard';
 
 
 const routes: Routes = [

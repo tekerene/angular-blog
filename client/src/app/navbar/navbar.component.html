@@ -1,17 +1,13 @@
- 
- <div class="navbar-banner">
-   <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-light"> 
+<div class="navbar-banner">
+  <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-light">
     <div class="container">
 
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand">
         <img class="img-fluid sarkblog-logo" src="../../assets/style/sark (1).png" alt="">
       </a>
-      <button class="bg-info navbar-toggler navbar-toggler-right" (click)="toggleNavbarCollapsing()" 
-      type="button" data-toggle="collapse" 
-      data-target="#navbarResponsive" 
-      aria-controls="navbarResponsive" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation">
+      <button class="bg-info navbar-toggler navbar-toggler-right" (click)="toggleNavbarCollapsing()" type="button"
+        data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" [class.collapse]="navbarCollapsed" id="navbarResponsive">
@@ -25,11 +21,17 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/contact" routerlinkactive="active">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="fa fa-user"></i>
+            </a>
+          </li>
           <li class="nav-button">
             <button class="btn" *ngIf="auth" routerLink="/login">Join Us<i class="fas fa-arrow-right"></i></button>
-            <button class="btn" *ngIf="!auth"  (click)="logout()"><i class="fa fa-user"></i>Log Out</button>
+            <button class="btn" *ngIf="!auth" (click)="logout()"><i class="fa fa-user"></i>Log Out</button>
 
           </li>
+
         </ul>
       </div>
     </div>
