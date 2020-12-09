@@ -46,11 +46,11 @@ export class TokenInterceptor implements HttpInterceptor {
     return next.handle(request)
     .pipe(
       catchError((error: HttpErrorResponse) => {
-        // Implement a switch to pass around our error status. This is implemented here so as to use it globally
+       
         switch (error.status) {
-          case 401:
+          case 402:
             localStorage.clear();
-            this.route.navigate(['/dashboard']);
+            this.route.navigate(['/home']);
             return throwError(error);
             break;
           case 403:

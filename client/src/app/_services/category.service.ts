@@ -5,7 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Category } from '../category/category';
 import { environment } from 'src/environments/environment';
 
- const apiUrl = `${environment.baseUrl}/api/category/`;
+ const apiUrl = `${environment.baseUrl}api/category`;
 //const apiUrl = 'api/category/';
 
 @Injectable({

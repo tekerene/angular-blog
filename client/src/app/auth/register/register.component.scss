@@ -2,8 +2,8 @@
 
 .example-container {
     background-color: $lightBlue;
-    margin-top: 7em;
-    height: 85vh;
+    margin: 7em 0em 0em 0em;
+    height: 102vh;
     h2 {
         color: $primaryWhite;
         font-size: 2.5em;
@@ -30,3 +30,11 @@
         }
     }
 }
+@media only screen and (max-width: 576px) {
+    .example-container {
+        margin-top: 6em;
+      h2 {
+        font-size: 1.5em;
+      }
+    }
+    }

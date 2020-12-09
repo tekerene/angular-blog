@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', res.token);
           this.router.navigate(['home']);
           this.isLoadingResults = false;
+          this.toastService.success(res.message, "successfully register!!!");
         }
       }, (err) => {
           this.isLoadingResults = false;

@@ -3,6 +3,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthService } from 'src/app/_services/auth.service';
+import { ToastService } from 'src/app/_services/toast.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -32,9 +33,14 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private toastService: ToastService) { }
 
   ngOnInit() {
+   this.formValidate();
+  }
+  
+  formValidate(){
     this.registerForm = this.formBuilder.group({
       fullName : [null, Validators.required],
       username : [null, Validators.required],
@@ -46,12 +52,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
+    this.isLoadingResults = true;
     this.authService.register(form)
       .subscribe(res => {
         this.router.navigate(['login']);
+        this.toastService.showSuccessToast(res.message, "successfull");
       }, (err) => {
         console.log(err);
         alert(err.error);
+        this.isLoadingResults = false;
+        this.toastService.showErrorToast(err.error.message, "Oups!!!");
       });
   }
 

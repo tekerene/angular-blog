@@ -71,7 +71,7 @@ pageId = ''
   /**
    * @VISITOR COUNTER
    */
-  this.api.incrementPageCount().then(data => this.serviceCount.changeCount(data));
+ // this.api.incrementPageCount().then(data => this.serviceCount.changeCount(data));
   }
 
   getPostDetails(id: any) {

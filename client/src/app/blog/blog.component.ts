@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { CategoryService } from '../_services/category.service';
 import { HomeService } from '../_services/home.service';
+import { ToastService } from '../_services/toast.service';
 
 @Component({selector: 'app-blog', templateUrl: './blog.component.html', styleUrls: ['./blog.component.scss']})
 export class BlogComponent implements OnInit {
@@ -27,28 +28,36 @@ export class BlogComponent implements OnInit {
       private route: ActivatedRoute,
       private authApi : AuthService, 
       private catApi : CategoryService, 
-      private api : HomeService) {
+      private api : HomeService,
+      private toastService: ToastService) {
         this.posts = new Array<any>();
     }
 
     ngOnInit() {
+        this.getBlogsPost();
+        this.filterPost();
+        this.getCategories();
+        this.getusers();
+        //this.getuser(this.route.snapshot.params.id)
+    }
+
+
+    getBlogsPost () {
+        this.isLoadingResults = true;
         this.api.getPosts().subscribe((res : any) => {
             this.posts = res;
             // this.data = res.results;
             // console.log(this.data = res.results);
-
-            console.log(this.posts);
             this.isLoadingResults = false;
+            console.log(this.posts);
+            this.toastService.showSuccessToast(res.message, 'blog post success')
+            
         }, err => {
             console.log(err);
             this.isLoadingResults = false;
+            this.toastService.showErrorToast(err.err.message, 'oshss!!! an error occured try again')
         });
-        this.filterPost();
-        this.getCategories();
-        this.getusers();
-        this.getuser(this.route.snapshot.params.id)
     }
-
     /**
  * @filter blog
  */
@@ -110,15 +119,15 @@ export class BlogComponent implements OnInit {
         });
     }
 
-    getuser(id: any) {
-      this.authApi.getUser(id).subscribe((res : any) => {
-          this.singleUser = res;
-          console.log(this.singleUser);
-          this.isLoadingResults = false;
-      }, err => {
-          console.log(err);
-          this.isLoadingResults = false;
-      });
-  }
+//     getuser(id: any) {
+//       this.authApi.getUser(id).subscribe((res : any) => {
+//           this.singleUser = res;
+//           console.log(this.singleUser);
+//           this.isLoadingResults = false;
+//       }, err => {
+//           console.log(err);
+//           this.isLoadingResults = false;
+//       });
+//   }
 }
 

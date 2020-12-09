@@ -26,13 +26,13 @@ export class AuthService {
       );
   }
 
-  getUser(id: any): Observable<any> {
-    const url = `${apiUrl}/${id}`;
-    return this.http.get<any>(url).pipe(
-      tap(_ => console.log(`fetched User by id=${id}`)),
-      catchError(this.handleError<any>(`getUser id=${id}`))
-    );
-  }
+  // getUser(id: any): Observable<any> {
+  //   const url = `${apiUrl}${id}`;
+  //   return this.http.get<any>(url).pipe(
+  //     tap(_ => console.log(`fetched User by id=${id}`)),
+  //     catchError(this.handleError<any>(`getUser id=${id}`))
+  //   );
+  // }
 
   login(data: any): Observable<any> {
     return this.http.post<any>(apiUrl + 'login', data)

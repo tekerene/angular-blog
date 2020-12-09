@@ -38,3 +38,23 @@
     }
 }
 }
+@media only screen and (max-width: 567px) {
+    .navbar-banner {
+        .navbar-brand {
+            img {
+                height: 57px !important;
+                width: 262px !important;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 367px) {
+    .navbar-banner {
+        .navbar-brand {
+            img {
+                height: 50px !important;
+                width: 127px !important;
+            }
+        }
+    }
+}

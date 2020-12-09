@@ -3,7 +3,7 @@
 .example-container {
     background-color: $lightBlue;
     margin-top: 10em;
-    height: 60vh;
+    height: 70vh;
     h2 {
         color: $primaryWhite;
         font-size: 2.5em;
@@ -28,6 +28,11 @@
     }
     }
 }
-@media(max-width: 575.98px){
-
-}
+@media only screen and (max-width: 576px) {
+    .example-container {
+        margin-top: 6em;
+      h2 {
+        font-size: 1.5em;
+      }
+    }
+    }
