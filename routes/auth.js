@@ -70,10 +70,11 @@ console.log(user)
         console.log("comparing users")
         if (isMatch && !err) {
           // if user is found and password is right create a token
-          var token = jwt.sign(user.toJSON(), config.secret);
+          var token = jwt.sign({data:user,}, user.toJSON(), config.secret);
           // return the information including token as JSON
-          res.json({success: true, token: 'JWT ' + token, 'data' : user});
-          console.log(token,"+++++++")
+          //res.json({success: true, token: 'JWT ' + token, 'data' : user});
+          res.json({success: true, message:"Logged in Successfylly",token: 'JWT', data:user})
+          //console.log(token,"+++++++")
         } else {
           res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
           console.log("auth failed");
