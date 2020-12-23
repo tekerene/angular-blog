@@ -35,28 +35,26 @@ export class LoginComponent implements OnInit {
       password : [null, Validators.required]
     });
   }
-
   onFormSubmit(form: NgForm) {
-    this.isLoadingResults = true;
+   
     this.authService.login(form)
       .subscribe(res => {
         console.log(res);
+         //this.isLoadingResults = true;
         if (res.token) {
           localStorage.setItem('token', res.token);
+          localStorage.setItem("SARKBLOG-USER-DATA", JSON.stringify(res.user));
+        localStorage.setItem("token", res.token);
           this.router.navigate(['home']);
-          this.isLoadingResults = false;
-          this.toastService.success(res.message, "successfully register!!!");
+          //this.isLoadingResults = false;
+          //this.toastService.success("successfully register!!!");
         }
       }, (err) => {
           this.isLoadingResults = false;
           this.toastService.showErrorToast(err.error.message, "Oups!!!");
       });
   }
-
   register() {
     this.router.navigate(['register']);
   }
-
- 
-
 }

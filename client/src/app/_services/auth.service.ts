@@ -46,19 +46,19 @@ export class AuthService {
       );
   }
 
-  // logout(): Observable<any> {
-  //   return this.http.post<any>(apiUrl + 'logout', {})
-  //     .pipe(
-  //       tap(_ => {
-  //         this.isLoggedIn.emit(false);
-  //         this.loggedInStatus = false;
-  //       }),
-  //       catchError(this.handleError('logout', []))
-  //     );
-  // }
-  logout(){
-    localStorage.clear()
+  logout(): Observable<any> {
+    return this.http.post<any>(apiUrl + 'logout', {})
+      .pipe(
+        tap(_ => {
+          this.isLoggedIn.emit(false);
+          this.loggedInStatus = false;
+        }),
+        catchError(this.handleError('logout', []))
+      );
   }
+  // logout(){
+  //   localStorage.clear()
+  // }
 
   register(data: any): Observable<any> {
     return this.http.post<any>(apiUrl + 'register', data)

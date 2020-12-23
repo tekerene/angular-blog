@@ -36,7 +36,7 @@ export class BlogComponent implements OnInit {
     ngOnInit() {
         this.getBlogsPost();
         this.filterPost();
-        this.getCategories();
+        //this.getCategories();
         this.getusers();
         //this.getuser(this.route.snapshot.params.id)
     }

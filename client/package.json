@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node serve",
-    "build": "ng build --output-path ../public --base-href /",
+    "build": "ng build --output-path ../public --base-href / --deploy-url",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

@@ -16,55 +16,32 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(apiUrl)
-      .pipe(
-        tap(_ => this.log('fetched Posts')),
-        catchError(this.handleError('getPosts', []))
-      );
+    return this.http.get<Post[]>(apiUrl);
+     
   }
 
   getPost(id: any): Observable<Post> {
     const url = `${apiUrl}/${id}`;
-    return this.http.get<Post>(url).pipe(
-      tap(_ => console.log(`fetched post by id=${id}`)),
-      catchError(this.handleError<Post>(`getPost id=${id}`))
-    );
+    console.log(`fetched post`)
+    return this.http.get<Post>(url);
+   
   }
 
   addPost(post: Post): Observable<Post> {
-    return this.http.post<Post>(apiUrl, post).pipe(
-      tap((prod: Post) => console.log(`added post w/ id=${post.id}`)),
-      catchError(this.handleError<Post>('addPost'))
-    );
+    console.log(`added post w/ id=${post.id}`)
+    return this.http.post<Post>(apiUrl, post);
   }
 
   updatePost(id: any, post: Post): Observable<any> {
     const url = `${apiUrl}/${id}`;
-    return this.http.put(url, post).pipe(
-      tap(_ => console.log(`updated post id=${id}`)),
-      catchError(this.handleError<any>('updatePost'))
-    );
+    console.log(`updated post id=${id}`)
+    return this.http.put(url, post);
   }
 
   deletePost(id: any): Observable<Post> {
     const url = `${apiUrl}/${id}`;
-    return this.http.delete<Post>(url).pipe(
-      tap(_ => console.log(`deleted post id=${id}`)),
-      catchError(this.handleError<Post>('deletePost'))
-    );
+    console.log(`deleted post id=${id}`)
+    return this.http.delete<Post>(url);
   }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      console.error(error); // log to console instead
-      this.log(`${operation} failed: ${error.message}`);
-
-      return of(result as T);
-    };
-  }
-
-  private log(message: string) {
-    console.log(message);
-  }
+ 
 }

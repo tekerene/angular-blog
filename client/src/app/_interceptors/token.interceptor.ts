@@ -28,7 +28,7 @@ export class TokenInterceptor implements HttpInterceptor {
       request = request.clone({
         headers: request.headers.append(
           'Authorization',
-          'Basic ' + `${btoa('ActivaApp:ActivaUser')}`
+          'Basic ' + `${btoa('sarkblog:SarkblogUser')}`
         ),
       });
 
@@ -48,8 +48,11 @@ export class TokenInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
        
         switch (error.status) {
+          case 401:
+            return throwError(error);
+            break;
           case 402:
-            localStorage.clear();
+            //localStorage.clear();
             this.route.navigate(['/home']);
             return throwError(error);
             break;

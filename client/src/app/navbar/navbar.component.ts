@@ -27,6 +27,7 @@ login(){
     this.auth = true
     this.authenticate.logout();
     console.log("user login out successfully")
+    localStorage.clear()
     
   }
 }

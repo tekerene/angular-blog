@@ -10,9 +10,10 @@ router.get('/', passport.authenticate('jwt', { session: false}), function(req, r
       Category.find(function (err, categories) {
         if (err) return next(err);
         res.json(categories);
+        res.status(200);
       });
     } else {
-      return res.status(401).send({success: false, msg: 'Unauthorized.'});
+      return res.status(403).send({success: false, msg: 'Unauthorized.'});
     }
 });
 
@@ -24,7 +25,7 @@ router.get('/:id', passport.authenticate('jwt', { session: false}), function(req
       res.json(category);
     });
   } else {
-    return res.status(401).send({success: false, msg: 'Unauthorized.'});
+    return res.status(403).send({success: false, msg: 'Unauthorized.'});
   }
 });
 

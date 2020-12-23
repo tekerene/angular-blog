@@ -24,14 +24,17 @@ export class AppComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.authService.isLoggedIn.subscribe((status: any) => {
-      console.log(status);
-      if (status === true) {
-        this.loginStatus = true;
-      } else {
-        this.loginStatus = false;
-      }
-    });
+    // this.authService.isLoggedIn.subscribe((status: any) => {
+    //   console.log(status);
+    //   if (status === true) {
+    //     this.loginStatus = true;
+    //   } else {
+    //     this.loginStatus = false;
+    //   }
+    // });
+    this.getCategories();
+  }
+  getCategories(){
     this.api.getCategories()
       .subscribe((res: any) => {
         this.categories = res;
